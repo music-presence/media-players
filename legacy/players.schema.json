@@ -1,0 +1,137 @@
+{
+  "type": "object",
+  "required": [
+    "version",
+    "players"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "$comment": "The version of this JSON schema",
+      "type": "integer",
+      "const": 2
+    },
+    "players": {
+      "$comment": "An array of players. Each id key is unique",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/player"
+      }
+    }
+  },
+  "definitions": {
+    "player": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "pure",
+        "service",
+        "discord_application_id",
+        "resources",
+        "applications"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$comment": "A unique internal identifier for this player",
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9\\-_]*$"
+        },
+        "name": {
+          "$comment": "The display name of the player",
+          "type": "string",
+          "minLength": 1
+        },
+        "pure": {
+          "$comment": "Whether the vast majority of the media from this player is music only and not personal videos or the like",
+          "type": "boolean"
+        },
+        "service": {
+          "$comment": "Whether media from this player stems from a large streaming service and can or should be branded with that service's logo",
+          "type": "boolean"
+        },
+        "discord_application_id": {
+          "$comment": "The Discord application ID that is named after this media player",
+          "type": "string",
+          "pattern": "^[\\d]{16,}$"
+        },
+        "resources": {
+          "$ref": "#/definitions/player/definitions/resources"
+        },
+        "applications": {
+          "$comment": "Applications of this player. There may be multiple applications for the same interface",
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/player/definitions/application"
+          }
+        }
+      },
+      "definitions": {
+        "resources": {
+          "$comment": "URLs to images and other resources for this player",
+          "type": "object",
+          "required": [
+            "logo"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "logo": {
+              "$comment": "Images of the logo of this player in different formats",
+              "type": "object",
+              "required": [
+                "jpg",
+                "ico"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "jpg": {
+                  "$comment": "JPEG version of the logo, required for displaying it in the presence",
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://.*\\.jpg$"
+                },
+                "ico": {
+                  "$comment": "ICO version of the logo, required for usage with the desktop application",
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://.*\\.ico$"
+                }
+              }
+            }
+          }
+        },
+        "application": {
+          "$comment": "Information about a desktop or web application of a media player",
+          "type": "object",
+          "required": [
+            "interface",
+            "id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "interface": {
+              "$comment": "Which interface the identifier comes from",
+              "type": "string",
+              "enum": [
+                "win_winrt",
+                "mac_mediaremote",
+                "lin_mpris",
+                "web_domain"
+              ]
+            },
+            "id": {
+              "$comment": "Platform-specific identifier for this interface",
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
