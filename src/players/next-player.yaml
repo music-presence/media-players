@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: next-player
+name: Next-Player
+sources:
+  win_winrt:
+    - 60490polApki.Next-Player_4j2bpc236qkhp!App
+    - 60490polApki.Next-Player_4j2bpc236qkhp!APP
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1282830052949491795'

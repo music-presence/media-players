@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: clementine
+name: Clementine
+sources:
+  lin_mpris:
+    - clementine
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1311739842790686740'

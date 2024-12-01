@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: musicbee
+name: MusicBee
+sources:
+  win_winrt:
+    - MusicBee.exe
+    - 50072StevenMayall.MusicBee_kcr266et74avj!MusicBeePackage
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247654771557666889'

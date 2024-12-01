@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: wacup
+name: WACUP
+sources:
+  win_winrt:
+    - wacup.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1285497226835132467'

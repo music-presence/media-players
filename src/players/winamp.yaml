@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: winamp
+name: Winamp
+sources:
+  win_winrt:
+    - winamp.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1285501118318645292'

@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: qobuz
+name: Qobuz
+sources:
+  win_winrt:
+    - Qobuz.exe
+    - com.squirrel.Qobuz.Qobuz
+  web_domain:
+    - qobuz.com
+    - play.qobuz.com
+    - open.qobuz.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247655024637513778'

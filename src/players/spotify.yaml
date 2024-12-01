@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: spotify
+name: Spotify
+sources:
+  win_winrt:
+    - Spotify.exe
+    - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
+  mac_mediaremote:
+    - com.spotify.client
+  lin_mpris:
+    - spotify
+  web_domain:
+    - open.spotify.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247651846936596540'

@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: yandex-music
+name: Yandex Music
+sources:
+  win_winrt:
+    - A025C540.Yandex.Music_vfvw9svesycw6!App
+    - A025C540.Yandex.Music_vfvw9svesycw6!APP
+    - ru.yandex.desktop.music
+    - music.yandex.com
+    - music.yandex.ru
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1295649755535511592'

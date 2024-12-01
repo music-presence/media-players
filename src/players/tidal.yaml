@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: tidal
+name: TIDAL
+sources:
+  win_winrt:
+    - TIDAL.exe
+    - com.squirrel.TIDAL.TIDAL
+    - WiMPMusic.27241E05630EA_kn85bz84x7te4!TIDAL
+  mac_mediaremote:
+    - com.tidal.desktop
+  lin_mpris:
+    - tidal-hifi
+  web_domain:
+    - tidal.com
+    - listen.tidal.com
+    - listen.stage.tidal.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1246943204411179120'

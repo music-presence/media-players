@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: mpv
+name: mpv
+sources:
+  win_winrt:
+    - mpv.exe
+  mac_mediaremote:
+    - io.mpv
+attributes:
+  pure: false
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1302982880515063908'

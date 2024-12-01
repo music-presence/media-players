@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: apple-music
+name: Apple Music
+sources:
+  mac_mediaremote:
+    - com.apple.Music
+  win_winrt:
+    - AppleMusic.exe
+    - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
+    - AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP
+  web_domain:
+    - music.apple.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247654840780460125'

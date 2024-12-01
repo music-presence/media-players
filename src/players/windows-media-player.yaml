@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: windows-media-player
+name: Windows Media Player
+sources:
+  win_winrt:
+    - Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
+attributes:
+  pure: false
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247847866622410784'

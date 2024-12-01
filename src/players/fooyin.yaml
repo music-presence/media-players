@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: fooyin
+name: fooyin
+sources:
+  lin_mpris:
+    - fooyin
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1311751990245720115'

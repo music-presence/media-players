@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: youtube-music
+name: YouTube Music
+sources:
+  web_domain:
+    - music.youtube.com
+  win_winrt:
+    - YouTube Music.exe
+    - com.github.th-ch.youtube-music
+    - music.youtube.com-5929F88E_vezhnr0wkvrcy!App
+    - music.youtube.com-5929F88E_vezhnr0wkvrcy!APP
+  lin_mpris:
+    - YoutubeMusic
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247847788302172273'

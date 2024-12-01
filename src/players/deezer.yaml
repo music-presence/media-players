@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: deezer
+name: Deezer
+sources:
+  win_winrt:
+    - Deezer.exe
+    - com.deezer.deezer-desktop
+    - Deezer.62021768415AF_q7m17pa7q8kj0!Deezer.Music
+  mac_mediaremote:
+    - com.deezer.deezer-desktop
+  web_domain:
+    - deezer.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247654082215284847'

@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: soundcloud
+name: SoundCloud
+sources:
+  win_winrt:
+    - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!App
+    - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!APP
+    - SoundCloud.exe
+  web_domain:
+    - soundcloud.com
+    - snd.sc
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1285553804518887508'

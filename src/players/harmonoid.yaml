@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: harmonoid
+name: Harmonoid
+sources:
+  win_winrt:
+    - harmonoid.exe
+  lin_mpris:
+    - harmonoid
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1290678776958812262'

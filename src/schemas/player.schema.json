@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "sources",
+    "attributes",
+    "content"
+  ],
+  "properties": {
+    "id": {
+      "$comment": "A unique identifier for this media player",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$"
+    },
+    "name": {
+      "$comment": "The official name of the player or service",
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "$ref": "#/definitions/sources"
+    },
+    "attributes": {
+      "$ref": "#/definitions/attributes"
+    },
+    "content": {
+      "$ref": "#/definitions/content"
+    },
+    "extra": {
+      "$ref": "#/definitions/extra"
+    }
+  },
+  "definitions": {
+    "sources": {
+      "$comment": "All known source identifiers for a media player",
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "win_winrt": {
+          "$ref": "#/definitions/sourceList"
+        },
+        "mac_mediaremote": {
+          "$ref": "#/definitions/sourceList"
+        },
+        "lin_mpris": {
+          "$ref": "#/definitions/sourceList"
+        },
+        "web_domain": {
+          "$ref": "#/definitions/sourceList"
+        }
+      }
+    },
+    "sourceList": {
+      "$comment": "A list of source identifiers",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/sourceIdentifier"
+      }
+    },
+    "sourceIdentifier": {
+      "$comment": "An identifier for a media source, e.g. an application package identifier",
+      "type": "string",
+      "pattern": "^\\S.+[^\\s]$"
+    },
+    "attributes": {
+      "$comment": "Attributes for a media player",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pure",
+        "service"
+      ],
+      "properties": {
+        "pure": {
+          "$comment": "Media from this player can be expected to be free of personal data from the user",
+          "type": "boolean"
+        },
+        "service": {
+          "$comment": "This media player is a streaming service and provides licensed content that must be branded with the service's logo",
+          "type": "boolean"
+        }
+      }
+    },
+    "content": {
+      "$comment": "What kind of content this media player offers",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "audio",
+          "audio_music",
+          "audio_podcast",
+          "video"
+        ]
+      },
+      "allOf": [
+        {
+          "$comment": "The root audio type must be present too",
+          "if": {
+            "contains": {
+              "pattern": "^audio_.*$"
+            }
+          },
+          "then": {
+            "contains": {
+              "const": "audio"
+            }
+          }
+        },
+        {
+          "$comment": "The root audio type itself is not sufficient",
+          "if": {
+            "contains": {
+              "const": "audio"
+            }
+          },
+          "then": {
+            "contains": {
+              "pattern": "^audio_.*$"
+            }
+          }
+        }
+      ]
+    },
+    "extra": {
+      "$comment": "Extra properties that might be useful",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "discord_application_id": {
+          "$comment": "The ID of a Discord application registered at https://discord.com/developers/applications which has the name of this media player",
+          "type": "string",
+          "pattern": "^[\\d]{16,}$"
+        }
+      }
+    }
+  }
+}

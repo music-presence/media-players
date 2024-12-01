@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../schemas/player.schema.json
+
+id: amazon-music
+name: Amazon Music
+sources:
+  win_winrt:
+    - Amazon Music.exe
+    - AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AmazonMobileLLC.AmazonMusic
+    - Amazon.Music
+  mac_mediaremote:
+    - com.amazon.music
+  web_domain:
+    - music.amazon.ae
+    - music.amazon.ca
+    - music.amazon.cn
+    - music.amazon.co.jp
+    - music.amazon.co.uk
+    - music.amazon.co.za
+    - music.amazon.com
+    - music.amazon.com.au
+    - music.amazon.com.be
+    - music.amazon.com.br
+    - music.amazon.com.mx
+    - music.amazon.com.tr
+    - music.amazon.de
+    - music.amazon.eg
+    - music.amazon.es
+    - music.amazon.fr
+    - music.amazon.ie
+    - music.amazon.in
+    - music.amazon.it
+    - music.amazon.nl
+    - music.amazon.pl
+    - music.amazon.sa
+    - music.amazon.se
+    - music.amazon.sg
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - TODO
+extra:
+  discord_application_id: '1247654006587789363'
