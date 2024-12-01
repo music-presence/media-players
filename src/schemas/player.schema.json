@@ -77,7 +77,7 @@
       ],
       "properties": {
         "pure": {
-          "$comment": "Media from this player can be expected to be free of personal data from the user",
+          "$comment": "Media from this player can be expected to be free of personal data from the user. This excludes multimedia players that might e.g. play personal home videos",
           "type": "boolean"
         },
         "service": {
