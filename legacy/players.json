@@ -36,6 +36,10 @@
         },
         {
           "interface": "web_domain",
+          "id": "tidal.com"
+        },
+        {
+          "interface": "web_domain",
           "id": "listen.tidal.com"
         },
         {
@@ -64,6 +68,18 @@
         {
           "interface": "win_winrt",
           "id": "com.squirrel.Qobuz.Qobuz"
+        },
+        {
+          "interface": "web_domain",
+          "id": "qobuz.com"
+        },
+        {
+          "interface": "web_domain",
+          "id": "play.qobuz.com"
+        },
+        {
+          "interface": "web_domain",
+          "id": "open.qobuz.com"
         }
       ]
     },
@@ -91,6 +107,10 @@
         {
           "interface": "mac_mediaremote",
           "id": "com.spotify.client"
+        },
+        {
+          "interface": "lin_mpris",
+          "id": "spotify"
         },
         {
           "interface": "web_domain",
@@ -392,6 +412,10 @@
         {
           "interface": "win_winrt",
           "id": "music.youtube.com-5929F88E_vezhnr0wkvrcy!APP"
+        },
+        {
+          "interface": "lin_mpris",
+          "id": "YoutubeMusic"
         }
       ]
     },
@@ -522,6 +546,14 @@
         {
           "interface": "win_winrt",
           "id": "SoundCloud.exe"
+        },
+        {
+          "interface": "web_domain",
+          "id": "soundcloud.com"
+        },
+        {
+          "interface": "web_domain",
+          "id": "snd.sc"
         }
       ]
     },
@@ -591,6 +623,10 @@
         {
           "interface": "win_winrt",
           "id": "VideoLAN.VLC_paz6r1rewnh0a!APP"
+        },
+        {
+          "interface": "lin_mpris",
+          "id": "vlc"
         }
       ]
     },
@@ -610,6 +646,10 @@
         {
           "interface": "win_winrt",
           "id": "harmonoid.exe"
+        },
+        {
+          "interface": "lin_mpris",
+          "id": "harmonoid"
         }
       ]
     },
@@ -642,7 +682,7 @@
     },
     {
       "id": "yandex-music",
-      "name": "Yandex.Music",
+      "name": "Yandex Music",
       "pure": true,
       "service": true,
       "discord_application_id": "1295649755535511592",
@@ -664,6 +704,14 @@
         {
           "interface": "win_winrt",
           "id": "ru.yandex.desktop.music"
+        },
+        {
+          "interface": "win_winrt",
+          "id": "music.yandex.com"
+        },
+        {
+          "interface": "win_winrt",
+          "id": "music.yandex.ru"
         }
       ]
     },
@@ -683,6 +731,10 @@
         {
           "interface": "win_winrt",
           "id": "Podurama.exe"
+        },
+        {
+          "interface": "web_domain",
+          "id": "podurama.com"
         }
       ]
     },
@@ -702,6 +754,14 @@
         {
           "interface": "win_winrt",
           "id": "YouTube.exe"
+        },
+        {
+          "interface": "web_domain",
+          "id": "youtube.com"
+        },
+        {
+          "interface": "web_domain",
+          "id": "youtu.be"
         }
       ]
     },
@@ -729,6 +789,10 @@
         {
           "interface": "win_winrt",
           "id": "27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!APP"
+        },
+        {
+          "interface": "lin_mpris",
+          "id": "cider"
         }
       ]
     },
@@ -813,6 +877,295 @@
         {
           "interface": "mac_mediaremote",
           "id": "com.apple.podcasts"
+        },
+        {
+          "interface": "web_domain",
+          "id": "podcasts.apple.com"
+        }
+      ]
+    },
+    {
+      "id": "amberol",
+      "name": "Amberol",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311726568812314685",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/amberol.jpg",
+          "ico": "https://live.musicpresence.app/v2/amberol.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "io.bassi.Amberol"
+        }
+      ]
+    },
+    {
+      "id": "g4music",
+      "name": "Gapless",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311728308387450990",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/g4music.jpg",
+          "ico": "https://live.musicpresence.app/v2/g4music.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "Gapless"
+        }
+      ]
+    },
+    {
+      "id": "gnome-music",
+      "name": "GNOME Music",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311729810908774481",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/gnome-music.jpg",
+          "ico": "https://live.musicpresence.app/v2/gnome-music.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "org.gnome.Music"
+        }
+      ]
+    },
+    {
+      "id": "gnome-lollypop",
+      "name": "Lollypop",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311730912450445324",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/gnome-lollypop.jpg",
+          "ico": "https://live.musicpresence.app/v2/gnome-lollypop.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "Lollypop"
+        }
+      ]
+    },
+    {
+      "id": "recordbox",
+      "name": "Recordbox",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311731989648511088",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/recordbox.jpg",
+          "ico": "https://live.musicpresence.app/v2/recordbox.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "ca.edestcroix.Recordbox"
+        }
+      ]
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311732691699367998",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/strawberry.jpg",
+          "ico": "https://live.musicpresence.app/v2/strawberry.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "strawberry"
+        }
+      ]
+    },
+    {
+      "id": "clementine",
+      "name": "Clementine",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311739842790686740",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/clementine.jpg",
+          "ico": "https://live.musicpresence.app/v2/clementine.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "clementine"
+        }
+      ]
+    },
+    {
+      "id": "tauon",
+      "name": "Tauon",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311745484028772412",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/tauon.jpg",
+          "ico": "https://live.musicpresence.app/v2/tauon.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "tauon"
+        }
+      ]
+    },
+    {
+      "id": "cmus",
+      "name": "cmus",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311746369626832896",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/cmus.jpg",
+          "ico": "https://live.musicpresence.app/v2/cmus.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "cmus"
+        }
+      ]
+    },
+    {
+      "id": "kew",
+      "name": "kew",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311751552607715348",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/kew.jpg",
+          "ico": "https://live.musicpresence.app/v2/kew.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "kew"
+        }
+      ]
+    },
+    {
+      "id": "fooyin",
+      "name": "fooyin",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311751990245720115",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/fooyin.jpg",
+          "ico": "https://live.musicpresence.app/v2/fooyin.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "fooyin"
+        }
+      ]
+    },
+    {
+      "id": "elisa",
+      "name": "Elisa",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1311754436711813180",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/elisa.jpg",
+          "ico": "https://live.musicpresence.app/v2/elisa.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "lin_mpris",
+          "id": "elisa"
+        }
+      ]
+    },
+    {
+      "id": "harmony",
+      "name": "Harmony",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1312403971981447249",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/harmony.jpg",
+          "ico": "https://live.musicpresence.app/v2/harmony.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "win_winrt",
+          "id": "harmonymusic.exe"
+        }
+      ]
+    },
+    {
+      "id": "melon",
+      "name": "Melon",
+      "pure": true,
+      "service": true,
+      "discord_application_id": "1312404602221494333",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/melon.jpg",
+          "ico": "https://live.musicpresence.app/v2/melon.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "win_winrt",
+          "id": "com.kakaoent.melon.player"
+        }
+      ]
+    },
+    {
+      "id": "spotube",
+      "name": "Spotube",
+      "pure": true,
+      "service": false,
+      "discord_application_id": "1312889123228483714",
+      "resources": {
+        "logo": {
+          "jpg": "https://live.musicpresence.app/v2/spotube.jpg",
+          "ico": "https://live.musicpresence.app/v2/spotube.ico"
+        }
+      },
+      "applications": [
+        {
+          "interface": "win_winrt",
+          "id": "spotube.exe"
         }
       ]
     }
