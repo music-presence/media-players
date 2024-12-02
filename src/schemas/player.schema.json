@@ -7,7 +7,8 @@
     "url",
     "sources",
     "attributes",
-    "content"
+    "content",
+    "extra"
   ],
   "properties": {
     "id": {
@@ -182,6 +183,9 @@
       "$comment": "Extra properties that might be useful",
       "type": "object",
       "additionalProperties": true,
+      "required": [
+        "discord_application_id"
+      ],
       "properties": {
         "discord_application_id": {
           "$comment": "The ID of a Discord application registered at https://discord.com/developers/applications which has the name of this media player",
