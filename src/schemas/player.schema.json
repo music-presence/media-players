@@ -115,8 +115,10 @@
           }
         },
         {
-          "$comment": "The root audio type itself is not sufficient",
+          "$comment": "The root audio type is not sufficient by itself",
           "if": {
+            "minItems": 1,
+            "maxItems": 1,
             "contains": {
               "const": "audio"
             }
