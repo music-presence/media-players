@@ -706,11 +706,11 @@
           "id": "ru.yandex.desktop.music"
         },
         {
-          "interface": "win_winrt",
+          "interface": "web_domain",
           "id": "music.yandex.com"
         },
         {
-          "interface": "win_winrt",
+          "interface": "web_domain",
           "id": "music.yandex.ru"
         }
       ]
