@@ -2,6 +2,7 @@
 
 id: kew
 name: kew
+url: https://github.com/ravachol/kew
 sources:
   lin_mpris:
     - kew

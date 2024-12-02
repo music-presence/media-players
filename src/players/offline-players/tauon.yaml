@@ -2,6 +2,7 @@
 
 id: tauon
 name: Tauon
+url: https://tauonmusicbox.rocks
 sources:
   lin_mpris:
     - tauon

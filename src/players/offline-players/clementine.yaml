@@ -2,6 +2,7 @@
 
 id: clementine
 name: Clementine
+url: https://www.clementine-player.org
 sources:
   lin_mpris:
     - clementine

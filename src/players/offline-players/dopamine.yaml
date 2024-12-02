@@ -2,6 +2,7 @@
 
 id: dopamine
 name: Dopamine
+url: https://github.com/digimezzo/dopamine
 sources:
   win_winrt:
     - com.digimezzo.dopamine

@@ -2,6 +2,7 @@
 
 id: cider
 name: Cider
+url: https://cider.sh
 represents:
   - apple-music
 sources:

@@ -2,6 +2,7 @@
 
 id: aimp
 name: AIMP
+url: https://www.aimp.ru
 sources:
   win_winrt:
     - AIMP.exe

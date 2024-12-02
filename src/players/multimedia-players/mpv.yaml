@@ -2,6 +2,7 @@
 
 id: mpv
 name: mpv
+url: https://mpv.io
 sources:
   win_winrt:
     - mpv.exe

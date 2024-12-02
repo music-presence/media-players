@@ -2,6 +2,7 @@
 
 id: spotify
 name: Spotify
+url: https://spotify.com
 sources:
   win_winrt:
     - Spotify.exe

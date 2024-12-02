@@ -2,6 +2,7 @@
 
 id: harmony
 name: Harmony
+url: https://github.com/anandnet/Harmony-Music
 sources:
   win_winrt:
     - harmonymusic.exe

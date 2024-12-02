@@ -2,6 +2,7 @@
 
 id: mediamonkey
 name: MediaMonkey
+url: https://www.mediamonkey.com
 sources:
   win_winrt:
     - MediaMonkey.exe

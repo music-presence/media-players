@@ -2,6 +2,7 @@
 
 id: harmonoid
 name: Harmonoid
+url: https://harmonoid.com
 sources:
   win_winrt:
     - harmonoid.exe

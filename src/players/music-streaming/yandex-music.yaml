@@ -2,6 +2,7 @@
 
 id: yandex-music
 name: Yandex Music
+url: https://music.yandex.com
 sources:
   win_winrt:
     - A025C540.Yandex.Music_vfvw9svesycw6!App

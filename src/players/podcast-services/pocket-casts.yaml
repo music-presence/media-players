@@ -2,6 +2,7 @@
 
 id: pocket-casts
 name: Pocket Casts
+url: https://pocketcasts.com
 sources:
   win_winrt:
     - com.squirrel.pocket_casts_desktop.PocketCasts

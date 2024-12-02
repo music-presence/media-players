@@ -2,6 +2,7 @@
 
 id: jellyfin
 name: Jellyfin
+url: https://jellyfin.org
 sources:
   win_winrt:
     - JellyfinMediaPlayer.exe

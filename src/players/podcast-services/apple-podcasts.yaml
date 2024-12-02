@@ -2,6 +2,7 @@
 
 id: apple-podcasts
 name: Apple Podcasts
+url: https://podcasts.apple.com
 sources:
   mac_mediaremote:
     - com.apple.podcasts

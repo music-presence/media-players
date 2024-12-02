@@ -2,6 +2,7 @@
 
 id: amberol
 name: Amberol
+url: https://apps.gnome.org/Amberol
 sources:
   lin_mpris:
     - io.bassi.Amberol

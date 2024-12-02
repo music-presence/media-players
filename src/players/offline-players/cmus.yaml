@@ -2,6 +2,7 @@
 
 id: cmus
 name: cmus
+url: https://cmus.github.io
 sources:
   lin_mpris:
     - cmus

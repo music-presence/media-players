@@ -2,6 +2,7 @@
 
 id: musicbee
 name: MusicBee
+url: https://www.getmusicbee.com
 sources:
   win_winrt:
     - MusicBee.exe

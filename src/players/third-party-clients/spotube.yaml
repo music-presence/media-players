@@ -2,6 +2,7 @@
 
 id: spotube
 name: Spotube
+url: https://spotube.krtirtho.dev
 represents:
   - spotify
 sources:

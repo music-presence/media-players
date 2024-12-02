@@ -2,6 +2,7 @@
 
 id: gnome-music
 name: GNOME Music
+url: https://apps.gnome.org/Music
 sources:
   lin_mpris:
     - org.gnome.Music

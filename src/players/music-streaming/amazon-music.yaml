@@ -2,6 +2,7 @@
 
 id: amazon-music
 name: Amazon Music
+url: https://music.amazon.com
 sources:
   win_winrt:
     - Amazon Music.exe

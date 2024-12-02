@@ -2,6 +2,7 @@
 
 id: tidal
 name: TIDAL
+url: https://tidal.com
 sources:
   win_winrt:
     - TIDAL.exe

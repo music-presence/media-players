@@ -4,6 +4,7 @@
   "required": [
     "id",
     "name",
+    "url",
     "sources",
     "attributes",
     "content"
@@ -16,6 +17,12 @@
       "$comment": "The official name of the player or service",
       "type": "string",
       "minLength": 1
+    },
+    "url": {
+      "$comment": "URL to the website or origin of this media player",
+      "type": "string",
+      "format": "uri",
+      "pattern": "^http[s]?://\\S+[^/\\s]$"
     },
     "represents": {
       "$comment": "IDs of other media players this player may represent",

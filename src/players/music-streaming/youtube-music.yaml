@@ -2,6 +2,7 @@
 
 id: youtube-music
 name: YouTube Music
+url: https://music.youtube.com
 sources:
   web_domain:
     - music.youtube.com

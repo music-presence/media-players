@@ -2,6 +2,7 @@
 
 id: gnome-lollypop
 name: Lollypop
+url: https://wiki.gnome.org/Apps/Lollypop
 sources:
   lin_mpris:
     - Lollypop

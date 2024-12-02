@@ -2,6 +2,7 @@
 
 id: foobar2000
 name: foobar2000
+url: https://www.foobar2000.org
 sources:
   win_winrt:
     - foobar2000.exe

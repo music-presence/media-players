@@ -2,6 +2,7 @@
 
 id: youtube
 name: YouTube
+url: https://youtube.com
 sources:
   win_winrt:
     - YouTube.exe

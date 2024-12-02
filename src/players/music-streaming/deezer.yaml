@@ -2,6 +2,7 @@
 
 id: deezer
 name: Deezer
+url: https://deezer.com
 sources:
   win_winrt:
     - Deezer.exe

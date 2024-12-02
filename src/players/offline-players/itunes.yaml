@@ -2,6 +2,7 @@
 
 id: itunes
 name: iTunes
+url: https://www.apple.com/itunes
 sources:
   win_winrt:
     - iTunes.exe

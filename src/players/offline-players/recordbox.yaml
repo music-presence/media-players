@@ -2,6 +2,7 @@
 
 id: recordbox
 name: Recordbox
+url: https://codeberg.org/edestcroix/Recordbox
 sources:
   lin_mpris:
     - ca.edestcroix.Recordbox

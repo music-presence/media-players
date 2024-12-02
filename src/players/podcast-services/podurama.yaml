@@ -2,6 +2,7 @@
 
 id: podurama
 name: Podurama
+url: https://podurama.com
 sources:
   win_winrt:
     - Podurama.exe

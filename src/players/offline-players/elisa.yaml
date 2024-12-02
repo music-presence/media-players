@@ -2,6 +2,7 @@
 
 id: elisa
 name: Elisa
+url: https://apps.kde.org/elisa
 sources:
   lin_mpris:
     - elisa

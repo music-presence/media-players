@@ -2,6 +2,7 @@
 
 id: fooyin
 name: fooyin
+url: https://www.fooyin.org
 sources:
   lin_mpris:
     - fooyin

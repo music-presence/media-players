@@ -2,6 +2,7 @@
 
 id: strawberry
 name: Strawberry
+url: https://www.strawberrymusicplayer.org
 sources:
   lin_mpris:
     - strawberry

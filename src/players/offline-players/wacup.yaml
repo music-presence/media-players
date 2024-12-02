@@ -2,6 +2,7 @@
 
 id: wacup
 name: WACUP
+url: https://getwacup.com
 sources:
   win_winrt:
     - wacup.exe

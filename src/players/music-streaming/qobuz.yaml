@@ -2,6 +2,7 @@
 
 id: qobuz
 name: Qobuz
+url: https://qobuz.com
 sources:
   win_winrt:
     - Qobuz.exe

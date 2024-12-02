@@ -2,6 +2,7 @@
 
 id: nora
 name: Nora
+url: https://noramusic.netlify.app
 sources:
   win_winrt:
     - Nora.exe
