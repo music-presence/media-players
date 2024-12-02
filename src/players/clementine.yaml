@@ -10,6 +10,6 @@ attributes:
   service: false
 content:
   - audio
-  - TODO
+  - audio_music
 extra:
   discord_application_id: '1311739842790686740'

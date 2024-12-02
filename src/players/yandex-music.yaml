@@ -15,6 +15,7 @@ attributes:
   service: true
 content:
   - audio
-  - TODO
+  - audio_music
+  - audio_podcast
 extra:
   discord_application_id: '1295649755535511592'

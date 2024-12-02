@@ -12,7 +12,7 @@ attributes:
   pure: false
   service: true
 content:
+  - video
   - audio
-  - TODO
 extra:
   discord_application_id: '1301894190904639559'
