@@ -14,7 +14,7 @@ sources:
     - cider
 attributes:
   pure: true
-  service: true
+  service: false
 content:
   - audio
   - audio_music

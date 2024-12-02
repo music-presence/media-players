@@ -769,7 +769,7 @@
       "id": "cider",
       "name": "Cider",
       "pure": true,
-      "service": true,
+      "service": false,
       "discord_application_id": "1302023626018787379",
       "resources": {
         "logo": {
