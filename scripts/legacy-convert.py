@@ -1,4 +1,4 @@
-# This script converst the legacy list of media players
+# This script converts the legacy list of media players
 # to the format they are maintained in in the src directory.
 
 import collections
