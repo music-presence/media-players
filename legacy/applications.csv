@@ -93,8 +93,8 @@ pocket-casts,web_domain,play.pocketcasts.com
 yandex-music,win_winrt,A025C540.Yandex.Music_vfvw9svesycw6!App
 yandex-music,win_winrt,A025C540.Yandex.Music_vfvw9svesycw6!APP
 yandex-music,win_winrt,ru.yandex.desktop.music
-yandex-music,win_winrt,music.yandex.com
-yandex-music,win_winrt,music.yandex.ru
+yandex-music,web_domain,music.yandex.com
+yandex-music,web_domain,music.yandex.ru
 podurama,win_winrt,Podurama.exe
 podurama,web_domain,podurama.com
 youtube,win_winrt,YouTube.exe

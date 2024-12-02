@@ -7,6 +7,7 @@ sources:
     - A025C540.Yandex.Music_vfvw9svesycw6!App
     - A025C540.Yandex.Music_vfvw9svesycw6!APP
     - ru.yandex.desktop.music
+  web_domain:
     - music.yandex.com
     - music.yandex.ru
 attributes:
