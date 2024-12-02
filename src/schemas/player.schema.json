@@ -87,7 +87,7 @@
       }
     },
     "content": {
-      "$comment": "What kind of content this media player offers",
+      "$comment": "The type of content this media player is designed to play. Items should be ordered starting with the type of content that is played most with this player to the type of content that is played least. Uncommon content types for this player should be omitted",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
