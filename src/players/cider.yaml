@@ -2,6 +2,8 @@
 
 id: cider
 name: Cider
+represents:
+  - apple-music
 sources:
   mac_mediaremote:
     - sh.cider.electron

@@ -2,6 +2,8 @@
 
 id: spotube
 name: Spotube
+represents:
+  - spotify
 sources:
   win_winrt:
     - spotube.exe

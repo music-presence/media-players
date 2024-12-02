@@ -10,14 +10,21 @@
   ],
   "properties": {
     "id": {
-      "$comment": "A unique identifier for this media player",
-      "type": "string",
-      "pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$"
+      "$ref": "#/definitions/id"
     },
     "name": {
       "$comment": "The official name of the player or service",
       "type": "string",
       "minLength": 1
+    },
+    "represents": {
+      "$comment": "IDs of other media players this player may represent",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/id"
+      }
     },
     "sources": {
       "$ref": "#/definitions/sources"
@@ -33,6 +40,11 @@
     }
   },
   "definitions": {
+    "id": {
+      "$comment": "A unique identifier for a media player",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$"
+    },
     "sources": {
       "$comment": "All known source identifiers for a media player",
       "type": "object",
