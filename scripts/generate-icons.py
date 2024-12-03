@@ -23,6 +23,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 OUT_DIR = os.path.join(ROOT_DIR, "out")
 OUT_ICONS_DIR = os.path.join(OUT_DIR, "icons")
+IN_PLAYERS_DIR = os.path.join(ROOT_DIR, "src", "players")
 IN_ICONS_DIR = os.path.join(ROOT_DIR, "src", "icons")
 INTERNAL_SCHEMA_PATH = os.path.join(ROOT_DIR, "src", "schemas", "internal")
 GEN_SCHEMA = core.read_json(os.path.join(INTERNAL_SCHEMA_PATH, "gen.schema.json"))
@@ -201,7 +202,9 @@ def generate_player_icons(root: str, player: str):
     image_root = os.path.join(root, "images")
     base_image_file = os.path.join(image_root, f"{player}.png")
     if not os.path.exists(base_image_file):
-        base_image_file = None
+        base_image_file = os.path.join(image_root, f"{player}.jpg")
+        if not os.path.exists(base_image_file):
+            base_image_file = None
     generate_icons(
         player=player,
         rules=generation_rules,
@@ -288,7 +291,7 @@ def generate_icon(
     out_prefix: str = "",
 ):
     # open the image
-    image = Image.open(image_path)
+    image = Image.open(image_path).convert("RGBA")
     # center-paste the image on a transparent background if it's not a square
     if image.size[0] != image.size[1]:
         max_size = max(image.size[0], image.size[1])
@@ -353,11 +356,14 @@ def generate_icon(
 
 
 if __name__ == "__main__":
-    # TODO find all players in the src tree
+
     # TODO only update/re-generate icons if the source image changed
     # TODO read overrides in src/icons/rules/<player>.yaml
-    player = "clementine"
-    try:
-        generate_player_icons(IN_ICONS_DIR, player)
-    except ValidationError as e:
-        print(f"ERROR {e}", file=sys.stderr)
+
+    for item in pathlib.Path(IN_PLAYERS_DIR).rglob("*.yaml"):
+        player = item.stem
+        print(player)
+        try:
+            generate_player_icons(IN_ICONS_DIR, player)
+        except ValidationError as e:
+            print(f"ERROR {player}: {e}", file=sys.stderr)
