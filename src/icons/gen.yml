@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../schemas/internal/gen.schema.json
+
+rules:
+  - label: discord-large-image
+    image_type: JPG
+    background: black
+    image_scale: 0.9
+    border_scale: 0.68
+    background_scale: 1.0
+    output_size: 128
+  - label: discord-small-image
+    image_type: PNG
+    output_shape: circle
+    background: black
+    border_scale: 0.68
+    output_size: 64
+  - label: tray-menu
+    image_type: ICO
+    output_shape: circle
+    background: black
+    border_scale: 0.68

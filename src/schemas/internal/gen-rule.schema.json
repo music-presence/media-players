@@ -1,0 +1,62 @@
+{
+  "$id": "gen-rule.schema.json",
+  "type": "object",
+  "properties": {
+    "image_type": {
+      "type": "string",
+      "enum": [
+        "PNG",
+        "JPG",
+        "ICO"
+      ]
+    },
+    "image_mask": {
+      "$ref": "#/definitions/shape"
+    },
+    "output_shape": {
+      "$ref": "#/definitions/shape"
+    },
+    "background": {
+      "type": "string",
+      "oneOf": [
+        {
+          "enum": [
+            "black",
+            "white",
+            "transparent"
+          ]
+        },
+        {
+          "pattern": "^[#]?(\\d{3}|\\d{6}|\\d{8})$"
+        }
+      ]
+    },
+    "image_scale": {
+      "$ref": "#/definitions/scale"
+    },
+    "border_scale": {
+      "$ref": "#/definitions/scale"
+    },
+    "background_scale": {
+      "$ref": "#/definitions/scale"
+    },
+    "output_size": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "definitions": {
+    "shape": {
+      "type": "string",
+      "enum": [
+        "square",
+        "circle"
+      ]
+    },
+    "scale": {
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 1.0
+    }
+  }
+}

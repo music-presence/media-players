@@ -1,8 +1,10 @@
 import contextlib
 import datetime
 import json
+import jsonschema
 import sys
 import yaml
+from typing import Optional
 
 
 class ValidationError(RuntimeError):
@@ -31,6 +33,24 @@ def read_yaml(filename):
             return yaml.safe_load(file)
         except yaml.YAMLError as e:
             error(f"Failed to parse {filename}: {e}")
+
+
+def read_yaml_with_schema(
+    filename,
+    schema: any,
+    resolver: Optional[jsonschema.RefResolver],
+) -> any:
+    content = read_yaml(filename)
+    try:
+        jsonschema.validate(instance=content, schema=schema, resolver=resolver)
+    except jsonschema.ValidationError as e:
+        error(f"Schema validation error:\n\nFile {filename}:\n\n{e}")
+    return content
+
+
+def duplicates(items) -> set[str]:
+    s = set()
+    return set(x["name"] for x in items if x["name"] in s or s.add(x["name"]))
 
 
 @contextlib.contextmanager
