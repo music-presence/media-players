@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw
 import warnings
 
 import core
-from core import error, ValidationError
+from core import log, warn, error, ValidationError
 
 # ignore jsonschema warnings for now
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -270,7 +270,8 @@ def generate_icons(
         else:
             image_path = base_image
         if base_image is None:
-            error(f"No image for rule {i} ({rule.label}) for player {player}")
+            warn(f"No image for rule {i} ({rule.label}) for player {player}")
+            return
         paths.append(
             generate_icon(
                 rule=rule,
@@ -394,4 +395,5 @@ if __name__ == "__main__":
         try:
             generate_player_icons(IN_ICONS_DIR, player)
         except ValidationError as e:
-            print(f"ERROR {player}: {e}", file=sys.stderr)
+            log(f"ERROR {player}: {e}")
+            exit(-1)

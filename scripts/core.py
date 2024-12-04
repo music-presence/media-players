@@ -15,6 +15,10 @@ def log(message=""):
     print(message, file=sys.stderr)
 
 
+def warn(message=""):
+    print(f"WARN {message}", file=sys.stderr)
+
+
 def error(message):
     raise ValidationError(message)
 
