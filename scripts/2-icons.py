@@ -399,7 +399,8 @@ def generate_icon(
         image_size = output_size[0]
     # determine the result file and location
     pathlib.Path(out_directory).mkdir(parents=True, exist_ok=True)
-    result_file = f"{out_prefix}-{rule.slug()}.{rule.image_type.value.lower()}"
+    # TODO perhaps use the slug at a later time: -{rule.slug()}
+    result_file = f"{out_prefix}.{rule.image_type.value.lower()}"
     result_path = os.path.join(out_directory, result_file)
     if os.path.exists(result_path):
         error(f"Output image already exists, duplicate rule? {result_path}")
