@@ -1,0 +1,56 @@
+{
+  "$comment": "Schema for the generated list of media players with all metadata",
+  "type": "object",
+  "required": [
+    "version",
+    "latest",
+    "players",
+    "icons"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "$comment": "The path or URI to the schema that validates this object",
+      "type": "string"
+    },
+    "version": {
+      "$comment": "The version of this JSON schema",
+      "type": "integer",
+      "const": 3
+    },
+    "latest": {
+      "$comment": "Whether this is the latest version of the schema and it is kept up-to-date",
+      "type": "boolean"
+    },
+    "players": {
+      "$comment": "A list of all media players",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/definitions/player"
+      }
+    },
+    "icons": {
+      "patternProperties": {
+        "^[a-z][a-z0-9\\-]*[a-z0-9]$": {
+          "$comment": "Icons for the given player ID ordered by preference",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/icon"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "player": {
+      "$ref": "player.schema.json"
+    },
+    "icon": {
+      "$ref": "icon.schema.json"
+    }
+  }
+}
