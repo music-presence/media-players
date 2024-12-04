@@ -4,7 +4,6 @@ rules:
   - label: discord-large-image
     image_type: PNG
     background: black
-    image_scale: 0.9
     border_scale: 0.68
     background_scale: 1.0
     output_size: 128
