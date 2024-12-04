@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "label",
+    "type",
+    "url"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "pattern": "^[a-z][a-z\\-]*[a-z]$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "png",
+        "jpg",
+        "ico"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://\\S+[^/\\s]$"
+    }
+  }
+}

@@ -52,9 +52,9 @@ def read_yaml_with_schema(
     return content
 
 
-def duplicates(items) -> set[str]:
+def duplicates(items, window=lambda a: a) -> set[str]:
     s = set()
-    return set(x["name"] for x in items if x["name"] in s or s.add(x["name"]))
+    return set(x for x in items if window(x) in s or s.add(window(x)))
 
 
 @contextlib.contextmanager

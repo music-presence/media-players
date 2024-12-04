@@ -1,5 +1,20 @@
-# Generates icon variants from "src/icons" and prints the corresponding
-# JSON array of icon objects that satisfy "src/schemas/icon.schema.json".
+#
+# 2-icons.py
+# Generates icons for media players
+#
+# Input: /src/icons
+# Output: /out/public/icons
+# Output artifacts:
+# - Directory /out/public/icons: Icons for players in subdirectories
+# - File /out/icons.json: An array of objects that contain all generated icons
+#   and that satisfies the schema in src/schemas/icon.schema.json
+#
+# Usage: 2-icons.py [player [player...]]
+# - Generates icons for all players in the input directory,
+#   when no arguments are provided
+# - Generates icons for the specified players otherwise,
+#   but does not create the /out/icons.json output artifact
+#
 
 import dataclasses
 import enum
@@ -8,10 +23,12 @@ import pathlib
 import sys
 import re
 import shutil
+import json
 import jsonschema
 from collections import defaultdict
 from typing import Optional
 from PIL import Image, ImageDraw
+from dotenv import dotenv_values
 import warnings
 
 import core
@@ -20,9 +37,13 @@ from core import log, warn, error, ValidationError
 # ignore jsonschema warnings for now
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+DOTENV = dotenv_values(os.path.join(os.path.dirname(__file__), ".env"))
+GEN_BASE_URL_ICONS = f"{DOTENV["API_BASE_URL"]}/icons"
+
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 OUT_DIR = os.path.join(ROOT_DIR, "out")
-OUT_ICONS_DIR = os.path.join(OUT_DIR, "icons")
+OUT_ICONS_DIR = os.path.join(OUT_DIR, "public", "icons")
+OUT_JSON_FILE = os.path.join(OUT_DIR, "icons.json")
 IN_PLAYERS_DIR = os.path.join(ROOT_DIR, "src", "players")
 IN_ICONS_DIR = os.path.join(ROOT_DIR, "src", "icons")
 INTERNAL_SCHEMA_PATH = os.path.join(ROOT_DIR, "src", "schemas", "internal")
@@ -185,6 +206,13 @@ class IconDefinition:
     generation_rules: list[GenerationRule]
 
 
+@dataclasses.dataclass
+class IconResult:
+    label: str
+    image_type: ImageType
+    image_path: str
+
+
 def read_generation_rules(path: str):
     content = core.read_yaml_with_schema(
         path,
@@ -204,7 +232,7 @@ def read_generation_rules(path: str):
     return generation_rules
 
 
-def generate_player_icons(root: str, player: str):
+def generate_player_icons(root: str, player: str) -> list[IconResult]:
     gen_file = os.path.join(root, "gen.yaml")
     if not os.path.exists(gen_file):
         error(f"File does not exist: {gen_file}")
@@ -234,7 +262,7 @@ def generate_player_icons(root: str, player: str):
                     rule = rule.update(overrides["label"][rule.label])
             new_rules.append(rule)
         generation_rules = new_rules
-    generate_icons(
+    return generate_icons(
         player=player,
         rules=generation_rules,
         base_image=base_image_file,
@@ -247,13 +275,13 @@ def generate_icons(
     rules: list[GenerationRule],
     base_image: Optional[str],
     image_root: str,
-):
+) -> list[IconResult]:
     if len(rules) == 0:
         error(f'Generation rules for player "{player}" are empty')
     out_dir = os.path.join(OUT_ICONS_DIR, player)
     if os.path.exists(out_dir):
         shutil.rmtree(out_dir)
-    paths = []
+    results = []
     labels: dict[str, int] = defaultdict(int)
     for rule in rules:
         labels[rule.label] += 1
@@ -271,16 +299,21 @@ def generate_icons(
             image_path = base_image
         if base_image is None:
             warn(f"No image for rule {i} ({rule.label}) for player {player}")
-            return
-        paths.append(
-            generate_icon(
-                rule=rule,
+            return []
+        image_path = generate_icon(
+            rule=rule,
+            image_path=image_path,
+            out_directory=out_dir,
+            out_prefix=out_prefix,
+        )
+        results.append(
+            IconResult(
+                label=rule.label,
+                image_type=rule.image_type,
                 image_path=image_path,
-                out_directory=out_dir,
-                out_prefix=out_prefix,
             )
         )
-    return paths
+    return results
 
 
 def apply_mask(image: Image.Image, mask: Image.Image) -> Image.Image:
@@ -386,14 +419,45 @@ def generate_icon(
 
 
 if __name__ == "__main__":
+    output_json = True
+    if len(sys.argv) > 1:
+        players = sys.argv[1:]
+        output_json = False
+    else:
+        files = list(pathlib.Path(IN_PLAYERS_DIR).rglob("*.yaml"))
+        duplicate_files = core.duplicates(files, window=lambda f: f.stem)
+        if len(duplicate_files) > 0:
+            out = "".join([f.name for f in duplicate_files])
+            log(f"ERROR Duplicate players: {out}")
+            exit(-1)
+        players = sorted(f.stem for f in files)
 
-    # TODO only update/re-generate icons if the source image changed
-
-    for item in pathlib.Path(IN_PLAYERS_DIR).rglob("*.yaml"):
-        player = item.stem
-        print(player)
+    output = {}
+    for player in players:
+        log(player)
         try:
-            generate_player_icons(IN_ICONS_DIR, player)
+            results = generate_player_icons(IN_ICONS_DIR, player)
         except ValidationError as e:
             log(f"ERROR {player}: {e}")
             exit(-1)
+        if len(results) > 0:
+            objects = []
+            for result in results:
+                path = str(
+                    pathlib.PurePosixPath(
+                        pathlib.Path(result.image_path).relative_to(OUT_ICONS_DIR)
+                    )
+                )
+                assert path == f"{player}/{pathlib.Path(result.image_path).name}"
+                objects.append(
+                    {
+                        "label": result.label,
+                        "type": result.image_type.value.lower(),
+                        "url": f"{GEN_BASE_URL_ICONS}/{path}",
+                    }
+                )
+            output[player] = objects
+    if output_json:
+        json_output = json.dumps(output, separators=(",", ":"))
+        with open(OUT_JSON_FILE, "wt") as f:
+            f.write(json_output)
