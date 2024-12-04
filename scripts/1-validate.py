@@ -1,4 +1,14 @@
-# TODO validate the following conditions
+#
+# 1-validate.py
+# Validates all player definitions and checks for errors
+#
+# Input: /src/players
+# Output: -
+# The script fails with an error message and a non-zero exit code,
+# when there are any errors in the input that need attention
+#
+# Usage: 1-validate.py
+#
 
 import dataclasses
 import enum
