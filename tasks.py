@@ -20,7 +20,7 @@ BUILD_DIR = os.path.join(CWD, "build")
 
 DEPLOY_INPUT_DIR = os.path.join(OUTPUT_DIR, "public")
 DEPLOY_OUTPUT_DIR = f"v{API_VERSION}"
-DEPLOY_REPO = "git@github.com:music-presence/live.git"
+DEPLOY_REPO = os.getenv("DEPLOY_REPO") or "git@github.com:music-presence/live.git"
 DEPLOY_BRANCH = "master"
 
 
