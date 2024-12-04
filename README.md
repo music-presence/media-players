@@ -1,25 +1,57 @@
-# music-presence/media-players
+# List of desktop and web media players
 
-A large collection of media player identifiers for the desktop and web.
+This repository contains a list of identifiers
+for various media players on the desktop and the web.
+These can be used to identify media players
+that are playing media on a desktop device
+and which report it through the operating system's native media integration,
+i.e. SMTC on Windows, MediaRemote on macOS and MPRIS/DBUS on Linux.
 
-## Endpoints
+This repository was mainly created for use with
+[Music Presence](https://musicpresence.app),
+but can also be used in other contexts
+where uniquely identifying a media player is desirable.
 
-- Version 2: https://live.musicpresence.app/v2/players.json
+## Public API
 
-Where are these used at the moment?
+A public endpoint is maintained at `live.musicpresence.app`
+which is a simple GitHub Pages site with static files,
+the repository for which can be found here:
+https://github.com/music-presence/live.
 
-- https://github.com/ungive/discord-music-presence  
-  Maintainer: https://github.com/ungive
-- https://github.com/music-presence/discord-bot  
-  Maintainer: https://github.com/ungive
-- ...
+The current version of this endpoint is `v3`,
+available at https://live.musicpresence.app/v3.
 
-Add any third parties that use them here.
-When the version of the endpoint above is updated,
-these third-parties would have to be informed about the change,
-so they can keep using the most up-to-date list of media players.
+This endpoint provides access to the following root file:
 
-If you are a third-party that uses any of the endpoints
-and you want to be informed when a new version comes out,
-please open an issue or a pull request.
+- `players.json` at https://live.musicpresence.app/v3/players.json
 
+Any other hosted files are indirectly accessible by parsing this JSON file,
+this includes JSON Schema files for validation and documentation
+as well as icons for the media players that are listed in the players.json file.
+
+Please refer to the linked schema in the root property `$schema`,
+[src/schemas/players.schema.json](./src/schemas/players.schema.json) or
+https://live.musicpresence.app/v3/schemas/players.schema.json
+for documentation on all fields in the players.json file,
+including how to check if v3 is still the latest version.
+
+The underlying repository for this endpoint
+is used as "append-only" file storage,
+that means any file you can access now,
+you can also access at any point in the future.
+No file is ever removed, but some files may be overwritten or updated,
+especially those of the most recent version (v3).
+Older versions are generally not kept up-to-date.
+
+## Maintaining and contributing
+
+To maintain or contribute to this repository, keep the following notes in mind:
+
+TODO
+
+---
+
+### License
+
+TODO
