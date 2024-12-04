@@ -22,13 +22,16 @@ https://github.com/music-presence/live.
 The current version of this endpoint is `v3`,
 available at https://live.musicpresence.app/v3.
 
-This endpoint provides access to the following root file:
+This endpoint provides access to the following files:
 
 - `players.json` at https://live.musicpresence.app/v3/players.json
+- `players.min.json` at https://live.musicpresence.app/v3/players.min.json
+- Static files at https://live.musicpresence.app/v3/static
 
 Any other hosted files are indirectly accessible by parsing this JSON file,
 this includes JSON Schema files for validation and documentation
-as well as icons for the media players that are listed in the players.json file.
+as well as icons for the media players that are listed in the file.
+Both files are identical, with the `min` version being minified.
 
 Please refer to the linked schema in the root property `$schema`,
 [src/schemas/players.schema.json](./src/schemas/players.schema.json) or
@@ -49,6 +52,17 @@ Older versions are generally not kept up-to-date.
 To maintain or contribute to this repository, keep the following notes in mind:
 
 TODO
+
+### Directory structure
+
+```
+/out/public/: public root under live.musicpresence.app/v3/
+/out/public/players.json: the root players.json file
+/out/public/players.min.json: the root players.json file, minified
+/out/public/schemas/: all schemas from /src/schemas, except internal schemas
+/out/public/icons/: all icons for media players (image files)
+/out/public/icons/<player>/: all icons for a media player identified by <player>
+```
 
 ---
 
