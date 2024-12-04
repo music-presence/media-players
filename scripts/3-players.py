@@ -64,14 +64,15 @@ def generate(root: str):
         "players": [],
         "icons": {},
     }
+    log(f"Found {len(paths)} players")
     for path in paths:
         content = core.read_yaml(path)
         assert "id" in content
         player = content["id"]
+        result["players"].append(content)
         if player not in icons:
             log(f"WARN No icons for {player}")
             continue
-        result["players"].append(content)
         result["icons"][player] = icons[player]
     # validate the result
     validate_players(result)
