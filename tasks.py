@@ -6,6 +6,8 @@ import sys
 import pathlib
 import shutil
 import stat
+import json
+from typing import Optional
 from dotenv import dotenv_values
 
 CWD = os.path.dirname(__file__)
@@ -58,6 +60,30 @@ def build(c: Context):
     print("", file=sys.stderr)
 
 
+def get_players_from_deployment(directory: str) -> Optional[dict[str, str]]:
+    input_path = os.path.join(directory, "players.json")
+    if not os.path.exists(input_path):
+        return None
+    with open(input_path, "rt") as f:
+        players = json.loads(f.read())
+    return {player["id"]: player["name"] for player in players["players"]}
+
+
+def get_new_players(old_dir: str, new_dir: str) -> Optional[dict[str, str]]:
+    old_players = get_players_from_deployment(old_dir)
+    if old_players is None:
+        return None
+    new_players = get_players_from_deployment(new_dir)
+    if new_players is None:
+        print("WARN No new players?", file=sys.stderr)
+        return None
+    result = {}
+    for key, value in new_players.items():
+        if key not in old_players:
+            result[key] = value
+    return result
+
+
 @task(pre=[build])
 def deploy(c: Context):
     print("Deploying players", file=sys.stderr)
@@ -68,6 +94,7 @@ def deploy(c: Context):
     clone_dir = os.path.join(BUILD_DIR, "deploy")
     c.run(f'git clone -b "{DEPLOY_BRANCH}" "{DEPLOY_REPO}" "{clone_dir}"')
     deploy_dir = os.path.join(clone_dir, DEPLOY_OUTPUT_DIR)
+    new_players = get_new_players(deploy_dir, DEPLOY_INPUT_DIR)
     if os.path.exists(deploy_dir):
         print("Clearing deployment directory", file=sys.stderr)
         clear_directory(deploy_dir)
@@ -75,7 +102,15 @@ def deploy(c: Context):
     shutil.copytree(DEPLOY_INPUT_DIR, deploy_dir)
     with c.cd(clone_dir):
         c.run("git add -A")
-        c.run('git commit -m "deploy: update players"')
+        commit_message = "Automatic deployment"
+        if new_players is not None and len(new_players) > 0:
+            player_names = list(new_players.values())
+            if len(player_names) > 1:
+                players = f"{', '.join(player_names[:-1])} and {player_names[-1]}"
+            else:
+                players = player_names[0]
+            commit_message = f"{commit_message}: {players}"
+        c.run(f'git commit -m "{commit_message}"')
         c.run(f'git push origin "{DEPLOY_BRANCH}"')
     print("Deployment successful", file=sys.stderr)
     print("", file=sys.stderr)
