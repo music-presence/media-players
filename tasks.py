@@ -102,15 +102,19 @@ def deploy(c: Context):
     shutil.copytree(DEPLOY_INPUT_DIR, deploy_dir)
     with c.cd(clone_dir):
         c.run("git add -A")
-        commit_message = "Automatic deployment"
-        if new_players is not None and len(new_players) > 0:
-            player_names = list(new_players.values())
-            if len(player_names) > 1:
-                players = f"{', '.join(player_names[:-1])} and {player_names[-1]}"
-            else:
-                players = player_names[0]
-            commit_message = f"{commit_message}: {players}"
-        c.run(f'git commit -m "{commit_message}"')
-        c.run(f'git push origin "{DEPLOY_BRANCH}"')
-    print("Deployment successful", file=sys.stderr)
+        result = c.run("git diff --cached --exit-code", warn=True)
+        if result.return_code != 0:
+            commit_message = "Automatic deployment"
+            if new_players is not None and len(new_players) > 0:
+                player_names = list(new_players.values())
+                if len(player_names) > 1:
+                    players = f"{', '.join(player_names[:-1])} and {player_names[-1]}"
+                else:
+                    players = player_names[0]
+                commit_message = f"{commit_message}: {players}"
+            c.run(f'git commit -m "{commit_message}"')
+            c.run(f'git push origin "{DEPLOY_BRANCH}"')
+            print("Deployment successful", file=sys.stderr)
+        else:
+            print("Nothing to deploy", file=sys.stderr)
     print("", file=sys.stderr)
