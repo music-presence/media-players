@@ -76,6 +76,6 @@ def deploy(c: Context):
     with c.cd(clone_dir):
         c.run("git add -A")
         c.run('git commit -m "deploy: update players"')
-        c.run('git push origin "{DEPLOY_BRANCH}"')
+        c.run(f'git push origin "{DEPLOY_BRANCH}"')
     print("Deployment successful", file=sys.stderr)
     print("", file=sys.stderr)
