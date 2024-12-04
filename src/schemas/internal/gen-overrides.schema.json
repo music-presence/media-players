@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "minProperties": 1,
+  "properties": {
+    "global": {
+      "$ref": "gen-rule.schema.json"
+    },
+    "label": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z][a-z\\-]*[a-z]$": {
+          "$ref": "gen-rule.schema.json"
+        }
+      }
+    }
+  }
+}

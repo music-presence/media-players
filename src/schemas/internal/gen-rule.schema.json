@@ -35,10 +35,10 @@
       "$ref": "#/definitions/scale"
     },
     "border_scale": {
-      "$ref": "#/definitions/scale"
+      "$ref": "#/definitions/scaleDown"
     },
     "background_scale": {
-      "$ref": "#/definitions/scale"
+      "$ref": "#/definitions/scaleDown"
     },
     "output_size": {
       "type": "integer",
@@ -54,6 +54,11 @@
       ]
     },
     "scale": {
+      "type": "number",
+      "minimum": 0.1,
+      "exclusiveMaximum": 2.0
+    },
+    "scaleDown": {
       "type": "number",
       "minimum": 0.1,
       "maximum": 1.0

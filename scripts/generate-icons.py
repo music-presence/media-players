@@ -27,6 +27,9 @@ IN_PLAYERS_DIR = os.path.join(ROOT_DIR, "src", "players")
 IN_ICONS_DIR = os.path.join(ROOT_DIR, "src", "icons")
 INTERNAL_SCHEMA_PATH = os.path.join(ROOT_DIR, "src", "schemas", "internal")
 GEN_SCHEMA = core.read_json(os.path.join(INTERNAL_SCHEMA_PATH, "gen.schema.json"))
+OVERRIDES_SCHEMA = core.read_json(
+    os.path.join(INTERNAL_SCHEMA_PATH, "gen-overrides.schema.json")
+)
 
 
 class ImageType(enum.Enum):
@@ -130,6 +133,51 @@ class GenerationRule(GenerationRecipe):
     def __hash__(self):
         return super().__hash__()
 
+    def update(self, values: dict):
+        # TODO iterate over members instead and use a dict?
+        image_type = self.image_type
+        image_mask = self.image_mask
+        output_shape = self.output_shape
+        background = self.background
+        image_scale = self.image_scale
+        border_scale = self.border_scale
+        background_scale = self.background_scale
+        output_size = self.output_size
+        from_image = self.from_image
+        label = self.label
+        if "image_type" in values:
+            image_type = ImageType(values["image_type"])
+        if "image_mask" in values:
+            image_mask = ImageShape(values["image_mask"])
+        if "output_shape" in values:
+            output_shape = ImageShape(values["output_shape"])
+        if "background" in values:
+            background = Color(values["background"])
+        if "image_scale" in values:
+            image_scale = values["image_scale"]
+        if "border_scale" in values:
+            border_scale = values["border_scale"]
+        if "background_scale" in values:
+            background_scale = values["background_scale"]
+        if "output_size" in values:
+            output_size = values["output_size"]
+        if "from_image" in values:
+            from_image = values["from_image"]
+        if "label" in values:
+            label = values["label"]
+        return GenerationRule(
+            image_type=image_type,
+            image_mask=image_mask,
+            output_shape=output_shape,
+            background=background,
+            image_scale=image_scale,
+            border_scale=border_scale,
+            background_scale=background_scale,
+            output_size=output_size,
+            label=label,
+            from_image=from_image,
+        )
+
 
 @dataclasses.dataclass
 class IconDefinition:
@@ -150,45 +198,7 @@ def read_generation_rules(path: str):
     generation_rules: list[GenerationRule] = []
     defaults = GenerationRule()
     for rule in raw_rules:
-        image_type = defaults.image_type
-        image_mask = defaults.image_mask
-        output_shape = defaults.output_shape
-        background = defaults.background
-        image_scale = defaults.image_scale
-        border_scale = defaults.border_scale
-        background_scale = defaults.background_scale
-        output_size = defaults.output_size
-        from_image = defaults.from_image
-        if "image_type" in rule:
-            image_type = ImageType(rule["image_type"])
-        if "image_mask" in rule:
-            image_mask = ImageShape(rule["image_mask"])
-        if "output_shape" in rule:
-            output_shape = ImageShape(rule["output_shape"])
-        if "background" in rule:
-            background = Color(rule["background"])
-        if "image_scale" in rule:
-            image_scale = rule["image_scale"]
-        if "border_scale" in rule:
-            border_scale = rule["border_scale"]
-        if "background_scale" in rule:
-            background_scale = rule["background_scale"]
-        if "output_size" in rule:
-            output_size = rule["output_size"]
-        if "from_image" in rule:
-            from_image = rule["from_image"]
-        res = GenerationRule(
-            image_type=image_type,
-            image_mask=image_mask,
-            output_shape=output_shape,
-            background=background,
-            image_scale=image_scale,
-            border_scale=border_scale,
-            background_scale=background_scale,
-            output_size=output_size,
-            label=rule["label"],
-            from_image=from_image,
-        )
+        res = defaults.update(rule)
         res.validate()
         generation_rules.append(res)
     return generation_rules
@@ -198,13 +208,32 @@ def generate_player_icons(root: str, player: str):
     gen_file = os.path.join(root, "gen.yml")
     if not os.path.exists(gen_file):
         error(f"File does not exist: {gen_file}")
-    generation_rules = read_generation_rules(gen_file)
     image_root = os.path.join(root, "images")
     base_image_file = os.path.join(image_root, f"{player}.png")
     if not os.path.exists(base_image_file):
         base_image_file = os.path.join(image_root, f"{player}.jpg")
         if not os.path.exists(base_image_file):
             base_image_file = None
+    generation_rules = read_generation_rules(gen_file)
+    overrides_file = os.path.join(root, "overrides", f"{player}.yml")
+    if os.path.exists(overrides_file):
+        overrides = core.read_yaml_with_schema(
+            overrides_file,
+            OVERRIDES_SCHEMA,
+            jsonschema.RefResolver(
+                base_uri=f"{pathlib.Path(INTERNAL_SCHEMA_PATH).as_uri()}/",
+                referrer=OVERRIDES_SCHEMA,
+            ),
+        )
+        new_rules = []
+        for rule in generation_rules:
+            if "global" in overrides:
+                rule = rule.update(overrides["global"])
+            if "label" in overrides:
+                if rule.label in overrides["label"]:
+                    rule = rule.update(overrides["label"][rule.label])
+            new_rules.append(rule)
+        generation_rules = new_rules
     generate_icons(
         player=player,
         rules=generation_rules,
@@ -358,7 +387,6 @@ def generate_icon(
 if __name__ == "__main__":
 
     # TODO only update/re-generate icons if the source image changed
-    # TODO read overrides in src/icons/rules/<player>.yaml
 
     for item in pathlib.Path(IN_PLAYERS_DIR).rglob("*.yaml"):
         player = item.stem
