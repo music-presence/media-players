@@ -12,7 +12,7 @@ class ValidationError(RuntimeError):
 
 
 def log(message=""):
-    print(message, file=sys.stdout)
+    print(message, file=sys.stderr)
 
 
 def error(message):
