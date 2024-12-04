@@ -6,8 +6,8 @@
 # Output: /out/public/icons
 # Output artifacts:
 # - Directory /out/public/icons: Icons for players in subdirectories
-# - File /out/icons.json: An array of objects that contain all generated icons
-#   and that satisfies the schema in src/schemas/icon.schema.json
+# - File /out/icons.json: A dictionary of objects that contains all generated
+#   icons and that satisfies the schema in src/schemas/icon.schema.json
 #
 # Usage: 2-icons.py [player [player...]]
 # - Generates icons for all players in the input directory,
