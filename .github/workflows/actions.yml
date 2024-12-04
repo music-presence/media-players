@@ -13,8 +13,8 @@ jobs:
           submodules: recursive
       - name: Set up Git
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "<>"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "<>"
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
