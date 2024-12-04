@@ -205,7 +205,7 @@ def read_generation_rules(path: str):
 
 
 def generate_player_icons(root: str, player: str):
-    gen_file = os.path.join(root, "gen.yml")
+    gen_file = os.path.join(root, "gen.yaml")
     if not os.path.exists(gen_file):
         error(f"File does not exist: {gen_file}")
     image_root = os.path.join(root, "images")
@@ -215,7 +215,7 @@ def generate_player_icons(root: str, player: str):
         if not os.path.exists(base_image_file):
             base_image_file = None
     generation_rules = read_generation_rules(gen_file)
-    overrides_file = os.path.join(root, "overrides", f"{player}.yml")
+    overrides_file = os.path.join(root, "overrides", f"{player}.yaml")
     if os.path.exists(overrides_file):
         overrides = core.read_yaml_with_schema(
             overrides_file,
