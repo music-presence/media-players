@@ -1,3 +1,5 @@
+[![Deploy](https://github.com/music-presence/media-players/actions/workflows/actions.yml/badge.svg)](https://github.com/music-presence/media-players/actions/workflows/actions.yml)
+
 # List of desktop and web media players
 
 This repository contains a list of identifiers
