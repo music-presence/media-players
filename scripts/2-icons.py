@@ -25,6 +25,7 @@ import re
 import shutil
 import json
 import jsonschema
+import hashlib
 from collections import defaultdict
 from typing import Optional
 from PIL import Image, ImageDraw
@@ -51,6 +52,8 @@ GEN_SCHEMA = core.read_json(os.path.join(INTERNAL_SCHEMA_PATH, "gen.schema.json"
 OVERRIDES_SCHEMA = core.read_json(
     os.path.join(INTERNAL_SCHEMA_PATH, "gen-overrides.schema.json")
 )
+# only hash the tray menu logo for now, to not inflate the resulting JSON
+LABELS_TO_HASH = set(["tray-menu"])
 
 
 class ImageType(enum.Enum):
@@ -419,6 +422,11 @@ def generate_icon(
     return result_path
 
 
+def md5hash(filename: str):
+    with open(filename, "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()
+
+
 if __name__ == "__main__":
     output_json = True
     if len(sys.argv) > 1:
@@ -450,13 +458,14 @@ if __name__ == "__main__":
                     )
                 )
                 assert path == f"{player}/{pathlib.Path(result.image_path).name}"
-                objects.append(
-                    {
-                        "label": result.label,
-                        "type": result.image_type.value.lower(),
-                        "url": f"{GEN_BASE_URL_ICONS}/{path}",
-                    }
-                )
+                o = {
+                    "label": result.label,
+                    "type": result.image_type.value.lower(),
+                    "url": f"{GEN_BASE_URL_ICONS}/{path}",
+                }
+                if result.label in LABELS_TO_HASH:
+                    o["md5"] = md5hash(result.image_path)
+                objects.append(o)
             output[player] = objects
     if output_json:
         json_output = json.dumps(output, separators=(",", ":"))

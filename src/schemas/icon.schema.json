@@ -23,6 +23,11 @@
       "type": "string",
       "format": "uri",
       "pattern": "^https://\\S+[^/\\s]$"
+    },
+    "md5": {
+      "$comment": "MD5 hash of the file at the url",
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$"
     }
   }
 }
