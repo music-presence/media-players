@@ -22,6 +22,16 @@
       "$comment": "Whether this is the latest version of the schema and it is kept up-to-date",
       "type": "boolean"
     },
+    "subset": {
+      "$comment": "If set, this file only contains a subset of players for the given platform",
+      "type": "string",
+      "enum": [
+        "win",
+        "mac",
+        "lin",
+        "web"
+      ]
+    },
     "players": {
       "$comment": "A list of all media players",
       "type": "array",

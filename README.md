@@ -22,18 +22,25 @@ the repository for which can be found here:
 https://github.com/music-presence/live.
 
 The current version of this endpoint is `v3`,
-available at https://live.musicpresence.app/v3.
+available at https://live.musicpresence.app/v3:
 
-This endpoint provides access to the following files:
+|File|Platforms|URL|
+|-|-|-|
+|`players.json`|All|https://live.musicpresence.app/v3/players.json|
+|`players.win.json`|Windows+Web|https://live.musicpresence.app/v3/players.win.json|
+|`players.mac.json`|Mac+Web|https://live.musicpresence.app/v3/players.mac.json|
+|`players.lin.json`|Linux+Web|https://live.musicpresence.app/v3/players.lin.json|
+|`players.web.json`|Web|https://live.musicpresence.app/v3/players.web.json|
 
-- `players.json` at https://live.musicpresence.app/v3/players.json
-- `players.min.json` at https://live.musicpresence.app/v3/players.min.json
-- Static files at https://live.musicpresence.app/v3/static
+The first file contains players for all platforms,
+the remaining files contain players for only the specified platforms.
+
+There are also minified versions available for each file, e.g.
+[`players.min.json`](https://live.musicpresence.app/v3/players.min.json)
 
 Any other hosted files are indirectly accessible by parsing this JSON file,
 this includes JSON Schema files for validation and documentation
-as well as icons for the media players that are listed in the file.
-Both files are identical, with the `min` version being minified.
+as well as icons for the media players that are contained in the file.
 
 Please refer to the linked schema in the root property `$schema`,
 [src/schemas/players.schema.json](./src/schemas/players.schema.json) or
