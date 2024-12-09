@@ -5,6 +5,7 @@ import jsonschema
 import sys
 import yaml
 from typing import Optional
+from PIL import Image
 
 
 class ValidationError(RuntimeError):
@@ -75,3 +76,22 @@ def timed():
 
     timer = Timer()
     yield timer
+
+
+def apply_mask(image: Image.Image, mask: Image.Image) -> Image.Image:
+    if image.size != mask.size:
+        raise ValueError("the image and the mask must have the same size")
+    image_pixels = list(image.getdata())
+    mask_pixels = list(mask.getdata())
+    assert len(image_pixels) == len(mask_pixels)
+    # ensure that transparency in the image is maintained
+    for i in range(len(image_pixels)):
+        if mask_pixels[i] == 0:
+            image_pixels[i] = (
+                image_pixels[i][0],
+                image_pixels[i][1],
+                image_pixels[i][2],
+                mask_pixels[i],
+            )
+    image.putdata(image_pixels)
+    return image

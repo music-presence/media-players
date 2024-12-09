@@ -319,25 +319,6 @@ def generate_icons(
     return results
 
 
-def apply_mask(image: Image.Image, mask: Image.Image) -> Image.Image:
-    if image.size != mask.size:
-        raise ValueError("the image and the mask must have the same size")
-    image_pixels = list(image.getdata())
-    mask_pixels = list(mask.getdata())
-    assert len(image_pixels) == len(mask_pixels)
-    # ensure that transparency in the image is maintained
-    for i in range(len(image_pixels)):
-        if mask_pixels[i] == 0:
-            image_pixels[i] = (
-                image_pixels[i][0],
-                image_pixels[i][1],
-                image_pixels[i][2],
-                mask_pixels[i],
-            )
-    image.putdata(image_pixels)
-    return image
-
-
 def scale_image(image: Image.Image, factor: float):
     if factor > 1.0:
         raise ValueError("cannot upscale an image")
@@ -373,7 +354,7 @@ def generate_icon(
         image_mask = Image.new("L", image.size, 0)
         image_draw = ImageDraw.Draw(image_mask)
         image_draw.ellipse((0, 0) + (image_size - 0, image_size - 0), fill=255)
-        image = apply_mask(image, image_mask)
+        image = core.apply_mask(image, image_mask)
     # scale the image
     effective_image_scale = rule.image_scale * rule.border_scale
     image = scale_image(image, effective_image_scale)
@@ -386,11 +367,11 @@ def generate_icon(
         image_mask = Image.new("L", image.size, 0)
         image_draw = ImageDraw.Draw(image_mask)
         image_draw.ellipse((0, 0) + (image_size - 0, image_size - 0), fill=255)
-        image = apply_mask(image, image_mask)
+        image = core.apply_mask(image, image_mask)
         background_mask = Image.new("L", image.size, 0)
         background_draw = ImageDraw.Draw(background_mask)
         background_draw.ellipse((0, 0) + (image_size - 0, image_size - 0), fill=255)
-        background_image = apply_mask(background_image, background_mask)
+        background_image = core.apply_mask(background_image, background_mask)
     # scale the background
     background_image = scale_image(background_image, rule.background_scale)
     # put the image on top of the background
