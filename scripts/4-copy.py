@@ -16,42 +16,44 @@ import re
 from PIL import Image
 from dotenv import dotenv_values
 
-from core import warn, log
+import core
+from core import warn, log, error
 
 DOTENV = dotenv_values(os.path.join(os.path.dirname(__file__), ".env"))
 API_BASE_URL = DOTENV["API_BASE_URL"]
 API_SCHEMA_BASE_URL = f"{API_BASE_URL}/schemas"
 
 ROOT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)))
+SRC_DIR = os.path.join(ROOT_DIR, "src")
 VENDOR_ICONS_DIR = os.path.join(ROOT_DIR, "vendor", "icons", "dist")
 OUT_PUBLIC_DIR = os.path.join(ROOT_DIR, "out", "public")
 OUT_STATIC_DIR = os.path.join(OUT_PUBLIC_DIR, "static")
 OUT_SCHEMAS_DIR = os.path.join(OUT_PUBLIC_DIR, "schemas")
-STATIC_IMAGES_RESIZE = 128
-STATIC_IMAGES = {
-    "music-presence.png": os.path.join(VENDOR_ICONS_DIR, "logo-app-full.png"),
-    "discord-status-playing.png": os.path.join(
-        VENDOR_ICONS_DIR, "symbol-status-playing.png"
-    ),
-    "discord-status-paused.png": os.path.join(
-        VENDOR_ICONS_DIR, "symbol-status-paused.png"
-    ),
-}
-SRC_SCHEMAS_DIR = os.path.join(ROOT_DIR, "src", "schemas")
+SRC_SCHEMAS_DIR = os.path.join(SRC_DIR, "schemas")
 
 
 def copy_static():
     pathlib.Path(OUT_STATIC_DIR).mkdir(parents=True, exist_ok=True)
-    for result_name, source_file in STATIC_IMAGES.items():
-        image = Image.open(source_file)
-        if image.size[0] != image.size[1]:
-            warn(f"Static image is not a square: {source_file}")
-        image.thumbnail(
-            (STATIC_IMAGES_RESIZE, STATIC_IMAGES_RESIZE), Image.Resampling.LANCZOS
-        )
-        out_path = os.path.join(OUT_STATIC_DIR, result_name)
-        image.save(out_path)
-        log(result_name)
+    static_files = core.read_yaml(os.path.join(SRC_DIR, "static.yaml"))
+    for file in static_files:
+        result_name = file["name"]
+        abs_source_path = pathlib.Path(file["from"])
+        source_path = os.path.join(ROOT_DIR, abs_source_path.relative_to("/"))
+        if not os.path.exists(source_path):
+            error(f"source path does not exist: {source_path}")
+        if not "sizes" in file:
+            error("missing sizes attribute")
+        for size in file["sizes"]:
+            image = Image.open(source_path)
+            if image.size[0] != image.size[1]:
+                warn(f"Static image is not a square: {source_path}")
+            image.thumbnail((size, size), Image.Resampling.LANCZOS)
+            out_path = pathlib.Path(os.path.join(OUT_STATIC_DIR, result_name))
+            size_out_path = os.path.join(
+                out_path.parent, out_path.stem + "." + str(size) + out_path.suffix
+            )
+            image.save(size_out_path)
+            log(pathlib.Path(size_out_path).name)
 
 
 def copy_and_fix_schemas():

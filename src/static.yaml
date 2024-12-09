@@ -1,0 +1,14 @@
+# static files
+
+- name: music-presence.png
+  from: /vendor/icons/dist/logo-app-full.png
+  sizes: [128]
+- name: playing.png
+  from: /vendor/icons/dist/symbol-status-playing.png
+  sizes: [128]
+- name: paused.png
+  from: /vendor/icons/dist/symbol-status-paused.png
+  sizes: [128]
+- name: cd.png
+  from: /src/static/cd.png
+  sizes: [128]
