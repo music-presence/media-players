@@ -9,6 +9,9 @@
 - name: paused.png
   from: /vendor/icons/dist/symbol-status-paused.png
   sizes: [128]
+- name: music-note.png
+  from: /vendor/icons/dist/symbol-status-music-note.png
+  sizes: [128]
 - name: cd.png
   from: /src/static/cd.png
   sizes: [128]
