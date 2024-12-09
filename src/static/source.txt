@@ -1,0 +1,3 @@
+cd.png:
+https://commons.wikimedia.org/wiki/File:Blank_CD_icon.png
+https://upload.wikimedia.org/wikipedia/commons/f/fd/Blank_CD_icon.png
