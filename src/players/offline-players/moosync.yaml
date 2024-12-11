@@ -6,6 +6,8 @@ url: https://moosync.app
 sources:
   win_winrt:
     - Moosync.exe
+  mac_mediaremote:
+    - app.moosync.Moosync
 attributes:
   pure: true
   service: false
