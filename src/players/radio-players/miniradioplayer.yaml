@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: miniradioplayer
+name: Mini Radio Player
+url: https://www.miniradioplayer.net
+sources:
+  win_winrt:
+    - 28287mfYSoftware.MiniRadioPlayer_wvfna79ywx00a!App
+    - 28287mfYSoftware.MiniRadioPlayer_wvfna79ywx00a!APP
+attributes:
+  pure: false
+  service: false
+content:
+  - audio
+  - audio_radio
+  - audio_music
+extra:
+  discord_application_id: "1285510241810911232"
