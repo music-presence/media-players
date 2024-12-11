@@ -32,6 +32,7 @@ class PlayerCategory(enum.Enum):
     MusicStreaming = "music-streaming"
     OfflinePlayers = "offline-players"
     PodcastServices = "podcast-services"
+    RadioPlayers = "radio-players"
     ThirdPartyClients = "third-party-clients"
     VideoSharing = "video-sharing"
 
@@ -40,6 +41,7 @@ class ContentType(enum.Enum):
     Audio = "audio"
     AudioMusic = "audio_music"
     AudioPodcast = "audio_podcast"
+    AudioRadio = "audio_radio"
     Video = "video"
 
 
@@ -106,19 +108,44 @@ def validate_target_schema(target: ValidationTarget, schema: any):
         error(f"Schema validation error:\n\nFile {target.path}:\n\n{e}")
 
 
+def category_error(target: ValidationTarget, e: str):
+    error(f'Category "{target.category_from_directory}": {e}')
+
+
+def require_content_types(
+    target: ValidationTarget, content_types: list[ContentType], strict: bool
+):
+    player = target.id_from_filename
+    for content_type in content_types:
+        if content_type.value not in target.content["content"]:
+            category_error(
+                target,
+                f'The "content" attribute for "{player}" must contain '
+                f'"{content_type.value}"',
+            )
+    if strict and len(target.content["content"]) > len(content_types):
+        category_error(
+            target,
+            f'The "content" attribute for "{player}" may only contain '
+            + ", ".join(content_type.value for content_type in content_types),
+        )
+
+
 def validate_target_category_invariants(target: ValidationTarget):
     player = target.id_from_filename
     category = target.category_from_directory
-    category_error = lambda e: error(f'Category "{category}": {e}')
+    category_error = lambda e: category_error(target, e)
     if category == PlayerCategory.MultimediaPlayers.value:
         if target.content["attributes"]["service"] != False:
             category_error(f'The "service" attribute for "{player}" must be false')
         if target.content["attributes"]["pure"] != False:
+            # Multimedia players can also play personal home videos e.g.
             category_error(f'The "pure" attribute for "{player}" must be false')
     elif category == PlayerCategory.MusicStreaming.value:
         if target.content["attributes"]["service"] != True:
             category_error(f'The "service" attribute for "{player}" must be true')
         if target.content["attributes"]["pure"] != True:
+            # Streaming services usually only stream music and nothing else
             category_error(f'The "pure" attribute for "{player}" must be true')
     elif category == PlayerCategory.OfflinePlayers.value:
         if target.content["attributes"]["service"] != False:
@@ -126,21 +153,18 @@ def validate_target_category_invariants(target: ValidationTarget):
     elif category == PlayerCategory.PodcastServices.value:
         if target.content["attributes"]["service"] != True:
             category_error(f'The "service" attribute for "{player}" must be true')
-        if ContentType.AudioPodcast.value not in target.content["content"]:
-            category_error(
-                f'The "content" attribute for "{player}" must contain '
-                f'"{ContentType.AudioPodcast.value}"'
-            )
-        if (
-            ContentType.Audio.value not in target.content["content"]
-            or ContentType.AudioPodcast.value not in target.content["content"]
-            or len(target.content["content"]) > 2
-        ):
-            category_error(
-                f'The "content" attribute for "{player}" may only contain '
-                f'"{ContentType.Audio.value}" and '
-                f'"{ContentType.AudioPodcast.value}"'
-            )
+        require_content_types(
+            target, [ContentType.Audio, ContentType.AudioPodcast], True
+        )
+    elif category == PlayerCategory.RadioPlayers.value:
+        if target.content["attributes"]["pure"] != False:
+            # Radio names can contain someone's home town or area of residence
+            category_error(f'The "pure" attribute for "{player}" must be false')
+        if target.content["attributes"]["service"] != False:
+            category_error(f'The "service" attribute for "{player}" must be false')
+        require_content_types(
+            target, [ContentType.Audio, ContentType.AudioRadio], False
+        )
     elif category == PlayerCategory.ThirdPartyClients.value:
         if target.content["attributes"]["service"] != False:
             category_error(f'The "service" attribute for "{player}" must be false')

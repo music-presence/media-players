@@ -117,6 +117,7 @@
           "audio",
           "audio_music",
           "audio_podcast",
+          "audio_radio",
           "video"
         ]
       },
