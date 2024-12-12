@@ -447,9 +447,10 @@ if __name__ == "__main__":
             for result in results:
                 path = str(
                     pathlib.PurePosixPath(
-                        pathlib.Path(result.image_path).relative_to(OUT_DIR)
+                        pathlib.Path(result.image_path).relative_to(OUT_ICONS_DIR)
                     )
                 )
+                assert path == f"{player}/{pathlib.Path(result.image_path).name}"
                 o = {
                     "label": result.label,
                     "type": result.image_type.value.lower(),
