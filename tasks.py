@@ -46,7 +46,16 @@ def clear_directory(path: str):
 
 
 @task
-def build(c: Context):
+def build_player_icons(c: Context, player: str):
+    print(f'Building player "{player}"')
+    if os.path.exists(OUTPUT_DIR):
+        clear_directory(OUTPUT_DIR)
+    script = os.path.join(SCRIPTS_DIR, "2-icons.py")
+    c.run(f'python -u "{script}" "{player}"')
+
+
+@task
+def build(c: Context, player: Optional[str] = None):
     print("Building players")
     if os.path.exists(OUTPUT_DIR):
         print("Removing existing output directory", file=sys.stderr)
@@ -55,7 +64,10 @@ def build(c: Context):
     for i, script in enumerate(scripts):
         print_path = pathlib.PurePosixPath(script.relative_to(CWD))
         print(f"[{i+1}/{len(scripts)}] Running {print_path}", file=sys.stderr)
-        c.run(f'python -u "{script}"')
+        if player is not None:
+            c.run(f'python -u "{script}" "{player}"')
+        else:
+            c.run(f'python -u "{script}"')
     print("Build complete", file=sys.stderr)
     print("", file=sys.stderr)
 
