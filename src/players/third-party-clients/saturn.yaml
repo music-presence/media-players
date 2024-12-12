@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: saturn
+name: Saturn
+url: https://saturn.kim
+represents:
+  - deezer
+sources:
+  win_winrt:
+    - dev.arachnid.saturn
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+  - audio_podcast
+extra:
+  discord_application_id: "1316704754935660544"
