@@ -44,6 +44,7 @@ GEN_BASE_URL_ICONS = f"{DOTENV["API_BASE_URL"]}/icons"
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 OUT_DIR = os.path.join(ROOT_DIR, "out")
 OUT_ICONS_DIR = os.path.join(OUT_DIR, "public", "icons")
+OUT_EXCLUDED_ICONS_DIR = os.path.join(OUT_DIR, "excluded-icons")
 OUT_JSON_FILE = os.path.join(OUT_DIR, "icons.json")
 IN_PLAYERS_DIR = os.path.join(ROOT_DIR, "src", "players")
 IN_ICONS_DIR = os.path.join(ROOT_DIR, "src", "icons")
@@ -153,6 +154,8 @@ class GenerationRule(GenerationRecipe):
     label: Optional[str] = None
     # image to use for generation
     from_image: Optional[str] = None
+    # whether to exclude this from the output
+    exclude: bool = False
 
     def __hash__(self):
         return super().__hash__()
@@ -169,6 +172,7 @@ class GenerationRule(GenerationRecipe):
         output_size = self.output_size
         from_image = self.from_image
         label = self.label
+        exclude = self.exclude
         if "image_type" in values:
             image_type = ImageType(values["image_type"])
         if "image_mask" in values:
@@ -189,6 +193,8 @@ class GenerationRule(GenerationRecipe):
             from_image = values["from_image"]
         if "label" in values:
             label = values["label"]
+        if "exclude" in values:
+            exclude = values["exclude"]
         return GenerationRule(
             image_type=image_type,
             image_mask=image_mask,
@@ -200,6 +206,7 @@ class GenerationRule(GenerationRecipe):
             output_size=output_size,
             label=label,
             from_image=from_image,
+            exclude=exclude,
         )
 
 
@@ -282,14 +289,11 @@ def generate_icons(
     if len(rules) == 0:
         error(f'Generation rules for player "{player}" are empty')
     out_dir = os.path.join(OUT_ICONS_DIR, player)
-    if os.path.exists(out_dir):
-        shutil.rmtree(out_dir)
     results = []
     labels: dict[str, int] = defaultdict(int)
     for rule in rules:
         labels[rule.label] += 1
     for i, rule in enumerate(rules):
-        out_prefix = rule.label
         image_path = None
         if rule.from_image is not None:
             image_path = os.path.join(image_root, rule.from_image)
@@ -303,19 +307,27 @@ def generate_icons(
         if base_image is None:
             warn(f"No image for rule {i} ({rule.label}) for player {player}")
             return []
+        rule_out_dir = out_dir
+        out_prefix = rule.label
+        if rule.exclude:
+            rule_out_dir = os.path.join(OUT_EXCLUDED_ICONS_DIR, rule.label)
+            out_prefix = player
         image_path = generate_icon(
             rule=rule,
             image_path=image_path,
-            out_directory=out_dir,
+            out_directory=rule_out_dir,
             out_prefix=out_prefix,
         )
-        results.append(
-            IconResult(
-                label=rule.label,
-                image_type=rule.image_type,
-                image_path=image_path,
+        if not rule.exclude:
+            results.append(
+                IconResult(
+                    label=rule.label,
+                    image_type=rule.image_type,
+                    image_path=image_path,
+                )
             )
-        )
+    # Export the Discord application logo variant of the image so that there
+    # is a logo that can be uploaded to the Discord Developer portal
     return results
 
 
@@ -409,6 +421,11 @@ def md5hash(filename: str):
 
 
 if __name__ == "__main__":
+    # TODO fully clear the build directory in tasks.py
+    if os.path.exists(OUT_ICONS_DIR):
+        shutil.rmtree(OUT_ICONS_DIR)
+    if os.path.exists(OUT_EXCLUDED_ICONS_DIR):
+        shutil.rmtree(OUT_EXCLUDED_ICONS_DIR)
     output_json = True
     if len(sys.argv) > 1:
         players = sys.argv[1:]
@@ -435,10 +452,9 @@ if __name__ == "__main__":
             for result in results:
                 path = str(
                     pathlib.PurePosixPath(
-                        pathlib.Path(result.image_path).relative_to(OUT_ICONS_DIR)
+                        pathlib.Path(result.image_path).relative_to(OUT_DIR)
                     )
                 )
-                assert path == f"{player}/{pathlib.Path(result.image_path).name}"
                 o = {
                     "label": result.label,
                     "type": result.image_type.value.lower(),

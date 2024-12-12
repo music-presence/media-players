@@ -18,3 +18,12 @@ rules:
     output_shape: circle
     background: black
     border_scale: 0.68
+  - # The Discord application logo to upload to the Discord Developer portal.
+    # This shouldn't be included in the generated players.json file.
+    exclude: true
+    label: discord-application-logo
+    image_type: PNG
+    output_shape: circle
+    background: black
+    border_scale: 0.68
+    output_size: 512

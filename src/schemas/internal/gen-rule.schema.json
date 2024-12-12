@@ -43,6 +43,10 @@
     "output_size": {
       "type": "integer",
       "minimum": 1
+    },
+    "exclude": {
+      "$comment": "Whether to exclude this from deployment",
+      "type": "boolean"
     }
   },
   "definitions": {
