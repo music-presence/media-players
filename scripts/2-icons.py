@@ -421,11 +421,6 @@ def md5hash(filename: str):
 
 
 if __name__ == "__main__":
-    # TODO fully clear the build directory in tasks.py
-    if os.path.exists(OUT_ICONS_DIR):
-        shutil.rmtree(OUT_ICONS_DIR)
-    if os.path.exists(OUT_EXCLUDED_ICONS_DIR):
-        shutil.rmtree(OUT_EXCLUDED_ICONS_DIR)
     output_json = True
     if len(sys.argv) > 1:
         players = sys.argv[1:]
