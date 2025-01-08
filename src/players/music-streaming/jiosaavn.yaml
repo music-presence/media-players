@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: jiosaavn
+name: JioSaavn
+url: https://www.jiosaavn.com
+sources:
+  win_winrt:
+    - Saavn.SaavnMusicRadio_ax02tpqam95xr!App
+    - Saavn.SaavnMusicRadio_ax02tpqam95xr!APP
+  web_domain:
+    - jiosaavn.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1326551142670270585"
