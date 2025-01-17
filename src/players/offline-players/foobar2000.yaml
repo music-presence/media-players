@@ -10,6 +10,10 @@ sources:
     - Resolute.foobar2000_cg7j1awqsza28!foobar2000
   mac_mediaremote:
     - com.foobar2000.mac
+  lin_mpris:
+    # FIXME This identifier might be used to identify other players too:
+    # https://github.com/hyperblast/beefweb
+    - beefweb
 attributes:
   pure: true
   service: false
