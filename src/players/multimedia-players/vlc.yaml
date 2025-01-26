@@ -8,6 +8,8 @@ sources:
     - vlc.exe
     - VideoLAN.VLC_paz6r1rewnh0a!App
     - VideoLAN.VLC_paz6r1rewnh0a!APP
+  mac_mediaremote:
+    - org.videolan.vlc
   lin_mpris:
     - vlc
 attributes:
