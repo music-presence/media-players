@@ -7,6 +7,8 @@ sources:
   win_winrt:
     - com.squirrel.pocket_casts_desktop.PocketCasts
     - Pocket Casts.exe
+  mac_mediaremote:
+    - com.electron.pocket-casts
   web_domain:
     - play.pocketcasts.com
 attributes:
