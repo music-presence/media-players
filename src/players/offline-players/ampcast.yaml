@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: ampcast
+name: ampcast
+url: https://github.com/rekkyrosso/ampcast
+sources:
+  win_winrt:
+    - ampcast.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1344990632602632293"

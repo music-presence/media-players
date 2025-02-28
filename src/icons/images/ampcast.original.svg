@@ -1,0 +1,4 @@
+<svg class="icon icon-ampcast app-icon" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8" stroke-width="4" stroke="orange" fill="black"></circle>
+    <circle cx="12" cy="12" r="2" stroke="none" fill="white"></circle>
+</svg>
