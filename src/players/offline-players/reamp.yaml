@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: reamp
+name: re:AMP
+url: https://re-amp.ru
+sources:
+  mac_mediaremote:
+    - ru.alexfreud.ReAmp
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1346993802841296976"
