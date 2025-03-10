@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: potplayer
+name: PotPlayer
+url: https://potplayer.daum.net
+sources:
+  win_winrt:
+    - PotPlayerMini.exe
+    - PotPlayerMini64.exe
+    - PotPlayer.exe
+    - PotPlayer64.exe
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1348735599317881004"
