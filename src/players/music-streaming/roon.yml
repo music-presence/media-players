@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: roon
+name: Roon
+url: https://roon.app
+sources:
+  win_winrt:
+    - Roon
+  mac_mediaremote:
+    - com.roon.Roon
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1350205710050398301"
