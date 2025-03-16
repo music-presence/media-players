@@ -10,7 +10,7 @@ sources:
     - com.roon.Roon
 attributes:
   pure: true
-  service: true
+  service: false
 content:
   - audio
   - audio_music
