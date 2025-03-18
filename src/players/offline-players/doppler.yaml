@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: doppler
+name: Doppler
+url: https://brushedtype.co/doppler
+sources:
+  mac_mediaremote:
+    - co.brushedtype.doppler-macos
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1351464539472007169"
