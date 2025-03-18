@@ -4,6 +4,8 @@ id: tauon
 name: Tauon
 url: https://tauonmusicbox.rocks
 sources:
+  win_winrt:
+    - Tauon.exe
   lin_mpris:
     - tauon
 attributes:
