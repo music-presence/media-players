@@ -1,6 +1,6 @@
 /archive
-/.venv
-/venv
+/.venv*
+/venv*
 todo.txt
 notes.txt
 __pycache__
