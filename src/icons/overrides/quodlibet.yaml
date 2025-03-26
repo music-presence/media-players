@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_scale: 1.1
