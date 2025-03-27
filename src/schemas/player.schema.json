@@ -79,8 +79,40 @@
       "uniqueItems": true,
       "minItems": 1,
       "items": {
-        "$ref": "#/definitions/sourceIdentifier"
+        "$ref": "#/definitions/sourceIdentifierMatcher"
       }
+    },
+    "sourceIdentifierMatcher": {
+      "oneOf": [
+        {
+          "$comment": "Matches a source identifier exactly",
+          "$ref": "#/definitions/sourceIdentifier"
+        },
+        {
+          "$comment": "Matches a source identifier exactly",
+          "type": "object",
+          "required": [
+            "match"
+          ],
+          "properties": {
+            "match": {
+              "$ref": "#/definitions/sourceIdentifier"
+            }
+          }
+        },
+        {
+          "$comment": "Matches only the prefix of a source identifier",
+          "type": "object",
+          "required": [
+            "prefix"
+          ],
+          "properties": {
+            "prefix": {
+              "$ref": "#/definitions/sourceIdentifier"
+            }
+          }
+        }
+      ]
     },
     "sourceIdentifier": {
       "$comment": "An identifier for a media source, e.g. an application package identifier",
