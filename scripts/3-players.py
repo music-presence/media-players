@@ -9,7 +9,7 @@
 #
 #
 
-VERSION = 3
+VERSION = 4
 
 import os
 import json
