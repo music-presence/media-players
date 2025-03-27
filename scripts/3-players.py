@@ -39,8 +39,7 @@ OUT_PLAYERS_BASENAME = "players"
 OUT_PLAYERS_MIN_SUFFIX = "min"
 OUT_PLAYERS_EXTENSION = "json"
 SCHEMA_PATH = os.path.join(SRC_DIR, "schemas")
-PLAYERS_SCHEMA = core.read_json(
-    os.path.join(SCHEMA_PATH, "players.schema.json"))
+PLAYERS_SCHEMA = core.read_json(os.path.join(SCHEMA_PATH, "players.schema.json"))
 
 
 class Subset:
@@ -97,8 +96,8 @@ def get_output_file(subset: Optional[Subset] = None, minified=False):
 # these are more descriptive synonyms that will be used in the next version,
 # but they have to be replaced with their original values until that happens.
 PLATFORM_IDENTIFIER_FIX_MAP = {
-    'win_smtc': 'win_winrt',
-    'mac_bundle': 'mac_mediaremote',
+    "win_smtc": "win_winrt",
+    "mac_bundle": "mac_mediaremote",
 }
 
 
