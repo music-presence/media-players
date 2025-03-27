@@ -16,7 +16,7 @@
     "version": {
       "$comment": "The version of this JSON schema",
       "type": "integer",
-      "const": 3
+      "const": 4
     },
     "latest": {
       "$comment": "Whether this is the latest version of the schema and it is kept up-to-date",
