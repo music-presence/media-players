@@ -33,7 +33,7 @@ def read_json(filename):
 
 
 def read_yaml(filename):
-    with open(filename) as file:
+    with open(filename, "rt", encoding="utf-8") as file:
         try:
             return yaml.safe_load(file)
         except yaml.YAMLError as e:
