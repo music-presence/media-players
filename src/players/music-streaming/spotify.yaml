@@ -11,6 +11,7 @@ sources:
     - com.spotify.client
   lin_mpris:
     - spotify
+    - spotify_player
   web_domain:
     - open.spotify.com
 attributes:
