@@ -89,30 +89,54 @@
           "$ref": "#/definitions/sourceIdentifier"
         },
         {
-          "$comment": "Matches a source identifier exactly",
-          "type": "object",
-          "required": [
-            "match"
-          ],
-          "properties": {
-            "match": {
-              "$ref": "#/definitions/sourceIdentifier"
+          "allOf": [
+            {
+              "$comment": "Matches a source identifier exactly",
+              "type": "object",
+              "required": [
+                "match"
+              ],
+              "properties": {
+                "match": {
+                  "$ref": "#/definitions/sourceIdentifier"
+                }
+              }
+            },
+            {
+              "$ref": "#/definitions/sourceIdentifierMatcherOptions"
             }
-          }
+          ]
         },
         {
-          "$comment": "Matches only the prefix of a source identifier",
-          "type": "object",
-          "required": [
-            "prefix"
-          ],
-          "properties": {
-            "prefix": {
-              "$ref": "#/definitions/sourceIdentifier"
+          "allOf": [
+            {
+              "$comment": "Matches only the prefix of a source identifier",
+              "type": "object",
+              "required": [
+                "prefix"
+              ],
+              "properties": {
+                "prefix": {
+                  "$ref": "#/definitions/sourceIdentifier"
+                }
+              }
+            },
+            {
+              "$ref": "#/definitions/sourceIdentifierMatcherOptions"
             }
-          }
+          ]
         }
       ]
+    },
+    "sourceIdentifierMatcherOptions": {
+      "$comment": "Options for a source identifier matcher",
+      "type": "object",
+      "properties": {
+        "case_insensitive": {
+          "$comment": "Whether to match case-insensitive",
+          "type": "boolean"
+        }
+      }
     },
     "sourceIdentifier": {
       "$comment": "An identifier for a media source, e.g. an application package identifier",
