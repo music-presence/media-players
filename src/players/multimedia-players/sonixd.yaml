@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: sonixd
+name: Sonixd
+url: https://github.com/jeffvli/sonixd
+sources:
+  win_winrt:
+    - Sonixd.exe
+attributes:
+  pure: false
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1355256469624193296"
