@@ -62,7 +62,13 @@
         "win_winrt": {
           "$ref": "#/definitions/sourceList"
         },
+        "win_smtc": {
+          "$ref": "#/definitions/sourceList"
+        },
         "mac_mediaremote": {
+          "$ref": "#/definitions/sourceList"
+        },
+        "mac_bundle": {
           "$ref": "#/definitions/sourceList"
         },
         "lin_mpris": {

@@ -9,9 +9,12 @@
 #
 #
 
+# TODO: remove win_winrt and mac_mediaremote from all player definitions
+# TODO: remove fix_platform_identifiers below
 VERSION = 3
 
 import os
+import sys
 import json
 import jsonschema
 import pathlib
@@ -39,7 +42,8 @@ OUT_PLAYERS_BASENAME = "players"
 OUT_PLAYERS_MIN_SUFFIX = "min"
 OUT_PLAYERS_EXTENSION = "json"
 SCHEMA_PATH = os.path.join(SRC_DIR, "schemas")
-PLAYERS_SCHEMA = core.read_json(os.path.join(SCHEMA_PATH, "players.schema.json"))
+PLAYERS_SCHEMA = core.read_json(
+    os.path.join(SCHEMA_PATH, "players.schema.json"))
 
 
 class Subset:
@@ -93,6 +97,21 @@ def get_output_file(subset: Optional[Subset] = None, minified=False):
     return os.path.join(OUT_PLAYERS_DIRECTORY, filename)
 
 
+# these are more descriptive synonyms that will be used in the next version,
+# but they have to be replaced with their original values until that happens.
+PLATFORM_IDENTIFIER_FIX_MAP = {
+    'win_smtc': 'win_winrt',
+    'mac_bundle': 'mac_mediaremote',
+}
+
+
+def fix_platform_identifiers(sources: dict[str, any]):
+    for current, wanted in PLATFORM_IDENTIFIER_FIX_MAP.items():
+        if current in sources:
+            sources[wanted] = sources[current]
+            del sources[current]
+
+
 def generate(root: str, subset: Optional[Subset] = None):
     output_filename = get_output_file(subset, False)
     log(f"Compiling {pathlib.Path(output_filename).name}")
@@ -121,6 +140,7 @@ def generate(root: str, subset: Optional[Subset] = None):
                 continue  # nothing to include, skip
             for source_name in source_names - to_include:
                 del content["sources"][source_name]
+        fix_platform_identifiers(content["sources"])
         result["players"].append(content)
         total += 1
         if player not in icons:
