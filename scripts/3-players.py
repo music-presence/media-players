@@ -9,11 +9,6 @@
 #
 #
 
-# TODO remove win_winrt and mac_mediaremote from all player definitions
-# TODO remove fix_platform_identifiers below
-# TODO move "discord_application_id" into a general "discord" object
-VERSION = 3
-
 import os
 import sys
 import json
@@ -25,6 +20,7 @@ import warnings
 
 import core
 from core import log, warn, error
+from _version import VERSION
 
 # ignore jsonschema warnings for now
 warnings.filterwarnings("ignore", category=DeprecationWarning)
