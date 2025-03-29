@@ -4,11 +4,11 @@ id: deezer
 name: Deezer
 url: https://deezer.com
 sources:
-  win_winrt:
+  win_smtc:
     - Deezer.exe
     - com.deezer.deezer-desktop
     - Deezer.62021768415AF_q7m17pa7q8kj0!Deezer.Music
-  mac_mediaremote:
+  mac_bundle:
     - com.deezer.deezer-desktop
   web_domain:
     - deezer.com

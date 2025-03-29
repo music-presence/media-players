@@ -4,7 +4,7 @@ id: potplayer
 name: PotPlayer
 url: https://potplayer.daum.net
 sources:
-  win_winrt:
+  win_smtc:
     - PotPlayerMini.exe
     - PotPlayerMini64.exe
     - PotPlayer.exe

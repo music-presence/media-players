@@ -6,9 +6,9 @@ url: https://cider.sh
 represents:
   - apple-music
 sources:
-  mac_mediaremote:
+  mac_bundle:
     - sh.cider.electron
-  win_winrt:
+  win_smtc:
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!App
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!APP
   lin_mpris:

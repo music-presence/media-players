@@ -4,7 +4,7 @@ id: podurama
 name: Podurama
 url: https://podurama.com
 sources:
-  win_winrt:
+  win_smtc:
     - Podurama.exe
     - 19255Podurama.PoduramaPodcastPlayer_mzk0fqtz9gcs8!App
     - 19255Podurama.PoduramaPodcastPlayer_mzk0fqtz9gcs8!APP

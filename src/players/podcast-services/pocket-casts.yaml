@@ -4,10 +4,10 @@ id: pocket-casts
 name: Pocket Casts
 url: https://pocketcasts.com
 sources:
-  win_winrt:
+  win_smtc:
     - com.squirrel.pocket_casts_desktop.PocketCasts
     - Pocket Casts.exe
-  mac_mediaremote:
+  mac_bundle:
     - com.electron.pocket-casts
   web_domain:
     - play.pocketcasts.com

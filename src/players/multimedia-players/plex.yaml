@@ -4,7 +4,7 @@ id: plex
 name: Plex
 url: https://plex.tv
 sources:
-  mac_mediaremote:
+  mac_bundle:
     - tv.plex.desktop
   web_domain:
     - app.plex.tv

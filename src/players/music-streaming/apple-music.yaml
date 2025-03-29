@@ -4,9 +4,9 @@ id: apple-music
 name: Apple Music
 url: https://music.apple.com
 sources:
-  mac_mediaremote:
+  mac_bundle:
     - com.apple.Music
-  win_winrt:
+  win_smtc:
     - AppleMusic.exe
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP

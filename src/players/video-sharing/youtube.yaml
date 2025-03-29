@@ -4,7 +4,7 @@ id: youtube
 name: YouTube
 url: https://youtube.com
 sources:
-  win_winrt:
+  win_smtc:
     - YouTube.exe
   web_domain:
     - youtube.com

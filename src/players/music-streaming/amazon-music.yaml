@@ -4,11 +4,11 @@ id: amazon-music
 name: Amazon Music
 url: https://music.amazon.com
 sources:
-  win_winrt:
+  win_smtc:
     - Amazon Music.exe
     - AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AmazonMobileLLC.AmazonMusic
     - Amazon.Music
-  mac_mediaremote:
+  mac_bundle:
     - com.amazon.music
   web_domain:
     - music.amazon.ae

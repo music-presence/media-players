@@ -4,7 +4,7 @@ id: jellyfin
 name: Jellyfin
 url: https://jellyfin.org
 sources:
-  win_winrt:
+  win_smtc:
     - JellyfinMediaPlayer.exe
 attributes:
   pure: false

@@ -4,10 +4,10 @@ id: dopamine
 name: Dopamine
 url: https://github.com/digimezzo/dopamine
 sources:
-  win_winrt:
+  win_smtc:
     - com.digimezzo.dopamine
     - Dopamine.exe
-  mac_mediaremote:
+  mac_bundle:
     - com.digimezzo.dopamine
 attributes:
   pure: true

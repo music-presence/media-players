@@ -4,7 +4,7 @@ id: melon
 name: Melon
 url: https://www.melon.com
 sources:
-  win_winrt:
+  win_smtc:
     - com.kakaoent.melon.player
 attributes:
   pure: true

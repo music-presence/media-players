@@ -4,7 +4,7 @@ id: itunes
 name: iTunes
 url: https://www.apple.com/itunes
 sources:
-  win_winrt:
+  win_smtc:
     - iTunes.exe
     - iTunes.SMTC.exe
     - 49586DaveAntoine.MediaControllerforiTunes_9bzempp7dntjg!App

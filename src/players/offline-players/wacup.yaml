@@ -4,7 +4,7 @@ id: wacup
 name: WACUP
 url: https://getwacup.com
 sources:
-  win_winrt:
+  win_smtc:
     - wacup.exe
 attributes:
   pure: true

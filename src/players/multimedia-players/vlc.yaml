@@ -4,11 +4,11 @@ id: vlc
 name: VLC
 url: https://www.videolan.org/vlc
 sources:
-  win_winrt:
+  win_smtc:
     - vlc.exe
     - VideoLAN.VLC_paz6r1rewnh0a!App
     - VideoLAN.VLC_paz6r1rewnh0a!APP
-  mac_mediaremote:
+  mac_bundle:
     - org.videolan.vlc
   lin_mpris:
     - vlc

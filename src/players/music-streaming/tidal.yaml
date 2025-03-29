@@ -4,11 +4,11 @@ id: tidal
 name: TIDAL
 url: https://tidal.com
 sources:
-  win_winrt:
+  win_smtc:
     - TIDAL.exe
     - com.squirrel.TIDAL.TIDAL
     - WiMPMusic.27241E05630EA_kn85bz84x7te4!TIDAL
-  mac_mediaremote:
+  mac_bundle:
     - com.tidal.desktop
   lin_mpris:
     - tidal-hifi

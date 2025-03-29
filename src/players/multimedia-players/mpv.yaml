@@ -4,9 +4,9 @@ id: mpv
 name: mpv
 url: https://mpv.io
 sources:
-  win_winrt:
+  win_smtc:
     - mpv.exe
-  mac_mediaremote:
+  mac_bundle:
     - io.mpv
 attributes:
   pure: false

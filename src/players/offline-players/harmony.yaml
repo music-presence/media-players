@@ -4,7 +4,7 @@ id: harmony
 name: Harmony
 url: https://github.com/anandnet/Harmony-Music
 sources:
-  win_winrt:
+  win_smtc:
     - harmonymusic.exe
 attributes:
   pure: true

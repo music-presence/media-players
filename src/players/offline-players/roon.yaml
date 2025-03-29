@@ -4,9 +4,9 @@ id: roon
 name: Roon
 url: https://roon.app
 sources:
-  win_winrt:
+  win_smtc:
     - Roon
-  mac_mediaremote:
+  mac_bundle:
     - com.roon.Roon
 attributes:
   pure: true

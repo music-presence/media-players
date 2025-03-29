@@ -4,7 +4,7 @@ id: apple-podcasts
 name: Apple Podcasts
 url: https://podcasts.apple.com
 sources:
-  mac_mediaremote:
+  mac_bundle:
     - com.apple.podcasts
   web_domain:
     - podcasts.apple.com

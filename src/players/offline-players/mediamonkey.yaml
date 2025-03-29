@@ -4,7 +4,7 @@ id: mediamonkey
 name: MediaMonkey
 url: https://www.mediamonkey.com
 sources:
-  win_winrt:
+  win_smtc:
     - MediaMonkey.exe
 attributes:
   pure: true

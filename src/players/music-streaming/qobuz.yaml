@@ -4,7 +4,7 @@ id: qobuz
 name: Qobuz
 url: https://qobuz.com
 sources:
-  win_winrt:
+  win_smtc:
     - Qobuz.exe
     - com.squirrel.Qobuz.Qobuz
   web_domain:

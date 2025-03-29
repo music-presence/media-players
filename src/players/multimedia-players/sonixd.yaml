@@ -4,7 +4,7 @@ id: sonixd
 name: Sonixd
 url: https://github.com/jeffvli/sonixd
 sources:
-  win_winrt:
+  win_smtc:
     - Sonixd.exe
 attributes:
   pure: false

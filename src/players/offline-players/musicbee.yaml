@@ -4,7 +4,7 @@ id: musicbee
 name: MusicBee
 url: https://www.getmusicbee.com
 sources:
-  win_winrt:
+  win_smtc:
     - MusicBee.exe
     - 50072StevenMayall.MusicBee_kcr266et74avj!MusicBeePackage
 attributes:

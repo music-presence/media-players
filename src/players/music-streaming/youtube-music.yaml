@@ -6,12 +6,12 @@ url: https://music.youtube.com
 sources:
   web_domain:
     - music.youtube.com
-  win_winrt:
+  win_smtc:
     - YouTube Music.exe
     - com.github.th-ch.youtube-music
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!App
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!APP
-  mac_mediaremote:
+  mac_bundle:
     - com.github.th-ch.youtube-music
   lin_mpris:
     - YoutubeMusic

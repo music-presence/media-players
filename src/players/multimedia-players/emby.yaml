@@ -4,7 +4,7 @@ id: emby
 name: Emby
 url: https://emby.media
 sources:
-  win_winrt:
+  win_smtc:
     - EmbyMedia.EmbyTheater_svmepx4c03f7m!App
 attributes:
   pure: false

@@ -4,7 +4,7 @@ id: doppler
 name: Doppler
 url: https://brushedtype.co/doppler
 sources:
-  mac_mediaremote:
+  mac_bundle:
     - co.brushedtype.doppler-macos
 attributes:
   pure: true

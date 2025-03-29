@@ -4,7 +4,7 @@ id: soundcloud
 name: SoundCloud
 url: https://soundcloud.com
 sources:
-  win_winrt:
+  win_smtc:
     - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!App
     - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!APP
     - SoundCloud.exe

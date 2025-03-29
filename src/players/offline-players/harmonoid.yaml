@@ -4,7 +4,7 @@ id: harmonoid
 name: Harmonoid
 url: https://harmonoid.com
 sources:
-  win_winrt:
+  win_smtc:
     - harmonoid.exe
   lin_mpris:
     - harmonoid

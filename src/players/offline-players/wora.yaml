@@ -4,7 +4,7 @@ id: wora
 name: Wora
 url: https://github.com/hiaaryan/wora
 sources:
-  win_winrt:
+  win_smtc:
     - com.wora.player
 attributes:
   pure: true

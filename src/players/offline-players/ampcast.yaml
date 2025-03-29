@@ -4,7 +4,7 @@ id: ampcast
 name: ampcast
 url: https://github.com/rekkyrosso/ampcast
 sources:
-  win_winrt:
+  win_smtc:
     - ampcast.exe
 attributes:
   pure: true

@@ -4,7 +4,7 @@ id: reamp
 name: re:AMP
 url: https://re-amp.ru
 sources:
-  mac_mediaremote:
+  mac_bundle:
     - ru.alexfreud.ReAmp
 attributes:
   pure: true

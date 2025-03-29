@@ -4,9 +4,9 @@ id: moosync
 name: Moosync
 url: https://moosync.app
 sources:
-  win_winrt:
+  win_smtc:
     - Moosync.exe
-  mac_mediaremote:
+  mac_bundle:
     - app.moosync.Moosync
 attributes:
   pure: true

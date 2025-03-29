@@ -6,7 +6,7 @@ url: https://spotube.krtirtho.dev
 represents:
   - spotify
 sources:
-  win_winrt:
+  win_smtc:
     - spotube.exe
 attributes:
   pure: true

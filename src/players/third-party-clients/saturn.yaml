@@ -6,7 +6,7 @@ url: https://saturn.kim
 represents:
   - deezer
 sources:
-  win_winrt:
+  win_smtc:
     - dev.arachnid.saturn
 attributes:
   pure: true

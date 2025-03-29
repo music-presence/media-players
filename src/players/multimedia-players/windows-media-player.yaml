@@ -4,7 +4,7 @@ id: windows-media-player
 name: Windows Media Player
 url: https://en.wikipedia.org/wiki/Groove_Music
 sources:
-  win_winrt:
+  win_smtc:
     - Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
 attributes:
   pure: false

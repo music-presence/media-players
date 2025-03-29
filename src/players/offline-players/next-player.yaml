@@ -4,7 +4,7 @@ id: next-player
 name: Next-Player
 url: https://apps.microsoft.com/detail/9nblggh67n4f
 sources:
-  win_winrt:
+  win_smtc:
     - 60490polApki.Next-Player_4j2bpc236qkhp!App
     - 60490polApki.Next-Player_4j2bpc236qkhp!APP
 attributes:

@@ -4,7 +4,7 @@ id: winamp
 name: Winamp
 url: https://winamp.com
 sources:
-  win_winrt:
+  win_smtc:
     - winamp.exe
 attributes:
   pure: true
