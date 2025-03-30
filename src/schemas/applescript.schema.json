@@ -1,0 +1,162 @@
+{
+  "$comment": "Track metadata that can be obtained by accessing a given set of properties on an SBApplication instance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "track_title",
+    "playback_state"
+  ],
+  "properties": {
+    "track_title": {
+      "$comment": "Track title (NSString)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "track_artist": {
+      "$comment": "Track artist (NSString)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "album": {
+      "$comment": "Album name (NSString)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "album_artist": {
+      "$comment": "Album artist (NSString)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "artwork_image": {
+      "$comment": "Album artwork (NSImage)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "artwork_url": {
+      "$comment": "Album artwork (NSString)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "track_duration": {
+      "$comment": "Track duration (integer or floating point type)",
+      "$ref": "#/definitions/timeDuration"
+    },
+    "playback_position": {
+      "$comment": "Playback position (integer or floating point type)",
+      "$ref": "#/definitions/timeDuration"
+    },
+    "playback_state": {
+      "$comment": "Playback state (enumeration)",
+      "$ref": "#/definitions/playbackState"
+    },
+    "track_url": {
+      "$comment": "Track URL (NSString)",
+      "$ref": "#/definitions/matchReplace"
+    }
+  },
+  "definitions": {
+    "propertiesPath": {
+      "$comment": "A list of properties to access in sequence to get a value",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/propertyOrElementArrayCode"
+          },
+          {
+            "$ref": "#/definitions/elementArrayIndex"
+          }
+        ]
+      }
+    },
+    "hasPropertiesPath": {
+      "$comment": "A properties path as part of an object",
+      "required": [
+        "get"
+      ],
+      "properties": {
+        "get": {
+          "$ref": "#/definitions/propertiesPath"
+        }
+      }
+    },
+    "propertyOrElementArrayCode": {
+      "$comment": "A four-digit code that identifies a property or element array of an SBObject instance. Codes designate properties by default",
+      "type": "string",
+      "pattern": "^[a-zA-Z]{4}$"
+    },
+    "elementArrayIndex": {
+      "$comment": "An index that declares the previous path item as an element array and designates a specific element",
+      "type": "integer",
+      "minimum": 0
+    },
+    "timeDuration": {
+      "$comment": "A generic time duration with a unit",
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasPropertiesPath"
+        },
+        {
+          "required": [
+            "unit"
+          ],
+          "properties": {
+            "unit": {
+              "type": "string",
+              "enum": [
+                "ns",
+                "ms",
+                "s"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "playbackState": {
+      "$comment": "A generic time duration with a unit",
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasPropertiesPath"
+        },
+        {
+          "required": [
+            "playing",
+            "paused"
+          ],
+          "properties": {
+            "playing": {
+              "$ref": "#/definitions/propertiesPath"
+            },
+            "paused": {
+              "$ref": "#/definitions/propertiesPath"
+            }
+          }
+        }
+      ]
+    },
+    "matchReplace": {
+      "$comment": "A regex match-replace pair to modify the value visited by a properties path",
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasPropertiesPath"
+        },
+        {
+          "required": [
+            "match",
+            "replace"
+          ],
+          "properties": {
+            "match": {
+              "$comment": "The pattern to match against. Matching groups can be used in the replacement pattern",
+              "type": "string",
+              "format": "regex",
+              "minLength": 1
+            },
+            "replace": {
+              "$comment": "The replacement pattern. Must contain $1 to replace with the first match, etc.",
+              "type": "string",
+              "minLength": 1,
+              "pattern": ".*\\$1.*"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
