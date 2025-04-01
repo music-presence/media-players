@@ -7,7 +7,7 @@ album_artist: [pTrk, pAlA]
 artwork_url: [pTrk, aUrl]
 track_url:
   get: [pTrk, spur]
-  match: spotify:([a-z]):([a-zA-Z0-9]+)
+  match: ^spotify:([a-z]+):([a-zA-Z0-9]+)$
   replace: https://open.spotify.com/$1/$2
 track_duration:
   get: [pTrk, pDur]
