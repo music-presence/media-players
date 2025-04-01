@@ -6,6 +6,7 @@ url: https://en.wikipedia.org/wiki/Groove_Music
 sources:
   win_smtc:
     - Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
+    - Microsoft.ZuneMusic_8wekyb3d8bbwe!MICROSOFT.ZUNEMUSIC
 attributes:
   pure: false
   service: false

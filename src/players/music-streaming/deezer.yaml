@@ -8,6 +8,7 @@ sources:
     - Deezer.exe
     - com.deezer.deezer-desktop
     - Deezer.62021768415AF_q7m17pa7q8kj0!Deezer.Music
+    - Deezer.62021768415AF_q7m17pa7q8kj0!DEEZER.MUSIC
   mac_bundle:
     - com.deezer.deezer-desktop
   web_domain:

@@ -6,6 +6,7 @@ url: https://emby.media
 sources:
   win_smtc:
     - EmbyMedia.EmbyTheater_svmepx4c03f7m!App
+    - EmbyMedia.EmbyTheater_svmepx4c03f7m!APP
 attributes:
   pure: false
   service: false

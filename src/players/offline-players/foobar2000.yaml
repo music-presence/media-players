@@ -7,7 +7,9 @@ sources:
   win_smtc:
     - foobar2000.exe
     - Resolute.foobar2000modern_cg7j1awqsza28!foobar2000
+    - Resolute.foobar2000modern_cg7j1awqsza28!FOOBAR2000
     - Resolute.foobar2000_cg7j1awqsza28!foobar2000
+    - Resolute.foobar2000_cg7j1awqsza28!FOOBAR2000
   mac_bundle:
     - com.foobar2000.mac
   lin_mpris:

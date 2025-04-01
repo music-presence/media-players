@@ -7,6 +7,7 @@ sources:
   win_smtc:
     - Amazon Music.exe
     - AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AmazonMobileLLC.AmazonMusic
+    - AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AMAZONMOBILELLC.AMAZONMUSIC
     - Amazon.Music
   mac_bundle:
     - com.amazon.music

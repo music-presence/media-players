@@ -7,6 +7,7 @@ sources:
   win_smtc:
     - Spotify.exe
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
+    - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
   mac_bundle:
     - com.spotify.client
   lin_mpris:
