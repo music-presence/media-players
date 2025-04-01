@@ -24,7 +24,15 @@
       "$ref": "#/definitions/propertiesPath"
     },
     "artwork_image": {
-      "$comment": "Album artwork (NSImage)",
+      "$comment": "Album artwork image (NSImage)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "artwork_data": {
+      "$comment": "Album artwork raw data (NSData)",
+      "$ref": "#/definitions/propertiesPath"
+    },
+    "artwork_format": {
+      "$comment": "Album artwork raw data format (type code)",
       "$ref": "#/definitions/propertiesPath"
     },
     "artwork_url": {
@@ -32,11 +40,11 @@
       "$ref": "#/definitions/propertiesPath"
     },
     "track_duration": {
-      "$comment": "Track duration (integer or floating point type)",
+      "$comment": "Track duration (integer or floating point value)",
       "$ref": "#/definitions/timeDuration"
     },
     "playback_position": {
-      "$comment": "Playback position (integer or floating point type)",
+      "$comment": "Playback position (integer or floating point value)",
       "$ref": "#/definitions/timeDuration"
     },
     "playback_state": {

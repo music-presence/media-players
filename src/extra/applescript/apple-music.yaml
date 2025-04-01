@@ -5,6 +5,8 @@ track_artist: [pTrk, pArt]
 album: [pTrk, pAlb]
 album_artist: [pTrk, pAlA]
 artwork_image: [pTrk, cArt, 0, pPCT]
+artwork_data: [pTrk, cArt, 0, pRaw]
+artwork_format: [pTrk, cArt, 0, pFmt]
 track_duration:
   get: [pTrk, pDur]
   unit: s
