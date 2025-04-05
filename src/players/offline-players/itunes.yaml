@@ -3,6 +3,9 @@
 id: itunes
 name: iTunes
 url: https://www.apple.com/itunes
+# TODO: Does iTunes really represent Apple Music?
+represents:
+  - apple-music
 sources:
   win_smtc:
     - iTunes.exe
