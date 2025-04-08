@@ -6,6 +6,7 @@ url: https://getwacup.com
 sources:
   win_smtc:
     - wacup.exe
+    - WACUP
 attributes:
   pure: true
   service: false
