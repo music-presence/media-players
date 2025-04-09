@@ -8,6 +8,7 @@ represents:
 sources:
   win_smtc:
     - spotube.exe
+    - Spotube
 attributes:
   pure: true
   service: false
