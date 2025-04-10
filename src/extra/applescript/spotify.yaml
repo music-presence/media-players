@@ -1,21 +1,24 @@
 # yaml-language-server: $schema=../../schemas/applescript.schema.json
 
-track_title: [pTrk, pnam]
-track_artist: [pTrk, pArt]
-album: [pTrk, pAlb]
-album_artist: [pTrk, pAlA]
-artwork_url: [pTrk, aUrl]
-track_url:
-  get: [pTrk, spur]
-  match: ^spotify:([a-z]+):([a-zA-Z0-9]+)$
-  replace: https://open.spotify.com/$1/$2
-track_duration:
-  get: [pTrk, pDur]
-  unit: ms
-playback_position:
-  get: [pPos]
-  unit: s
-playback_state:
-  get: [pPlS]
-  playing: [kPSP]
-  paused: [kPSp]
+events:
+  update: com.spotify.client.PlaybackStateChanged
+properties:
+  track_title: [pTrk, pnam]
+  track_artist: [pTrk, pArt]
+  album: [pTrk, pAlb]
+  album_artist: [pTrk, pAlA]
+  artwork_url: [pTrk, aUrl]
+  track_url:
+    get: [pTrk, spur]
+    match: ^spotify:([a-z]+):([a-zA-Z0-9]+)$
+    replace: https://open.spotify.com/$1/$2
+  track_duration:
+    get: [pTrk, pDur]
+    unit: ms
+  playback_position:
+    get: [pPos]
+    unit: s
+  playback_state:
+    get: [pPlS]
+    playing: [kPSP]
+    paused: [kPSp]

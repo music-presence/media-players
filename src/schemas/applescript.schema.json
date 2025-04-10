@@ -1,62 +1,92 @@
 {
-  "$comment": "Track metadata that can be obtained by accessing a given set of properties on an SBApplication instance",
+  "$comment": "",
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "track_title",
-    "playback_state"
+    "properties"
   ],
   "properties": {
-    "track_title": {
-      "$comment": "Track title (NSString)",
-      "$ref": "#/definitions/propertiesPath"
+    "events": {
+      "$comment": "Apple events for observation",
+      "$ref": "#/definitions/playerEvents"
     },
-    "track_artist": {
-      "$comment": "Track artist (NSString)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "album": {
-      "$comment": "Album name (NSString)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "album_artist": {
-      "$comment": "Album artist (NSString)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "artwork_image": {
-      "$comment": "Album artwork image (NSImage)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "artwork_data": {
-      "$comment": "Album artwork raw data (NSData)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "artwork_format": {
-      "$comment": "Album artwork raw data format (type code)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "artwork_url": {
-      "$comment": "Album artwork (NSString)",
-      "$ref": "#/definitions/propertiesPath"
-    },
-    "track_duration": {
-      "$comment": "Track duration (integer or floating point value)",
-      "$ref": "#/definitions/timeDuration"
-    },
-    "playback_position": {
-      "$comment": "Playback position (integer or floating point value)",
-      "$ref": "#/definitions/timeDuration"
-    },
-    "playback_state": {
-      "$comment": "Playback state (enumeration)",
-      "$ref": "#/definitions/playbackState"
-    },
-    "track_url": {
-      "$comment": "Track URL (NSString)",
-      "$ref": "#/definitions/matchReplace"
+    "properties": {
+      "$comment": "AppleScript metadata properties",
+      "$ref": "#/definitions/metadataProperties"
     }
   },
   "definitions": {
+    "playerEvents": {
+      "$comment": "Apple events that inform about changes to the player state",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "update": {
+          "$comment": "Update event for global changes to the player state",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "metadataProperties": {
+      "$comment": "Track metadata that can be obtained by accessing a given set of properties on an SBApplication instance",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "track_title",
+        "playback_state"
+      ],
+      "properties": {
+        "track_title": {
+          "$comment": "Track title (NSString)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "track_artist": {
+          "$comment": "Track artist (NSString)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "album": {
+          "$comment": "Album name (NSString)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "album_artist": {
+          "$comment": "Album artist (NSString)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "artwork_image": {
+          "$comment": "Album artwork image (NSImage)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "artwork_data": {
+          "$comment": "Album artwork raw data (NSData)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "artwork_format": {
+          "$comment": "Album artwork raw data format (type code)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "artwork_url": {
+          "$comment": "Album artwork (NSString)",
+          "$ref": "#/definitions/propertiesPath"
+        },
+        "track_duration": {
+          "$comment": "Track duration (integer or floating point value)",
+          "$ref": "#/definitions/timeDuration"
+        },
+        "playback_position": {
+          "$comment": "Playback position (integer or floating point value)",
+          "$ref": "#/definitions/timeDuration"
+        },
+        "playback_state": {
+          "$comment": "Playback state (enumeration)",
+          "$ref": "#/definitions/playbackState"
+        },
+        "track_url": {
+          "$comment": "Track URL (NSString)",
+          "$ref": "#/definitions/matchReplace"
+        }
+      }
+    },
     "propertiesPath": {
       "$comment": "A list of properties to access in sequence to get a value",
       "type": "array",

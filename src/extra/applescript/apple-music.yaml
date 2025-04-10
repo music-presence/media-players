@@ -1,19 +1,22 @@
 # yaml-language-server: $schema=../../schemas/applescript.schema.json
 
-track_title: [pTrk, pnam]
-track_artist: [pTrk, pArt]
-album: [pTrk, pAlb]
-album_artist: [pTrk, pAlA]
-artwork_image: [pTrk, cArt, 0, pPCT]
-artwork_data: [pTrk, cArt, 0, pRaw]
-artwork_format: [pTrk, cArt, 0, pFmt]
-track_duration:
-  get: [pTrk, pDur]
-  unit: s
-playback_position:
-  get: [pPos]
-  unit: s
-playback_state:
-  get: [pPlS]
-  playing: [kPSP, kPSF, kPSR]
-  paused: [kPSp]
+events:
+  update: com.apple.Music.playerInfo
+properties:
+  track_title: [pTrk, pnam]
+  track_artist: [pTrk, pArt]
+  album: [pTrk, pAlb]
+  album_artist: [pTrk, pAlA]
+  artwork_image: [pTrk, cArt, 0, pPCT]
+  artwork_data: [pTrk, cArt, 0, pRaw]
+  artwork_format: [pTrk, cArt, 0, pFmt]
+  track_duration:
+    get: [pTrk, pDur]
+    unit: s
+  playback_position:
+    get: [pPos]
+    unit: s
+  playback_state:
+    get: [pPlS]
+    playing: [kPSP, kPSF, kPSR]
+    paused: [kPSp]
