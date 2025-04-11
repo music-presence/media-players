@@ -7,7 +7,7 @@
   ],
   "properties": {
     "events": {
-      "$comment": "Apple events for observation",
+      "$comment": "Events from NSDistributedNotificationCenter",
       "$ref": "#/definitions/playerEvents"
     },
     "properties": {
