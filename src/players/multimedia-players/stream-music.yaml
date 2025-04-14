@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: stream-music
+name: Stream Music
+url: https://music.aqzscn.cn/en
+sources:
+  win_smtc:
+    - cn.aqzscn.streammusic_ffyz7s1gwevz6!streammusic
+    - cn.aqzscn.streammusic_ffyz7s1gwevz6!STREAMMUSIC
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1361351008101597277"
