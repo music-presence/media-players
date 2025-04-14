@@ -140,10 +140,6 @@ def validate_target_category_invariants(target: ValidationTarget):
         if target.content["attributes"]["service"] != False:
             local_category_error(
                 f'The "service" attribute for "{player}" must be false')
-        if target.content["attributes"]["pure"] != False:
-            # Multimedia players can also play personal home videos e.g.
-            local_category_error(
-                f'The "pure" attribute for "{player}" must be false')
     elif category == PlayerCategory.MusicStreaming.value:
         if target.content["attributes"]["service"] != True:
             local_category_error(
