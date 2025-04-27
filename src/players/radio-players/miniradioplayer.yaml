@@ -5,6 +5,7 @@ name: Mini Radio Player
 url: https://www.miniradioplayer.net
 sources:
   win_smtc:
+    - 28287mfYSoftware.MiniRadioPlayer_wvfna79ywx00a!app
     - 28287mfYSoftware.MiniRadioPlayer_wvfna79ywx00a!App
     - 28287mfYSoftware.MiniRadioPlayer_wvfna79ywx00a!APP
 attributes:

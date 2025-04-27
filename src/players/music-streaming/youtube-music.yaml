@@ -9,6 +9,7 @@ sources:
   win_smtc:
     - YouTube Music.exe
     - com.github.th-ch.youtube-music
+    - music.youtube.com-5929F88E_vezhnr0wkvrcy!app
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!App
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!APP
   mac_bundle:

@@ -5,6 +5,7 @@ name: SoundCloud
 url: https://soundcloud.com
 sources:
   win_smtc:
+    - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!app
     - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!App
     - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!APP
     - SoundCloud.exe

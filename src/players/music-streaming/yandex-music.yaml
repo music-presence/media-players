@@ -5,6 +5,7 @@ name: Yandex Music
 url: https://music.yandex.com
 sources:
   win_smtc:
+    - A025C540.Yandex.Music_vfvw9svesycw6!app
     - A025C540.Yandex.Music_vfvw9svesycw6!App
     - A025C540.Yandex.Music_vfvw9svesycw6!APP
     - ru.yandex.desktop.music

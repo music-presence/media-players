@@ -6,6 +6,7 @@ url: https://www.videolan.org/vlc
 sources:
   win_smtc:
     - vlc.exe
+    - VideoLAN.VLC_paz6r1rewnh0a!app
     - VideoLAN.VLC_paz6r1rewnh0a!App
     - VideoLAN.VLC_paz6r1rewnh0a!APP
   mac_bundle:

@@ -5,6 +5,7 @@ name: JioSaavn
 url: https://www.jiosaavn.com
 sources:
   win_smtc:
+    - Saavn.SaavnMusicRadio_ax02tpqam95xr!app
     - Saavn.SaavnMusicRadio_ax02tpqam95xr!App
     - Saavn.SaavnMusicRadio_ax02tpqam95xr!APP
   web_domain:

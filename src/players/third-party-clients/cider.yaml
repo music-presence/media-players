@@ -9,6 +9,7 @@ sources:
   mac_bundle:
     - sh.cider.electron
   win_smtc:
+    - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!app
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!App
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!APP
   lin_mpris:
