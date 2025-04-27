@@ -8,8 +8,9 @@ sources:
     - com.apple.Music
   win_smtc:
     - AppleMusic.exe
-    - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP
+    - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
+    - AppleInc.AppleMusicWin_nzyj5cx40ttqa!app
   web_domain:
     - music.apple.com
 attributes:
