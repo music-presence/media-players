@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: kde-connect
+name: KDE Connect
+url: https://kdeconnect.kde.org
+sources:
+  lin_mpris:
+    - kdeconnect
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1373052560063205406"
