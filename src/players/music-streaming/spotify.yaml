@@ -13,6 +13,7 @@ sources:
   lin_mpris:
     - spotify
     - spotify_player
+    - spotifyd
   web_domain:
     - open.spotify.com
 attributes:
