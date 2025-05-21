@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: screenbox
+name: Screenbox
+url: https://github.com/huynhsontung/Screenbox
+sources:
+  win_smtc:
+    - 18496Starpine.Screenbox_rm8wvch11q4my!app
+    - 18496Starpine.Screenbox_rm8wvch11q4my!App
+    - 18496Starpine.Screenbox_rm8wvch11q4my!APP
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1285586777616420885"
