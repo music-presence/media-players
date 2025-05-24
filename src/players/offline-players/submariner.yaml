@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: submariner
+name: Submariner
+url: https://submarinerapp.com
+sources:
+  mac_bundle:
+    - fr.read-write.Submariner
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+  - audio_podcast
+extra:
+  discord_application_id: "1375749158605946890"
