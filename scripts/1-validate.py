@@ -35,6 +35,7 @@ class PlayerCategory(enum.Enum):
     RadioPlayers = "radio-players"
     ThirdPartyClients = "third-party-clients"
     VideoSharing = "video-sharing"
+    Miscellaneous = "miscellaneous"
 
 
 class ContentType(enum.Enum):
@@ -92,7 +93,7 @@ def get_targets(root: str) -> dict[str, ValidationTarget]:
 
 def validate_target(target: ValidationTarget):
     if target.category_from_directory not in [c.value for c in PlayerCategory]:
-        message = "{target.category_from_directory} for {target.short_path}"
+        message = f"{target.category_from_directory} for {target.short_path}"
         error(f"Player category not recognized: {message}")
     validate_target_schema(target, PLAYER_SCHEMA)
     if target.content["id"] != target.id_from_filename:
