@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: daftcloud
+name: DaftCloud
+url: https://daft.cloud
+represents:
+  - soundcloud
+sources:
+  mac_bundle:
+    - com.obrhoff.daftcloud
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1378815319866605850"
