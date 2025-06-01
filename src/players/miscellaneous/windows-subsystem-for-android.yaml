@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: windows-subsystem-for-android
+name: WSA
+url: https://learn.microsoft.com/en-us/windows/android/wsa
+sources:
+  win_smtc:
+    - MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe!app
+    - MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe!App
+    - MicrosoftCorporationII.WindowsSubsystemForAndroid_8wekyb3d8bbwe!APP
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1378817197836603542"
