@@ -4,7 +4,8 @@
 # see https://en.wikipedia.org/wiki/NetEase_Cloud_Music
 # this would generally mean that a media player can be displayed as
 # not just its primary name, but also its other names and all of the names
-# of all players that it represents.
+# of all players that it represents. Note that this requires multiple
+# Discord application IDs (one for each name).
 
 id: netease-cloud-music
 name: NetEase Cloud Music
