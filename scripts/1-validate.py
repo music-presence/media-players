@@ -72,8 +72,7 @@ def get_targets(root: str) -> dict[str, ValidationTarget]:
         relative_path = path.relative_to(root)
         directory = os.path.dirname(relative_path)
         if len(directory) == 0:
-            error(
-                f"YAML definitions must be in a subdirectory: {relative_path}")
+            error(f"YAML definitions must be in a subdirectory: {relative_path}")
         if len(os.path.dirname(directory)) > 0:
             error(f"Nested directories are not allowed: {relative_path}")
         target_path = path.resolve()
@@ -136,52 +135,55 @@ def require_content_types(
 def validate_target_category_invariants(target: ValidationTarget):
     player = target.id_from_filename
     category = target.category_from_directory
-    def local_category_error(e): return category_error(target, e)
+
+    def local_category_error(e):
+        return category_error(target, e)
+
     if category == PlayerCategory.MultimediaPlayers.value:
         if target.content["attributes"]["service"] != False:
             local_category_error(
-                f'The "service" attribute for "{player}" must be false')
+                f'The "service" attribute for "{player}" must be false'
+            )
     elif category == PlayerCategory.MusicStreaming.value:
         if target.content["attributes"]["service"] != True:
-            local_category_error(
-                f'The "service" attribute for "{player}" must be true')
+            local_category_error(f'The "service" attribute for "{player}" must be true')
         if target.content["attributes"]["pure"] != True:
             # Streaming services usually only stream music and nothing else
-            local_category_error(
-                f'The "pure" attribute for "{player}" must be true')
+            local_category_error(f'The "pure" attribute for "{player}" must be true')
     elif category == PlayerCategory.OfflinePlayers.value:
         if target.content["attributes"]["service"] != False:
             local_category_error(
-                f'The "service" attribute for "{player}" must be false')
+                f'The "service" attribute for "{player}" must be false'
+            )
     elif category == PlayerCategory.PodcastServices.value:
         if target.content["attributes"]["service"] != True:
-            local_category_error(
-                f'The "service" attribute for "{player}" must be true')
+            local_category_error(f'The "service" attribute for "{player}" must be true')
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioPodcast], True
         )
     elif category == PlayerCategory.RadioPlayers.value:
         if target.content["attributes"]["pure"] != False:
             # Radio names can contain someone's home town or area of residence
-            local_category_error(
-                f'The "pure" attribute for "{player}" must be false')
+            local_category_error(f'The "pure" attribute for "{player}" must be false')
         if target.content["attributes"]["service"] != False:
             local_category_error(
-                f'The "service" attribute for "{player}" must be false')
+                f'The "service" attribute for "{player}" must be false'
+            )
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioRadio], False
         )
     elif category == PlayerCategory.ThirdPartyClients.value:
         if target.content["attributes"]["service"] != False:
             local_category_error(
-                f'The "service" attribute for "{player}" must be false')
+                f'The "service" attribute for "{player}" must be false'
+            )
         if "represents" not in target.content:
             local_category_error(
-                f'Player "{player}" must have the "represents" attribute')
+                f'Player "{player}" must have the "represents" attribute'
+            )
     elif category == PlayerCategory.VideoSharing.value:
         if target.content["attributes"]["service"] != True:
-            local_category_error(
-                f'The "service" attribute for "{player}" must be true')
+            local_category_error(f'The "service" attribute for "{player}" must be true')
         if ContentType.Video.value not in target.content["content"]:
             local_category_error(
                 f'The "content" attribute for "{player}" must contain '
