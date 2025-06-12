@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: cog
+name: Cog
+url: https://cog.losno.co
+sources:
+  mac_bundle:
+    - org.cogx.cog
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1382653787864305694"
