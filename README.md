@@ -14,6 +14,10 @@ This repository was mainly created for use with
 but can also be used in other contexts
 where uniquely identifying a media player is desirable.
 
+For a visual overview of players in this repository visit
+[musicpresence.pocha.moe](https://musicpresence.pocha.moe/)
+(thanks [@mercurialworld](https://github.com/mercurialworld)).
+
 ## Public API
 
 A public endpoint is maintained at `live.musicpresence.app`
