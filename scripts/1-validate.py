@@ -200,12 +200,19 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                 error(
                     f'Player "{player_id}" represents non-existent player "{other_id}"'
                 )
-            other = targets[other_id]
-            if "represents" in other.content:
-                error(
-                    f'Player "{player_id}" cannot represent "{other_id}" '
-                    f'because "{other_id}" already represents other players'
-                )
+
+            # FIXME Allow nested "represents" relationships for now.
+            # These should not be allowed in theory, but nested relationships
+            # are needed for placeholders to be accepted. Music Presence
+            # currently does not read these recursively, so it's okay for now.
+            # They should never be read recursively.
+
+            # other = targets[other_id]
+            # if "represents" in other.content:
+            #     error(
+            #         f'Player "{player_id}" cannot represent "{other_id}" '
+            #         f'because "{other_id}" already represents other players'
+            #     )
 
 
 def validate_targets(targets: dict[str, ValidationTarget]):
