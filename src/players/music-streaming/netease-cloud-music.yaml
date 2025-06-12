@@ -10,6 +10,8 @@
 id: netease-cloud-music
 name: NetEase Cloud Music
 url: https://music.163.com
+represents:
+  - netease-cloud-music-zh-placeholder
 sources:
   web_domain:
     - music.163.com
