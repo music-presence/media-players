@@ -46,6 +46,9 @@ class ContentType(enum.Enum):
     AudioAudiobook = "audio_audiobook"
     AudioRadio = "audio_radio"
     Video = "video"
+    VideoStream = "video_stream"
+    VideoMovie = "video_movie"
+    VideoShow = "video_show"
 
 
 @dataclasses.dataclass
