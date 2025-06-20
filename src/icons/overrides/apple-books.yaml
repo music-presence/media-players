@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_mask: circle
+  image_scale: 1.05
