@@ -123,6 +123,7 @@
           "audio",
           "audio_music",
           "audio_podcast",
+          "audio_audiobook",
           "audio_radio",
           "video"
         ]
