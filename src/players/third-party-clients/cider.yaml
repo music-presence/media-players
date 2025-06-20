@@ -8,6 +8,7 @@ represents:
 sources:
   mac_bundle:
     - sh.cider.electron
+    - sh.cider.genten.mac
   win_smtc:
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!app
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!App

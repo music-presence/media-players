@@ -32,6 +32,7 @@ class PlayerCategory(enum.Enum):
     MusicStreaming = "music-streaming"
     OfflinePlayers = "offline-players"
     PodcastServices = "podcast-services"
+    AudiobookServices = "audiobook-services"
     RadioPlayers = "radio-players"
     ThirdPartyClients = "third-party-clients"
     VideoSharing = "video-sharing"
@@ -42,8 +43,12 @@ class ContentType(enum.Enum):
     Audio = "audio"
     AudioMusic = "audio_music"
     AudioPodcast = "audio_podcast"
+    AudioAudiobook = "audio_audiobook"
     AudioRadio = "audio_radio"
     Video = "video"
+    VideoStream = "video_stream"
+    VideoMovie = "video_movie"
+    VideoShow = "video_show"
 
 
 @dataclasses.dataclass
@@ -160,6 +165,12 @@ def validate_target_category_invariants(target: ValidationTarget):
             local_category_error(f'The "service" attribute for "{player}" must be true')
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioPodcast], True
+        )
+    elif category == PlayerCategory.AudiobookServices.value:
+        if target.content["attributes"]["service"] != True:
+            local_category_error(f'The "service" attribute for "{player}" must be true')
+        require_content_types(
+            target, [ContentType.Audio, ContentType.AudioAudiobook], True
         )
     elif category == PlayerCategory.RadioPlayers.value:
         if target.content["attributes"]["pure"] != False:

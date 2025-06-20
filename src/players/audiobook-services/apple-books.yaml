@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: apple-books
+name: Apple Books
+url: https://www.apple.com/apple-books
+sources:
+  mac_bundle:
+    - com.apple.iBooksX
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_audiobook
+extra:
+  discord_application_id: "1385564315272216666"
