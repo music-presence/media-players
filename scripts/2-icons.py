@@ -91,7 +91,9 @@ class Color:
         else:
             if value.startswith("#"):
                 value = value[1:]
-            if not re.search("^(\\d{3}|\\d{6}|\\d{8})$", value):
+            if not re.search(
+                "^[#]?([a-zA-Z0-9]{3}|[a-zA-Z0-9]{6}|[a-zA-Z0-9]{8})$", value
+            ):
                 raise ValueError("not a hex code")
             self._color = value
 
