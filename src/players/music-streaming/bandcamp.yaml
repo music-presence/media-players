@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: bandcamp
+name: Bandcamp
+url: https://bandcamp.com
+sources:
+  win_smtc:
+    - Bandcamp.exe
+  web_domain:
+    - bandcamp.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1386118429316218880"
