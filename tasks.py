@@ -114,7 +114,7 @@ def copy_tree_append_only(src, dst):
             shutil.copy(src_file, dst_file)
 
 
-@task(pre=[])
+@task(pre=[build])
 def deploy(c: Context):
     print("Deploying players", file=sys.stderr)
     if os.path.exists(BUILD_DIR):
