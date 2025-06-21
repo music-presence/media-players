@@ -107,10 +107,6 @@ def copy_tree_append_only(src, dst):
         for filename in filenames:
             src_file = os.path.join(dirpath, filename)
             dst_file = os.path.join(target_dir, filename)
-            print(
-                "UPDATE" if os.path.exists(dst_file) else "CREATE",
-                os.path.relpath(dst_file, dst),
-            )
             shutil.copy(src_file, dst_file)
 
 
