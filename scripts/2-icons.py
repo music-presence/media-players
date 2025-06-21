@@ -408,16 +408,15 @@ def generate_icon(
         background_image.thumbnail(output_size, Image.Resampling.LANCZOS)
         image_size = output_size[0]
     # determine the result file and location
+    pathlib.Path(out_directory).mkdir(parents=True, exist_ok=True)
     result_slug = sha256sum_combined(
         out_prefix,
         rule.slug(),
         md5sum_image(background_image, background_image_format),
         limit=SLUG_LENGTH,
     )
-    result_file = f"{out_prefix}.{rule.image_type.value.lower()}"
-    result_directoy = os.path.join(out_directory, result_slug)
-    pathlib.Path(result_directoy).mkdir(parents=True, exist_ok=True)
-    result_path = os.path.join(result_directoy, result_file)
+    result_file = f"{out_prefix}.{result_slug}.{rule.image_type.value.lower()}"
+    result_path = os.path.join(out_directory, result_file)
 
     # FIXME
     # if os.path.exists(result_path):
@@ -480,7 +479,7 @@ if __name__ == "__main__":
                         pathlib.Path(result.image_path).relative_to(OUT_ICONS_DIR)
                     )
                 )
-                assert pathlib.Path(result.image_path).parent.parent.name == player
+                assert path == f"{player}/{pathlib.Path(result.image_path).name}"
                 o = {
                     "label": result.label,
                     "type": result.image_type.value.lower(),
