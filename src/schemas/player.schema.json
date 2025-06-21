@@ -95,51 +95,46 @@
           "$ref": "#/definitions/sourceIdentifier"
         },
         {
-          "allOf": [
-            {
-              "$comment": "Matches a source identifier exactly",
-              "type": "object",
-              "required": [
-                "match"
-              ],
-              "properties": {
-                "match": {
-                  "$ref": "#/definitions/sourceIdentifier"
-                }
-              }
-            },
-            {
-              "$ref": "#/definitions/sourceIdentifierMatcherOptions"
+          "$comment": "Matches a source identifier exactly",
+          "type": "object",
+          "required": [
+            "match"
+          ],
+          "properties": {
+            "match": {
+              "$ref": "#/definitions/sourceIdentifier"
             }
-          ]
+          }
         },
         {
           "allOf": [
             {
-              "$comment": "Matches only the prefix of a source identifier",
+              "$comment": "Matches the source identifier against a regular expression",
               "type": "object",
               "required": [
-                "prefix"
+                "regex"
               ],
               "properties": {
-                "prefix": {
-                  "$ref": "#/definitions/sourceIdentifier"
+                "regex": {
+                  "type": "string",
+                  "format": "regex",
+                  "minLength": 2
                 }
               }
             },
             {
-              "$ref": "#/definitions/sourceIdentifierMatcherOptions"
+              "$ref": "#/definitions/sourceIdentifierRegexOptions"
             }
           ]
         }
       ]
     },
-    "sourceIdentifierMatcherOptions": {
-      "$comment": "Options for a source identifier matcher",
+    "sourceIdentifierRegexOptions": {
+      "$comment": "Options for a source identifier regex matcher",
       "type": "object",
       "properties": {
-        "case_insensitive": {
-          "$comment": "Whether to match case-insensitive",
+        "partial": {
+          "$comment": "Whether partial matches are allowed",
           "type": "boolean"
         }
       }
@@ -147,7 +142,8 @@
     "sourceIdentifier": {
       "$comment": "An identifier for a media source, e.g. an application package identifier",
       "type": "string",
-      "pattern": "^\\S.+[^\\s]$"
+      "pattern": "^\\S.+[^\\s]$",
+      "minLength": 2
     },
     "attributes": {
       "$comment": "Attributes for a media player",
