@@ -44,6 +44,9 @@
       "type": "integer",
       "minimum": 1
     },
+    "force_output_size": {
+      "type": "boolean"
+    },
     "exclude": {
       "$comment": "Whether to exclude this from deployment",
       "type": "boolean"

@@ -128,6 +128,8 @@ class GenerationRecipe:
     # the size of the resulting image
     # if not set, it's identical to the input image size
     output_size: Optional[int] = None
+    # whether to fail the build when there is no sufficiently large input image
+    force_output_size: Optional[bool] = None
 
     def slug(self) -> str:
         return hex(hash(self) % ((sys.maxsize + 1) * 2))[2:]
@@ -174,6 +176,7 @@ class GenerationRule(GenerationRecipe):
         border_scale = self.border_scale
         background_scale = self.background_scale
         output_size = self.output_size
+        force_output_size = self.force_output_size
         from_image = self.from_image
         label = self.label
         exclude = self.exclude
@@ -193,6 +196,8 @@ class GenerationRule(GenerationRecipe):
             background_scale = values["background_scale"]
         if "output_size" in values:
             output_size = values["output_size"]
+        if "force_output_size" in values:
+            force_output_size = values["force_output_size"]
         if "from_image" in values:
             from_image = values["from_image"]
         if "label" in values:
@@ -208,6 +213,7 @@ class GenerationRule(GenerationRecipe):
             border_scale=border_scale,
             background_scale=background_scale,
             output_size=output_size,
+            force_output_size=force_output_size,
             label=label,
             from_image=from_image,
             exclude=exclude,
@@ -411,6 +417,14 @@ def generate_icon(
     background_image = Image.alpha_composite(background_image, image)
     # resize the image to the output size
     if rule.output_size is not None:
+        assert background_image.size[0] == background_image.size[1]
+        if rule.force_output_size and background_image.size[0] < rule.output_size:
+            warn(
+                f"Rule {rule.label}: "
+                f"{pathlib.Path(image_path).name} has only "
+                f"{background_image.size[0]} pixels, but "
+                f"{rule.output_size} are needed"
+            )
         output_size = (rule.output_size, rule.output_size)
         background_image.thumbnail(output_size, Image.Resampling.LANCZOS)
         image_size = output_size[0]
