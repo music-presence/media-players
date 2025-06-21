@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../../schemas/applescript.schema.json
+# yaml-language-server: $schema=../../schemas/internal/applescript.schema.json
 
 events:
   update: com.spotify.client.PlaybackStateChanged
