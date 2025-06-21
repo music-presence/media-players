@@ -22,10 +22,10 @@ import os
 import pathlib
 import sys
 import re
-import shutil
 import json
 import jsonschema
 import hashlib
+from io import BytesIO
 from collections import defaultdict
 from typing import Optional
 from PIL import Image, ImageDraw
@@ -55,6 +55,8 @@ OVERRIDES_SCHEMA = core.read_json(
 )
 # only hash the tray menu logo for now, to not inflate the resulting JSON
 LABELS_TO_HASH = set(["tray-menu"])
+EXPORT_FORMAT = "PNG"
+SLUG_LENGTH = 12
 
 
 class ImageType(enum.Enum):
@@ -345,6 +347,15 @@ def scale_image(image: Image.Image, factor: float):
     return result_image
 
 
+def sha256sum_combined(*args, **kwargs) -> str:
+    combined_str = "+".join(map(str, args))
+    result = hashlib.sha256(combined_str.encode("utf-8")).hexdigest()
+    limit = kwargs.get("limit", None)
+    if limit is not None:
+        return result[:limit]
+    return result
+
+
 def generate_icon(
     rule: GenerationRule,
     image_path: str,
@@ -388,6 +399,7 @@ def generate_icon(
         background_image = core.apply_mask(background_image, background_mask)
     # scale the background
     background_image = scale_image(background_image, rule.background_scale)
+    background_image_format = EXPORT_FORMAT
     # put the image on top of the background
     background_image.paste(image, (0, 0), image)
     # resize the image to the output size
@@ -396,15 +408,24 @@ def generate_icon(
         background_image.thumbnail(output_size, Image.Resampling.LANCZOS)
         image_size = output_size[0]
     # determine the result file and location
-    pathlib.Path(out_directory).mkdir(parents=True, exist_ok=True)
-    # TODO perhaps use the slug at a later time: -{rule.slug()}
+    result_slug = sha256sum_combined(
+        out_prefix,
+        rule.slug(),
+        md5sum_image(background_image, background_image_format),
+        limit=SLUG_LENGTH,
+    )
     result_file = f"{out_prefix}.{rule.image_type.value.lower()}"
-    result_path = os.path.join(out_directory, result_file)
-    if os.path.exists(result_path):
-        error(f"Output image already exists, duplicate rule? {result_path}")
+    result_directoy = os.path.join(out_directory, result_slug)
+    pathlib.Path(result_directoy).mkdir(parents=True, exist_ok=True)
+    result_path = os.path.join(result_directoy, result_file)
+
+    # FIXME
+    # if os.path.exists(result_path):
+    #     error(f"Output image already exists, duplicate rule? {result_path}")
+
     # save the image based on result image type
     if rule.image_type == ImageType.PNG:
-        background_image.save(result_path, "PNG")
+        background_image.save(result_path, background_image_format)
     elif rule.image_type == ImageType.JPG:
         # use a prominent color so it's obvious when transparency is removed
         base_image = Image.new("RGB", background_image.size, "#f0f")
@@ -417,9 +438,16 @@ def generate_icon(
     return result_path
 
 
-def md5hash(filename: str):
+def md5sum(filename: str) -> str:
     with open(filename, "rb") as f:
         return hashlib.md5(f.read()).hexdigest()
+
+
+def md5sum_image(image: Image.Image, format: str) -> str:
+    with BytesIO() as byte_io:
+        image.save(byte_io, format=format)
+        data = byte_io.getvalue()
+    return hashlib.md5(data).hexdigest()
 
 
 if __name__ == "__main__":
@@ -452,14 +480,14 @@ if __name__ == "__main__":
                         pathlib.Path(result.image_path).relative_to(OUT_ICONS_DIR)
                     )
                 )
-                assert path == f"{player}/{pathlib.Path(result.image_path).name}"
+                assert pathlib.Path(result.image_path).parent.parent.name == player
                 o = {
                     "label": result.label,
                     "type": result.image_type.value.lower(),
                     "url": f"{GEN_BASE_URL_ICONS}/{path}",
                 }
                 if result.label in LABELS_TO_HASH:
-                    o["md5"] = md5hash(result.image_path)
+                    o["md5"] = md5sum(result.image_path)
                 objects.append(o)
             output[player] = objects
     if output_json:
