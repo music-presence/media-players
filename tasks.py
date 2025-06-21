@@ -96,7 +96,25 @@ def get_new_players(old_dir: str, new_dir: str) -> Optional[dict[str, str]]:
     return result
 
 
-@task(pre=[build])
+def copy_tree_append_only(src, dst):
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+    for dirpath, _, filenames in os.walk(src):
+        relative_path = os.path.relpath(dirpath, src)
+        target_dir = os.path.abspath(os.path.join(dst, relative_path))
+        if not os.path.exists(target_dir):
+            os.makedirs(target_dir)
+        for filename in filenames:
+            src_file = os.path.join(dirpath, filename)
+            dst_file = os.path.join(target_dir, filename)
+            print(
+                "UPDATE" if os.path.exists(dst_file) else "CREATE",
+                os.path.relpath(dst_file, dst),
+            )
+            shutil.copy(src_file, dst_file)
+
+
+@task(pre=[])
 def deploy(c: Context):
     print("Deploying players", file=sys.stderr)
     if os.path.exists(BUILD_DIR):
@@ -107,11 +125,8 @@ def deploy(c: Context):
     c.run(f'git clone -b "{DEPLOY_BRANCH}" "{DEPLOY_REPO}" "{clone_dir}"')
     deploy_dir = os.path.join(clone_dir, DEPLOY_OUTPUT_DIR)
     new_players = get_new_players(deploy_dir, DEPLOY_INPUT_DIR)
-    if os.path.exists(deploy_dir):
-        print("Clearing deployment directory", file=sys.stderr)
-        clear_directory(deploy_dir)
     print("Copying output files to deployment directory", file=sys.stderr)
-    shutil.copytree(DEPLOY_INPUT_DIR, deploy_dir)
+    copy_tree_append_only(DEPLOY_INPUT_DIR, deploy_dir)
     with c.cd(clone_dir):
         c.run("git add -A")
         result = c.run("git diff --cached --exit-code", warn=True)
