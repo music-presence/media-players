@@ -118,18 +118,7 @@
       "uniqueItems": true,
       "minItems": 1,
       "items": {
-        "type": "string",
-        "enum": [
-          "audio",
-          "audio_music",
-          "audio_podcast",
-          "audio_audiobook",
-          "audio_radio",
-          "video",
-          "video_stream",
-          "video_movie",
-          "video_show"
-        ]
+        "$ref": "content-types.schema.json"
       },
       "allOf": [
         {

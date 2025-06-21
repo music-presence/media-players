@@ -16,14 +16,18 @@ import jsonschema
 import os
 import pathlib
 import sys
+import warnings
 
 import core
 from core import log, error
 
+# ignore jsonschema warnings for now
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 SRC_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "src")
 PLAYERS_DIR = os.path.join(SRC_DIR, "players")
-PLAYER_SCHEMA_FILE = os.path.join(SRC_DIR, "schemas", "player.schema.json")
+SCHEMA_PATH = os.path.join(SRC_DIR, "schemas")
+PLAYER_SCHEMA_FILE = os.path.join(SCHEMA_PATH, "player.schema.json")
 PLAYER_SCHEMA = core.read_json(PLAYER_SCHEMA_FILE)
 
 
@@ -109,7 +113,14 @@ def validate_target(target: ValidationTarget):
 
 def validate_target_schema(target: ValidationTarget, schema: any):
     try:
-        jsonschema.validate(instance=target.content, schema=schema)
+        jsonschema.validate(
+            instance=target.content,
+            schema=schema,
+            resolver=jsonschema.RefResolver(
+                base_uri=f"{pathlib.Path(SCHEMA_PATH).as_uri()}/",
+                referrer=PLAYER_SCHEMA,
+            ),
+        )
     except jsonschema.ValidationError as e:
         error(f"Schema validation error:\n\nFile {target.path}:\n\n{e}")
 

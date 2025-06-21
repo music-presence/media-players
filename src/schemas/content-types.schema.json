@@ -1,0 +1,14 @@
+{
+  "type": "string",
+  "enum": [
+    "audio",
+    "audio_music",
+    "audio_podcast",
+    "audio_audiobook",
+    "audio_radio",
+    "video",
+    "video_stream",
+    "video_movie",
+    "video_show"
+  ]
+}
