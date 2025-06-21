@@ -1,0 +1,15 @@
+- id: green-on-black
+  image: spotify.green.png
+  background: black
+- id: white-on-black
+  image: spotify.white.png
+  background: black
+- id: black-on-white
+  image: spotify.black.png
+  background: white
+- id: green-on-white
+  image: spotify.green.png
+  background: white
+- id: white-on-green
+  image: spotify.white-on-green.png
+  background: 1ed760
