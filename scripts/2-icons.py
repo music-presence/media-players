@@ -430,14 +430,8 @@ def generate_icon(
         image_size = output_size[0]
     # determine the result file and location
     pathlib.Path(out_directory).mkdir(parents=True, exist_ok=True)
-    result_slug = sha256sum_combined(
-        out_prefix,
-        rule.slug(),
-        md5sum_image(background_image, background_image_format),
-        limit=SLUG_LENGTH,
-    )
-    result_file = f"{out_prefix}.{result_slug}.{rule.image_type.value.lower()}"
-    result_path = os.path.join(out_directory, result_file)
+    tmp_result_file = f"tmp.{rule.image_type.value.lower()}"
+    tmp_result_path = os.path.join(out_directory, tmp_result_file)
 
     # FIXME
     # if os.path.exists(result_path):
@@ -445,16 +439,20 @@ def generate_icon(
 
     # save the image based on result image type
     if rule.image_type == ImageType.PNG:
-        background_image.save(result_path, background_image_format)
+        background_image.save(tmp_result_path, background_image_format)
     elif rule.image_type == ImageType.JPG:
         # use a prominent color so it's obvious when transparency is removed
         base_image = Image.new("RGB", background_image.size, "#f0f")
         base_image.paste(background_image, (0, 0), background_image)
-        base_image.save(result_path, "JPEG")
+        base_image.save(tmp_result_path, "JPEG")
     elif rule.image_type == ImageType.ICO:
-        background_image.save(result_path, "ICO")
+        background_image.save(tmp_result_path, "ICO")
     else:
         error(f"Unrecognized result image type: {rule.image_type}")
+    result_slug = md5sum(tmp_result_path)[:SLUG_LENGTH]
+    result_file = f"{out_prefix}.{result_slug}.{rule.image_type.value.lower()}"
+    result_path = os.path.join(out_directory, result_file)
+    os.rename(tmp_result_path, result_path)
     return result_path
 
 
