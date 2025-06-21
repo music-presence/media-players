@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../schemas/internal/discord-content-types.schema.json
+
+# TODO Create the remaining Discord applications and paste their IDs
+
+# Listening to ...
+
+audio:
+  - en:
+      name: Audio
+      discord_application_id: "1385945536808615976"
+  # - en:
+  #     name: audio
+  #     discord_application_id: ""
+
+audio_music:
+  - en:
+      name: Music
+      discord_application_id: "1205619376275980288"
+  # - en:
+  #     name: music
+  #     discord_application_id: ""
+
+audio_podcast:
+  - en:
+      name: a Podcast
+      discord_application_id: "1292142821482172506"
+  # - en:
+  #     name: a podcast
+  #     discord_application_id: ""
+
+audio_audiobook:
+  - en:
+      name: an Audiobook
+      discord_application_id: "1385945409775730768"
+  # - en:
+  #     name: an audiobook
+  #     discord_application_id: ""
+
+audio_radio:
+  - en:
+      name: the Radio
+      discord_application_id: "1385945728257359952"
+  # - en:
+  #     name: the radio
+  #     discord_application_id: ""
+
+# Watching ...
+
+video:
+  - en:
+      name: a Video
+      discord_application_id: "1385938731617484881"
+  # - en:
+  #     name: a video
+  #     discord_application_id: ""
+#
+# video_stream:
+#   - en:
+#       name: a Stream
+#       discord_application_id: ""
+#   - en:
+#       name: a stream
+#       discord_application_id: ""
+#
+# video_movie:
+#   - en:
+#       name: a Movie
+#       discord_application_id: ""
+#   - en:
+#       name: a movie
+#       discord_application_id: ""
+#
+# video_show:
+#   - en:
+#       name: a Show
+#       discord_application_id: ""
+#   - en:
+#       name: a show
+#       discord_application_id: ""
