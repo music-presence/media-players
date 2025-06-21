@@ -22,3 +22,14 @@ jobs:
         env:
           DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN  }}@github.com/music-presence/live.git
         run: invoke deploy
+
+  deploy-test:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Deploy
+        env:
+          DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN  }}@github.com/music-presence/live-test.git
+        run: invoke deploy
