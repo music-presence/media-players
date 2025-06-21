@@ -382,6 +382,12 @@ def generate_icon(
         image = core.apply_mask(image, image_mask)
     # scale the image
     effective_image_scale = rule.image_scale * rule.border_scale
+    background_scale = rule.background_scale
+    if effective_image_scale > 1.0:
+        # Scale the background down when the image would be upscaled.
+        down_factor = effective_image_scale
+        background_scale /= down_factor
+        effective_image_scale = 1.0
     image = scale_image(image, effective_image_scale)
     # create the background
     background_image = Image.new("RGBA", image.size, rule.background.color())
@@ -398,7 +404,7 @@ def generate_icon(
         background_draw.ellipse((0, 0) + (image_size - 0, image_size - 0), fill=255)
         background_image = core.apply_mask(background_image, background_mask)
     # scale the background
-    background_image = scale_image(background_image, rule.background_scale)
+    background_image = scale_image(background_image, background_scale)
     background_image_format = EXPORT_FORMAT
     # put the image on top of the background
     assert background_image.size == image.size
