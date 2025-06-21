@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=../schemas/internal/gen.schema.json
 
 rules:
-  - label: icon-128
+  - label: logo-128
     image_type: PNG
     output_shape: square
     output_size: 128
