@@ -401,7 +401,8 @@ def generate_icon(
     background_image = scale_image(background_image, rule.background_scale)
     background_image_format = EXPORT_FORMAT
     # put the image on top of the background
-    background_image.paste(image, (0, 0), image)
+    assert background_image.size == image.size
+    background_image = Image.alpha_composite(background_image, image)
     # resize the image to the output size
     if rule.output_size is not None:
         output_size = (rule.output_size, rule.output_size)
