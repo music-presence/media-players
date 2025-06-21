@@ -9,7 +9,7 @@
   "properties": {
     "label": {
       "type": "string",
-      "pattern": "^[a-z][a-z\\-]*[a-z]$"
+      "pattern": "^[a-z][a-z\\-0-9]*[a-z0-9]$"
     },
     "type": {
       "type": "string",
