@@ -100,44 +100,41 @@
           "required": [
             "match"
           ],
+          "additionalProperties": false,
           "properties": {
             "match": {
               "$ref": "#/definitions/sourceIdentifier"
+            },
+            "insensitive": {
+              "$comment": "Whether to match case-insensitively",
+              "type": "boolean"
             }
           }
         },
         {
-          "allOf": [
-            {
-              "$comment": "Matches the source identifier against a regular expression",
-              "type": "object",
-              "required": [
-                "regex"
-              ],
-              "properties": {
-                "regex": {
-                  "type": "string",
-                  "format": "regex",
-                  "minLength": 2
-                }
-              }
+          "$comment": "Matches the source identifier against a regular expression",
+          "type": "object",
+          "required": [
+            "regex"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "regex": {
+              "type": "string",
+              "format": "regex",
+              "minLength": 2
             },
-            {
-              "$ref": "#/definitions/sourceIdentifierRegexOptions"
+            "insensitive": {
+              "$comment": "Whether to match case-insensitively",
+              "type": "boolean"
+            },
+            "partial": {
+              "$comment": "Whether partially matching regular expressions are allowed",
+              "type": "boolean"
             }
-          ]
+          }
         }
       ]
-    },
-    "sourceIdentifierRegexOptions": {
-      "$comment": "Options for a source identifier regex matcher",
-      "type": "object",
-      "properties": {
-        "partial": {
-          "$comment": "Whether partial matches are allowed",
-          "type": "boolean"
-        }
-      }
     },
     "sourceIdentifier": {
       "$comment": "An identifier for a media source, e.g. an application package identifier",

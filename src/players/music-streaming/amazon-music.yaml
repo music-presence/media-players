@@ -9,6 +9,11 @@ sources:
     - AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AmazonMobileLLC.AmazonMusic
     - AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AMAZONMOBILELLC.AMAZONMUSIC
     - Amazon.Music
+    - match: AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AmazonMobileLLC.AmazonMusic
+      insensitive: true
+    - regex: AmazonMobileLLC.AmazonMusic_kc6t79cpj4tp0!AmazonMobileLLC.AmazonMusic$
+      insensitive: true
+      partial: true
   mac_bundle:
     - com.amazon.music
   web_domain:

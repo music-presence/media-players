@@ -109,6 +109,7 @@ def validate_target(target: ValidationTarget):
         b = f'"{target.id_from_filename}" in {target.short_path}'
         error(f"Mismatching player ID: {a} and {b}")
     validate_target_category_invariants(target)
+    validate_target_source_matchers(target)
 
 
 def validate_target_schema(target: ValidationTarget, schema: any):
@@ -146,6 +147,26 @@ def require_content_types(
             f'The "content" attribute for "{player}" may only contain '
             + ", ".join(content_type.value for content_type in content_types),
         )
+
+
+def validate_target_source_matchers(target: ValidationTarget):
+    def local_player_error(e):
+        error(f'Player "{target.content['id']}": {e}')
+
+    for matchers in target.content["sources"].values():
+        for matcher in matchers:
+            if isinstance(matcher, dict) and "regex" in matcher:
+                regex = matcher["regex"]
+                partial = matcher["partial"] if "partial" in matcher else False
+                is_partial = not regex.startswith("^") or not regex.endswith("$")
+                if not partial and is_partial:
+                    local_player_error(
+                        "Partial regular expressions must be explicitly flagged as such"
+                    )
+                if partial and not is_partial:
+                    local_player_error(
+                        "Marked as partial, but not a partial regular expression"
+                    )
 
 
 def validate_target_category_invariants(target: ValidationTarget):
