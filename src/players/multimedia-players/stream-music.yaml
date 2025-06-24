@@ -7,6 +7,8 @@ sources:
   win_smtc:
     - cn.aqzscn.streammusic_ffyz7s1gwevz6!streammusic
     - cn.aqzscn.streammusic_ffyz7s1gwevz6!STREAMMUSIC
+    - Zhengbo.2255273EDB8A_czzsq50rg32vy!streammusic
+    - Zhengbo.2255273EDB8A_czzsq50rg32vy!STREAMMUSIC
 attributes:
   pure: true
   service: false
