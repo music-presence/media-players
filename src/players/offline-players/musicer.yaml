@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: musicer
+name: Musicer
+url: https://wangchujiang.com/musicer
+sources:
+  mac_bundle:
+    - com.wangchujiang.musicer
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1387075206001987616"
