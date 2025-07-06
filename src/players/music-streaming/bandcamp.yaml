@@ -6,6 +6,7 @@ url: https://bandcamp.com
 sources:
   win_smtc:
     - Bandcamp.exe
+    - com.themagiulio.bandcamp-desktop
   web_domain:
     - bandcamp.com
 attributes:
