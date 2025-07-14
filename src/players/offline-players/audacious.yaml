@@ -4,6 +4,8 @@ id: audacious
 name: Audacious
 url: https://audacious-media-player.org
 sources:
+  win_smtc:
+    - audacious.exe
   lin_mpris:
     - audacious
 attributes:
