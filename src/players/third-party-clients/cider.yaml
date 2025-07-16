@@ -10,6 +10,7 @@ sources:
     - sh.cider.electron
     - sh.cider.genten.mac
   win_smtc:
+    - Cider.exe
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!app
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!App
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!APP
