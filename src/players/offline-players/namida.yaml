@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: namida
+name: Namida
+url: https://github.com/namidaco/namida
+sources:
+  win_smtc:
+    - namida.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1395045458648371240"
