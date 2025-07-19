@@ -39,6 +39,7 @@ class PlayerCategory(enum.Enum):
     AudiobookServices = "audiobook-services"
     RadioPlayers = "radio-players"
     ThirdPartyClients = "third-party-clients"
+    VideoPlayers = "video-players"
     VideoSharing = "video-sharing"
     Miscellaneous = "miscellaneous"
 
@@ -202,6 +203,12 @@ def validate_target_category_invariants(target: ValidationTarget):
         if "represents" not in target.content:
             local_category_error(
                 f'Player "{player}" must have the "represents" attribute'
+            )
+    elif category == PlayerCategory.VideoPlayers.value:
+        if ContentType.Video.value not in target.content["content"]:
+            local_category_error(
+                f'The "content" attribute for "{player}" must contain '
+                f'"{ContentType.Video.value}"'
             )
     elif category == PlayerCategory.VideoSharing.value:
         if target.content["attributes"]["service"] != True:
