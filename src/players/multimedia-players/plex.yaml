@@ -4,6 +4,8 @@ id: plex
 name: Plex
 url: https://plex.tv
 sources:
+  win_smtc:
+    - Plex.exe
   mac_bundle:
     - tv.plex.desktop
   web_domain:
