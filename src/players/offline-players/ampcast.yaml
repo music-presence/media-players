@@ -6,6 +6,7 @@ url: https://github.com/rekkyrosso/ampcast
 sources:
   win_smtc:
     - ampcast.exe
+    - org.rekkyrosso.ampcast
 attributes:
   pure: true
   service: false
