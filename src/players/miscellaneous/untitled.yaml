@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: untitled
+name: "[untitled]"
+url: https://untitled.stream
+sources:
+  win_smtc:
+    - electron.app.[untitled]
+attributes:
+  pure: false # not pure because unreleased/private tracks can be played
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1403424105532751963"
