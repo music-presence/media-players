@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: anghami
+name: Anghami
+url: https://www.anghami.com
+sources:
+  mac_bundle:
+    - com.anghami.anghami
+  web_domain:
+    - play.anghami.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1404184096405590158"
