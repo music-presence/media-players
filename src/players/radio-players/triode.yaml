@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: triode
+name: Triode
+url: https://triode.app
+sources:
+  mac_bundle:
+    - com.iconfactory.StreamerMac
+attributes:
+  pure: false # Not pure because media from radios can reveal user locations
+  service: false
+content:
+  - audio
+  - audio_radio
+  - audio_music
+extra:
+  discord_application_id: "1404871118128414750"
