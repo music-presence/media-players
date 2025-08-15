@@ -13,6 +13,8 @@ url: https://music.163.com
 represents:
   - netease-cloud-music-zh-placeholder
 sources:
+  mac_bundle:
+    - com.netease.163music
   web_domain:
     - music.163.com
 attributes:
