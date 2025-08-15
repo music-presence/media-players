@@ -6,6 +6,7 @@ url: https://spotify.com
 sources:
   win_smtc:
     - Spotify.exe
+    - Spotify Desktop.exe
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
   mac_bundle:
