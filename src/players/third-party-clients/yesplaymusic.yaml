@@ -17,6 +17,7 @@ represents:
   - netease-cloud-music-zh-placeholder
 sources:
   win_smtc:
+    - YesPlayMusic.exe
     - com.electron.yesplaymusic
   mac_bundle:
     - com.electron.yesplaymusic
