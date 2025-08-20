@@ -5,6 +5,7 @@ name: Roon
 url: https://roon.app
 sources:
   win_smtc:
+    - Roon.exe
     - Roon
   mac_bundle:
     - com.roon.Roon
