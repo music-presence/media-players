@@ -6,6 +6,7 @@ url: https://tauonmusicbox.rocks
 sources:
   win_smtc:
     - Tauon.exe
+    - Tauon Music Box.exe
   lin_mpris:
     - tauon
 attributes:
