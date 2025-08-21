@@ -8,6 +8,8 @@ sources:
     - mpv.exe
   mac_bundle:
     - io.mpv
+  lin_mpris:
+    - mpv
 attributes:
   pure: false
   service: false
