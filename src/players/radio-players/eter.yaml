@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: eter
+name: Eter
+url: https://eter.apparentsoft.com
+sources:
+  mac_bundle:
+    - com.mackozer.NewWorldRadioPlayer
+attributes:
+  pure: false # Not pure because media from radios can reveal user locations
+  service: false
+content:
+  - audio
+  - audio_radio
+  - audio_music
+extra:
+  discord_application_id: "1408582995220365543"
