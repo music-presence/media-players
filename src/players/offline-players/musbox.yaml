@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: musbox
+name: Musbox
+url: https://apps.microsoft.com/detail/9nblggh68lmn
+sources:
+  win_smtc:
+    - 15571neosonne.Musbox_qxsn2b5e40q52!app
+    - 15571neosonne.Musbox_qxsn2b5e40q52!App
+    - 15571neosonne.Musbox_qxsn2b5e40q52!APP
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1409893620693209180"
