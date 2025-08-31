@@ -176,6 +176,9 @@ def validate_target_category_invariants(target: ValidationTarget):
     elif category == PlayerCategory.PodcastServices.value:
         if target.content["attributes"]["service"] != True:
             local_category_error(f'The "service" attribute for "{player}" must be true')
+        if target.content["attributes"]["pure"] != True:
+            # Podcast services usually only stream podcasts and nothing else
+            local_category_error(f'The "pure" attribute for "{player}" must be true')
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioPodcast], True
         )
@@ -193,6 +196,9 @@ def validate_target_category_invariants(target: ValidationTarget):
     elif category == PlayerCategory.AudiobookServices.value:
         if target.content["attributes"]["service"] != True:
             local_category_error(f'The "service" attribute for "{player}" must be true')
+        if target.content["attributes"]["pure"] != True:
+            # Audiobook services usually only stream audiobooks and nothing else
+            local_category_error(f'The "pure" attribute for "{player}" must be true')
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioAudiobook], True
         )
