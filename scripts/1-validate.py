@@ -36,6 +36,7 @@ class PlayerCategory(enum.Enum):
     MusicStreaming = "music-streaming"
     OfflinePlayers = "offline-players"
     PodcastServices = "podcast-services"
+    PodcastPlayers = "podcast-players"
     AudiobookServices = "audiobook-services"
     RadioPlayers = "radio-players"
     ThirdPartyClients = "third-party-clients"
@@ -175,6 +176,17 @@ def validate_target_category_invariants(target: ValidationTarget):
     elif category == PlayerCategory.PodcastServices.value:
         if target.content["attributes"]["service"] != True:
             local_category_error(f'The "service" attribute for "{player}" must be true')
+        require_content_types(
+            target, [ContentType.Audio, ContentType.AudioPodcast], True
+        )
+    elif category == PlayerCategory.PodcastPlayers.value:
+        if target.content["attributes"]["service"] != False:
+            local_category_error(
+                f'The "service" attribute for "{player}" must be false'
+            )
+        if target.content["attributes"]["pure"] != True:
+            # Podcast players specifically usually only stream podcasts and nothing else
+            local_category_error(f'The "pure" attribute for "{player}" must be true')
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioPodcast], True
         )
