@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: khinsider
+name: KHInsider
+url: https://downloads.khinsider.com
+sources:
+  win_smtc:
+    - electron.app.Khinsider
+  web_domain:
+    - downloads.khinsider.com
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1412803463456493629"
