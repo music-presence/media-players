@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: ibroadcast
+name: iBroadcast
+url: https://ibroadcast.com
+sources:
+  win_smtc:
+    - electron.app.iBroadcast
+  web_domain:
+    - media.ibroadcast.com
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1412794299963281558"
