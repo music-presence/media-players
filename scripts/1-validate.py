@@ -43,6 +43,7 @@ class PlayerCategory(enum.Enum):
     VideoPlayers = "video-players"
     VideoSharing = "video-sharing"
     CloudPlayers = "cloud-players"
+    MusicArchives = "music-archives"
     Miscellaneous = "miscellaneous"
 
 
@@ -238,6 +239,11 @@ def validate_target_category_invariants(target: ValidationTarget):
                 f'"{ContentType.Video.value}"'
             )
     elif category == PlayerCategory.CloudPlayers.value:
+        if target.content["attributes"]["service"] != False:
+            local_category_error(
+                f'The "service" attribute for "{player}" must be false'
+            )
+    elif category == PlayerCategory.MusicArchives.value:
         if target.content["attributes"]["service"] != False:
             local_category_error(
                 f'The "service" attribute for "{player}" must be false'
