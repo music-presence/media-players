@@ -239,29 +239,40 @@ def validate_target_category_invariants(target: ValidationTarget):
 
 
 def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
+    discord_application_ids = {}
     for player_id, target in targets.items():
-        if "represents" not in target.content:
-            continue
-        for other_id in target.content["represents"]:
-            if other_id == player_id:
-                error(f'Player "{player_id}" may not represent itself')
-            if other_id not in targets:
+        if "represents" in target.content:
+            for other_id in target.content["represents"]:
+                if other_id == player_id:
+                    error(f'Player "{player_id}" may not represent itself')
+                if other_id not in targets:
+                    error(
+                        f'Player "{player_id}" represents non-existent player "{other_id}"'
+                    )
+
+                # FIXME Allow nested "represents" relationships for now.
+                # These should not be allowed in theory, but nested relationships
+                # are needed for placeholders to be accepted. Music Presence
+                # currently does not read these recursively, so it's okay for now.
+                # They should never be read recursively.
+
+                # other = targets[other_id]
+                # if "represents" in other.content:
+                #     error(
+                #         f'Player "{player_id}" cannot represent "{other_id}" '
+                #         f'because "{other_id}" already represents other players'
+                #     )
+        if (
+            "extra" in target.content
+            and "discord_application_id" in target.content["extra"]
+        ):
+            discord_application_id = target.content["extra"]["discord_application_id"]
+            if discord_application_id in discord_application_ids:
                 error(
-                    f'Player "{player_id}" represents non-existent player "{other_id}"'
+                    f'Player "{player_id}" has a Discord application ID that is already '
+                    f'used by "{discord_application_ids[discord_application_id]}"'
                 )
-
-            # FIXME Allow nested "represents" relationships for now.
-            # These should not be allowed in theory, but nested relationships
-            # are needed for placeholders to be accepted. Music Presence
-            # currently does not read these recursively, so it's okay for now.
-            # They should never be read recursively.
-
-            # other = targets[other_id]
-            # if "represents" in other.content:
-            #     error(
-            #         f'Player "{player_id}" cannot represent "{other_id}" '
-            #         f'because "{other_id}" already represents other players'
-            #     )
+            discord_application_ids[discord_application_id] = player_id
 
 
 def validate_targets(targets: dict[str, ValidationTarget]):
