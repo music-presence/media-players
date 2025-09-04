@@ -13,6 +13,7 @@ sources:
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!app
   web_domain:
     - music.apple.com
+    - classical.music.apple.com
 attributes:
   pure: true
   service: true
