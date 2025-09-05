@@ -43,6 +43,9 @@
     "content": {
       "$ref": "#/definitions/content"
     },
+    "helpers": {
+      "$ref": "#/definitions/helpers"
+    },
     "extra": {
       "$ref": "#/definitions/extra"
     }
@@ -60,32 +63,82 @@
       "minProperties": 1,
       "properties": {
         "win_winrt": {
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/platformSourceList"
         },
         "win_smtc": {
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/platformSourceList"
         },
         "mac_mediaremote": {
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/platformSourceList"
         },
         "mac_bundle": {
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/platformSourceList"
         },
         "lin_mpris": {
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/platformSourceList"
         },
         "web_domain": {
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/platformSourceList"
         }
       }
     },
-    "sourceList": {
+    "platformSourceList": {
       "$comment": "A list of source identifiers",
       "type": "array",
       "uniqueItems": true,
       "minItems": 1,
       "items": {
         "$ref": "#/definitions/sourceIdentifier"
+      }
+    },
+    "platformHelperDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "suggestions"
+      ],
+      "properties": {
+        "required": {
+          "$comment": "Whether this ",
+          "type": "boolean"
+        },
+        "suggestions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/platformHelperSuggestion"
+          }
+        }
+      }
+    },
+    "platformHelperSuggestion": {
+      "$comment": "A suggestion for a helper software to use on a specific platform",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "type",
+        "recommended"
+      ],
+      "properties": {
+        "url": {
+          "$comment": "Where to download or find the helper software",
+          "type": "string",
+          "format": "uri",
+          "pattern": "^http[s]?://\\S+[^/\\s]$"
+        },
+        "type": {
+          "$comment": "The type of helper software, which implies how to install or run it",
+          "type": "string",
+          "enum": [
+            "player_plugin",
+            "background_program"
+          ]
+        },
+        "recommended": {
+          "$comment": "Whether this is the recommended helper software because it's distributed by the developer of the media player, generally well-known or the only solution available. Third-party, closed-source helper software should never be recommended",
+          "type": "boolean"
+        }
       }
     },
     "sourceIdentifier": {
@@ -178,6 +231,23 @@
           }
         }
       ]
+    },
+    "helpers": {
+      "$comment": "Helper programs that are needed for or improve media metadata reporting on specific platforms",
+      "type": "object",
+      "additionalProperties": true,
+      "minProperties": 1,
+      "properties": {
+        "win_smtc": {
+          "$ref": "#/definitions/platformHelperDefinition"
+        },
+        "mac_bundle": {
+          "$ref": "#/definitions/platformHelperDefinition"
+        },
+        "lin_mpris": {
+          "$ref": "#/definitions/platformHelperDefinition"
+        }
+      }
     },
     "extra": {
       "$comment": "Extra properties that might be useful",
