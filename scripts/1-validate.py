@@ -17,6 +17,7 @@ import os
 import pathlib
 import sys
 import warnings
+from collections import defaultdict
 
 import core
 from core import log, error
@@ -251,7 +252,8 @@ def validate_target_category_invariants(target: ValidationTarget):
 
 
 def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
-    discord_application_ids = {}
+    discord_application_ids = dict()
+    source_platform_ids = defaultdict(dict)
     for player_id, target in targets.items():
         if "represents" in target.content:
             for other_id in target.content["represents"]:
@@ -285,6 +287,17 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                     f'used by "{discord_application_ids[discord_application_id]}"'
                 )
             discord_application_ids[discord_application_id] = player_id
+        if "sources" in target.content:
+            for source_name, platform_ids in target.content["sources"].items():
+                for platform_id in platform_ids:
+                    if platform_id in source_platform_ids[source_name]:
+                        error(
+                            f'Player "{player_id}" shares source identifier '
+                            f'"{platform_id}" with '
+                            f'"{source_platform_ids[source_name][platform_id]}" '
+                            f'for platform "{source_name}"'
+                        )
+                    source_platform_ids[source_name][platform_id] = player_id
 
 
 def validate_targets(targets: dict[str, ValidationTarget]):
