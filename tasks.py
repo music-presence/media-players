@@ -45,7 +45,7 @@ def clear_directory(path: str):
     shutil.rmtree(path)
 
 
-@task
+@task(aliases=["i"])
 def build_player_icons(c: Context, player: str):
     print(f'Building player "{player}"')
     if os.path.exists(OUTPUT_DIR):
@@ -54,7 +54,7 @@ def build_player_icons(c: Context, player: str):
     c.run(f'python -u "{script}" "{player}"')
 
 
-@task
+@task(aliases=["b"])
 def build(c: Context, player: Optional[str] = None):
     print("Building players")
     if os.path.exists(OUTPUT_DIR):
@@ -110,7 +110,7 @@ def copy_tree_append_only(src, dst):
             shutil.copy(src_file, dst_file)
 
 
-@task(pre=[build])
+@task(pre=[build], aliases=["d"])
 def deploy(c: Context):
     print("Deploying players", file=sys.stderr)
     if os.path.exists(BUILD_DIR):
