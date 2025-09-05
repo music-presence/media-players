@@ -116,11 +116,17 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "name",
         "url",
         "type",
         "recommended"
       ],
       "properties": {
+        "name": {
+          "$comment": "The name of the helper software",
+          "type": "string",
+          "minLength": 1
+        },
         "url": {
           "$comment": "Where to download or find the helper software",
           "type": "string",
