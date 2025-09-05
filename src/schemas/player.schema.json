@@ -144,6 +144,11 @@
         "recommended": {
           "$comment": "Whether this is the recommended helper software because it's distributed by the developer of the media player, generally well-known or the only solution available. Third-party, closed-source helper software should never be recommended",
           "type": "boolean"
+        },
+        "recommended_minimum_version": {
+          "$comment": "The minimum required version for this plugin, in case older versions do not work anymore or are severely limited in their function",
+          "type": "string",
+          "minLength": 1
         }
       }
     },
