@@ -100,7 +100,7 @@
       ],
       "properties": {
         "required": {
-          "$comment": "Whether this ",
+          "$comment": "Whether this helper is required for any metadata to be reported by the media player",
           "type": "boolean"
         },
         "suggestions": {
