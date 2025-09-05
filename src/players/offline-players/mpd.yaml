@@ -12,5 +12,12 @@ attributes:
 content:
   - audio
   - audio_music
+helpers:
+  lin_mpris:
+    required: true
+    suggestions:
+      - url: https://github.com/natsukagami/mpd-mpris
+        type: background_program
+        recommended: true
 extra:
   discord_application_id: "1413422373222350919"
