@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: mpd
+name: MPD
+url: https://www.musicpd.org
+sources:
+  lin_mpris:
+    - mpd
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1413422373222350919"
