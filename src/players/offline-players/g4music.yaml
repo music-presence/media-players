@@ -6,6 +6,7 @@ url: https://gitlab.gnome.org/neithern/g4music
 sources:
   lin_mpris:
     - Gapless
+    - com.github.neithern.g4music
 attributes:
   pure: true
   service: false
