@@ -5,7 +5,7 @@ name: KHInsider
 url: https://downloads.khinsider.com
 sources:
   win_smtc:
-    - electron.app.Khinsider
+    - electron.app.Khinsider # via WebCatalog
   web_domain:
     - downloads.khinsider.com
 attributes:

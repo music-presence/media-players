@@ -6,7 +6,7 @@ url: https://youtube.com
 sources:
   win_smtc:
     - YouTube.exe
-    - electron.app.YouTube
+    - electron.app.YouTube # via WebCatalog
   web_domain:
     - youtube.com
     - youtu.be

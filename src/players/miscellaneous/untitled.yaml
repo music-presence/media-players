@@ -5,7 +5,7 @@ name: "[untitled]"
 url: https://untitled.stream
 sources:
   win_smtc:
-    - electron.app.[untitled]
+    - electron.app.[untitled] # via WebCatalog
 attributes:
   pure: false # not pure because unreleased/private tracks can be played
   service: false

@@ -5,7 +5,7 @@ name: Pandora
 url: https://pandora.com
 sources:
   win_smtc:
-    - electron.app.Pandora
+    - electron.app.Pandora # via WebCatalog
     - www.pandora.com-E52CFF50_nv5nhcy212296!app
     - www.pandora.com-E52CFF50_nv5nhcy212296!App
     - www.pandora.com-E52CFF50_nv5nhcy212296!APP

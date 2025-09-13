@@ -5,7 +5,7 @@ name: iBroadcast
 url: https://ibroadcast.com
 sources:
   win_smtc:
-    - electron.app.iBroadcast
+    - electron.app.iBroadcast # via WebCatalog
   web_domain:
     - media.ibroadcast.com
 attributes:
