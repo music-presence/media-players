@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: rise-media-player
+name: Rise Media Player
+url: https://github.com/Rise-Software/Rise-Media-Player
+sources:
+  win_smtc:
+    - 60499RiseSoftware.RiseMediaPlayer_3kvj791xg7kd0!app
+    - 60499RiseSoftware.RiseMediaPlayer_3kvj791xg7kd0!App
+    - 60499RiseSoftware.RiseMediaPlayer_3kvj791xg7kd0!APP
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1416756015998832703"
