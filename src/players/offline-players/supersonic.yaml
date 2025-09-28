@@ -6,6 +6,8 @@ url: https://github.com/dweymouth/supersonic
 sources:
   win_smtc:
     - Supersonic.exe
+  lin_mpris:
+    - Supersonic
 attributes:
   pure: true
   service: false
