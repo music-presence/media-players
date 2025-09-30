@@ -4,7 +4,7 @@ id: discrete
 name: Discrete
 url: https://discrete.app
 represents:
-  - jellfyin
+  - jellyfin
 sources:
   mac_bundle:
     - app.discrete.apple-platforms
