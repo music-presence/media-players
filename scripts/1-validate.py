@@ -39,6 +39,7 @@ class PlayerCategory(enum.Enum):
     PodcastServices = "podcast-services"
     PodcastPlayers = "podcast-players"
     AudiobookServices = "audiobook-services"
+    AudiobookPlayers = "audiobook-players"
     RadioPlayers = "radio-players"
     ThirdPartyClients = "third-party-clients"
     VideoPlayers = "video-players"
@@ -249,6 +250,17 @@ def validate_target_category_invariants(target: ValidationTarget):
             local_category_error(
                 f'The "service" attribute for "{player}" must be false'
             )
+    elif category == PlayerCategory.AudiobookPlayers.value:
+        if target.content["attributes"]["service"] != False:
+            local_category_error(
+                f'The "service" attribute for "{player}" must be false'
+            )
+        if target.content["attributes"]["pure"] != True:
+            # Audiobook players specifically usually only play audiobooks and nothing else
+            local_category_error(f'The "pure" attribute for "{player}" must be true')
+        require_content_types(
+            target, [ContentType.Audio, ContentType.AudioAudiobook], True
+        )
 
 
 def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
