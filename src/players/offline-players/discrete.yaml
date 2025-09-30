@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: discrete
+name: Discrete
+url: https://discrete.app
+represents:
+  - jellfyin
+sources:
+  mac_bundle:
+    - app.discrete.apple-platforms
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1422604715396431892"
