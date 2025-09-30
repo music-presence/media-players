@@ -6,6 +6,8 @@ url: https://jellyfin.org
 sources:
   win_smtc:
     - JellyfinMediaPlayer.exe
+  mac_bundle:
+    - tv.jellyfin.player
 attributes:
   pure: false
   service: false
