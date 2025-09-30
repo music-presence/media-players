@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: overcast
+name: Overcast
+url: https://overcast.fm
+sources:
+  mac_bundle:
+    - fm.overcast.overcast
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_podcast
+extra:
+  discord_application_id: "1422607371234185246"
