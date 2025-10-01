@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# FIXME: This doesn't seem to be a traditional streaming service like Spotify.
+# It seems to use the YouTube API to stream music from YouTube, so it doesn't
+# really make sense to force branding with the "service: true" attribute.
+# At what point does a streaming service require branding?
+
+id: freefy
+name: Freefy
+url: https://freefy.app
+sources:
+  win_smtc:
+    - freefy.app-D0AFEF82_k2e4xhrwjmg1j!APP
+    - freefy.app-D0AFEF82_k2e4xhrwjmg1j!App
+    - freefy.app-D0AFEF82_k2e4xhrwjmg1j!app
+    - electron.app.Freefy
+  web_domain:
+    - open.spotify.com
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1422903491596259339"
