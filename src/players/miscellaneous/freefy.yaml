@@ -15,7 +15,7 @@ sources:
     - freefy.app-D0AFEF82_k2e4xhrwjmg1j!app
     - electron.app.Freefy
   web_domain:
-    - open.spotify.com
+    - freefy.app
 attributes:
   pure: true
   service: false
