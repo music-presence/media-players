@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# FIXME: This allows streaming + downloads + log in with Spotify.
+
+id: musicloud
+name: Musicloud
+url: https://apps.microsoft.com/detail/9p6v0d62d4bq
+sources:
+  win_smtc:
+    - 47059JimmyLin.Musicloud_xyw7tsdk3xz7m!APP
+    - 47059JimmyLin.Musicloud_xyw7tsdk3xz7m!App
+    - 47059JimmyLin.Musicloud_xyw7tsdk3xz7m!app
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1423002779785498724"
