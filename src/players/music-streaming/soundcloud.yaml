@@ -9,6 +9,7 @@ sources:
     - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!App
     - SoundcloudLtd.SoundCloudforWindowsBeta_2xc63xn306dnw!APP
     - SoundCloud.exe
+    - electron.app.SoundCloud
   web_domain:
     - soundcloud.com
     - snd.sc
