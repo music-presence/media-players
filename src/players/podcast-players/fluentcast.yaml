@@ -5,7 +5,9 @@ name: FluentCast
 url: https://luandersonn.com/fluentcast
 sources:
   win_smtc:
+    - 1664LuandersonnAirton.FluentCast_0srnedvzndzw6!app
     - 1664LuandersonnAirton.FluentCast_0srnedvzndzw6!App
+    - 1664LuandersonnAirton.FluentCast_0srnedvzndzw6!APP
 attributes:
   pure: true
   service: false
