@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: grover-podcast
+name: Grover Podcast
+url: https://groverpodcasts.com
+sources:
+  win_smtc:
+    - 14610MatheusI.M.GroovePodcast_jx8kt06yv8vw6!app
+    - 14610MatheusI.M.GroovePodcast_jx8kt06yv8vw6!App
+    - 14610MatheusI.M.GroovePodcast_jx8kt06yv8vw6!APP
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_podcast
+extra:
+  discord_application_id: "1423294518047801384"
