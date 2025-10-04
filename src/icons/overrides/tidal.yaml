@@ -3,3 +3,9 @@
 global:
   image_mask: circle
   image_scale: 1.4
+label:
+  discord-small-image:
+    image_mask: circle
+    background: transparent
+    # slightly larger than 1.125
+    image_scale: 1.2
