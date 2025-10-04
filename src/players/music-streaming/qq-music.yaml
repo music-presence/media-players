@@ -8,6 +8,8 @@ represents:
 sources:
   win_smtc:
     - QQMusic.exe
+  mac_bundle:
+    - com.tencent.QQMusicMac
   web_domain:
     - y.qq.com
 attributes:
