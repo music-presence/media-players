@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# Placeholder for media players that were requested but don't have an official
+# website or are private projects, but should still work with Music Presence.
+
+# FIXME This shouldn't really be needed
+
+id: media
+name: Media
+url: https://example.com
+sources:
+  win_smtc:
+    # https://github.com/ungive/discord-music-presence/issues/472
+    - phone utils.exe
+attributes:
+  pure: false # may play anything
+  service: false
+content:
+  - audio
+  - video
+extra:
+  discord_application_id: "1424485096290914415"
