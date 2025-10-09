@@ -16,6 +16,7 @@ sources:
   web_domain:
     - music.apple.com
     - classical.music.apple.com
+    - beta.music.apple.com
 attributes:
   pure: true
   service: true
