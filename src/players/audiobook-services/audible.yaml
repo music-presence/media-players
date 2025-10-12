@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: audible
+name: Audible
+url: https://www.audible.com
+sources:
+  mac_bundle:
+    - com.audible.iphone
+    - com.webcatalog.juli.audible # via WebCatalog
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_audiobook
+extra:
+  discord_application_id: "1426973618771857468"
