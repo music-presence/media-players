@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: vox-mac
+name: VOX
+url: https://vox.rocks/mac-music-player
+sources:
+  mac_bundle:
+    - com.coppertino.Vox
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1426851601171222679"
