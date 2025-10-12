@@ -7,6 +7,8 @@ sources:
   win_smtc:
     - electron.app.iBroadcast # via WebCatalog
     - electron.app.ibroadcast # via WebCatalog
+  mac_bundle:
+    - com.webcatalog.juli.ibroadcast # via WebCatalog
   web_domain:
     - media.ibroadcast.com
 attributes:
