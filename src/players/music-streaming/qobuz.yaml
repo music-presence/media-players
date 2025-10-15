@@ -7,6 +7,7 @@ sources:
   win_smtc:
     - Qobuz.exe
     - com.squirrel.Qobuz.Qobuz
+    - electron.app.Qobuz # via WebCatalog
   web_domain:
     - qobuz.com
     - play.qobuz.com
