@@ -15,6 +15,7 @@ sources:
     - com.squirrel.youtube_music_desktop_app.youtube-music-desktop-app
   mac_bundle:
     - com.github.th-ch.youtube-music
+    - com.webcatalog.juli.youtube-music # via WebCatalog
   lin_mpris:
     - YoutubeMusic
 attributes:
