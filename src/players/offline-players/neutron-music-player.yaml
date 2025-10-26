@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: neutron-music-player
+name: Neutron Music Player
+url: https://neutroncode.com/apps/player
+represents:
+  - neutron-music-player-placeholder
+sources:
+  win_smtc:
+    - NeutronCodeLimited.NeutronMusicPlayer_63vf3jxagy284!app
+    - NeutronCodeLimited.NeutronMusicPlayer_63vf3jxagy284!App
+    - NeutronCodeLimited.NeutronMusicPlayer_63vf3jxagy284!APP
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1431934928240775319"

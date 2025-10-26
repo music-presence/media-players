@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# FIXME: Remove this placeholder once players can have multiple names
+# Make sure that Music Presence handles the case when a media player disappears
+# which was used as a "represents" option for a third party client.
+
+id: neutron-music-player-placeholder
+name: Neutron
+url: https://neutroncode.com/apps/player
+sources:
+  web_domain:
+    - neutroncode.com.example.com
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1431935967454826496"
