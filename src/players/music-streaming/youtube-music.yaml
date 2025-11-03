@@ -13,6 +13,7 @@ sources:
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!App
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!APP
     - com.squirrel.youtube_music_desktop_app.youtube-music-desktop-app
+    - electron.app.YouTube Music # via WebCatalog
   mac_bundle:
     - com.github.th-ch.youtube-music
     - com.webcatalog.juli.youtube-music # via WebCatalog
