@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_scale: 1.05
+label:
+  discord-small-image:
+    background: transparent
+    image_scale: 1.19
