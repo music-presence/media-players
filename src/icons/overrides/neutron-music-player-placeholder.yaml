@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_scale: 1.05
+label:
+  tray-menu:
+    from_image: neutron-music-player.alt.png
+    output_shape: square
