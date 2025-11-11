@@ -1,8 +1,5 @@
 # yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
 
-global:
-  image_scale: 1.3
 label:
   tray-menu:
-    image_scale: 0.9
-    background: black
+    from_image: jellyfin.original.png

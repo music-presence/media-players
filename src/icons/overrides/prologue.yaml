@@ -2,3 +2,7 @@
 
 global:
   image_scale: 1.3
+label:
+  tray-menu:
+    from_image: prologue.original.png
+    image_scale: 1.0

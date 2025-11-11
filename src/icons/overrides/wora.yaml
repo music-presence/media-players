@@ -3,3 +3,7 @@
 global:
   image_mask: circle
   image_scale: 1.47
+label:
+  tray-menu:
+    output_shape: square
+    image_scale: 1.0

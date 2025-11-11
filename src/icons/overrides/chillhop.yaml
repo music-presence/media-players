@@ -2,3 +2,7 @@
 
 global:
   image_scale: 1.05
+label:
+  tray-menu:
+    background: black
+    border_scale: 0.8

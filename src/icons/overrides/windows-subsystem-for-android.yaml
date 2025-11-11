@@ -2,3 +2,7 @@
 
 global:
   image_scale: 0.95
+label:
+  tray-menu:
+    output_shape: square
+    image_scale: 1.0

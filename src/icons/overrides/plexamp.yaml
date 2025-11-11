@@ -3,3 +3,7 @@
 global:
   image_mask: circle
   image_scale: 1.45
+label:
+  tray-menu:
+    background: "#191919"
+    image_scale: 1.0

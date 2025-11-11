@@ -1,11 +1,7 @@
 # yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
 
-global:
-  image_mask: circle
 label:
-  discord-small-image:
-    image_mask: circle
   tray-menu:
+    from_image: doppler.alt.png
     image_mask: square
     output_shape: square
-    border_scale: 0.8
