@@ -21,6 +21,7 @@ rules:
   - label: tray-menu
     image_type: ICO
     output_shape: circle
+    border_scale: 0.8
   - # The Discord application logo to upload to the Discord Developer portal.
     # This shouldn't be included in the generated players.json file.
     exclude: true
