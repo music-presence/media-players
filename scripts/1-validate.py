@@ -47,6 +47,7 @@ class PlayerCategory(enum.Enum):
     CloudPlayers = "cloud-players"
     MusicArchives = "music-archives"
     Miscellaneous = "miscellaneous"
+    Browsers = "browsers"
 
 
 class ContentType(enum.Enum):
@@ -261,6 +262,38 @@ def validate_target_category_invariants(target: ValidationTarget):
         require_content_types(
             target, [ContentType.Audio, ContentType.AudioAudiobook], True
         )
+
+    if category == PlayerCategory.Browsers.value:
+        if "browser" not in target.content["attributes"]:
+            local_category_error(f'The "browser" attribute for "{player}" must be set')
+        if target.content["attributes"]["browser"] != True:
+            local_category_error(
+                f'The "browser" attribute for "{player}" must be false'
+            )
+        if ContentType.Audio.value not in target.content["content"]:
+            local_category_error(
+                f'The "content" attribute for "{player}" must contain '
+                f'"{ContentType.Audio.value}"'
+            )
+        if ContentType.Video.value not in target.content["content"]:
+            local_category_error(
+                f'The "content" attribute for "{player}" must contain '
+                f'"{ContentType.Video.value}"'
+            )
+        if target.content["attributes"]["pure"] != False:
+            local_category_error(f'The "pure" attribute for "{player}" must be false')
+        if target.content["attributes"]["service"] != False:
+            local_category_error(
+                f'The "service" attribute for "{player}" must be false'
+            )
+    else:
+        if (
+            "browser" in target.content["attributes"]
+            and target.content["attributes"]["browser"] != False
+        ):
+            local_category_error(
+                f'The "browser" attribute for "{player}" must be false'
+            )
 
 
 def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):

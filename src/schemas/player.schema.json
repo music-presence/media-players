@@ -109,6 +109,10 @@
         "service": {
           "$comment": "This media player is a streaming service and provides licensed content that must be branded with the service's logo",
           "type": "boolean"
+        },
+        "browser": {
+          "$comment": "This media player is a web browser",
+          "type": "boolean"
         }
       }
     },
