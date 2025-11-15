@@ -45,6 +45,9 @@
     },
     "extra": {
       "$ref": "#/definitions/extra"
+    },
+    "experimental": {
+      "$ref": "#/definitions/experimental"
     }
   },
   "definitions": {
@@ -60,28 +63,44 @@
       "minProperties": 1,
       "properties": {
         "win_smtc": {
-          "$ref": "#/definitions/sourceList"
+          "$comment": "A list of app user model IDs via SMTC on Windows",
+          "$ref": "#/definitions/basicSourceList"
         },
         "mac_bundle": {
-          "$ref": "#/definitions/sourceList"
+          "$comment": "A list of app bundle identifiers on Mac",
+          "$ref": "#/definitions/basicSourceList"
         },
         "lin_mpris": {
-          "$ref": "#/definitions/sourceList"
+          "$comment": "A list of source identifiers or source matchers for MPRIS via D-Bus on Linux",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sourceIdentifier"
+              },
+              {
+                "$ref": "#/definitions/sourceMatcherMpris"
+              }
+            ]
+          }
         },
         "web_domain": {
-          "$ref": "#/definitions/sourceList"
+          "$comment": "A list of fully-qualified domain names on the web",
+          "$ref": "#/definitions/basicSourceList"
         },
         "win_winrt": {
           "$comment": "DEPRECATED: Will be removed in v4",
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/basicSourceList"
         },
         "mac_mediaremote": {
           "$comment": "DEPRECATED: Will be removed in v4",
-          "$ref": "#/definitions/sourceList"
+          "$ref": "#/definitions/basicSourceList"
         }
       }
     },
-    "sourceList": {
+    "basicSourceList": {
       "$comment": "A list of source identifiers",
       "type": "array",
       "uniqueItems": true,
@@ -89,6 +108,28 @@
       "items": {
         "$ref": "#/definitions/sourceIdentifier"
       }
+    },
+    "sourceMatcherMpris": {
+      "$comment": "Matchers for a media source that reports metadata via MPRIS",
+      "type": "object",
+      "required": [
+        "service"
+      ],
+      "properties": {
+        "service": {
+          "$comment": "The value to match against the D-Bus service name without the \"org.mpris.MediaPlayer2.\" prefix and without any instance suffix",
+          "$ref": "#/definitions/sourceIdentifier"
+        },
+        "identity": {
+          "$comment": "The value to match against the \"org.mpris.MediaPlayer2.Identity\" D-Bus property of the service",
+          "type": "string"
+        },
+        "desktop_entry": {
+          "$comment": "The value to match against the \"org.mpris.MediaPlayer2.DesktopEntry\" D-Bus property of the service",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "sourceIdentifier": {
       "$comment": "An identifier for a media source, e.g. an application package identifier",
@@ -197,6 +238,21 @@
           "$comment": "The ID of a Discord application registered at https://discord.com/developers/applications which has the name of this media player",
           "type": "string",
           "pattern": "\\d{16,24}"
+        }
+      }
+    },
+    "experimental": {
+      "$comment": "Experimental properties that might vanish or change their meaning without major version bumps",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lin_mpris_identity": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/sourceMatcherMpris"
+          }
         }
       }
     }

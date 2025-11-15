@@ -62,6 +62,13 @@ class ContentType(enum.Enum):
     VideoShow = "video_show"
 
 
+class SourceName(enum.Enum):
+    LIN_MPRIS = "lin_mpris"
+    WIN_SMTC = "win_smtc"
+    MAC_BUNDLE = "mac_bundle"
+    WEB_DOMAIN = "web_domain"
+
+
 @dataclasses.dataclass
 class ValidationTarget:
     path: str
@@ -333,8 +340,24 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                 )
             discord_application_ids[discord_application_id] = player_id
         if "sources" in target.content:
+            # TODO Move this to a different method later
             for source_name, platform_ids in target.content["sources"].items():
                 for platform_id in platform_ids:
+                    save_platform_id = True
+                    if isinstance(platform_id, dict):
+                        if source_name == SourceName.LIN_MPRIS.value:
+                            # FIXME Don't hardcode "service" here
+                            platform_id = platform_id["service"]
+                            if len(platform_id) > 1:
+                                # Do not save this ID, as it's used in conjunction
+                                # with other properties, so it's allowed to appear
+                                # across multiple media player definitions.
+                                save_platform_id = False
+                    if not isinstance(platform_id, str):
+                        error(
+                            f'Identifier of player "{player_id}" '
+                            f'for platform "{source_name}" must be a string'
+                        )
                     if platform_id in source_platform_ids[source_name]:
                         error(
                             f'Player "{player_id}" shares source identifier '
@@ -342,7 +365,8 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                             f'"{source_platform_ids[source_name][platform_id]}" '
                             f'for platform "{source_name}"'
                         )
-                    source_platform_ids[source_name][platform_id] = player_id
+                    if save_platform_id:
+                        source_platform_ids[source_name][platform_id] = player_id
 
 
 def validate_targets(targets: dict[str, ValidationTarget]):

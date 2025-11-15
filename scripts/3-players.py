@@ -39,8 +39,7 @@ OUT_PLAYERS_BASENAME = "players"
 OUT_PLAYERS_MIN_SUFFIX = "min"
 OUT_PLAYERS_EXTENSION = "json"
 SCHEMA_PATH = os.path.join(SRC_DIR, "schemas")
-PLAYERS_SCHEMA = core.read_json(
-    os.path.join(SCHEMA_PATH, "players.schema.json"))
+PLAYERS_SCHEMA = core.read_json(os.path.join(SCHEMA_PATH, "players.schema.json"))
 
 
 class Subset:
@@ -97,8 +96,8 @@ def get_output_file(subset: Optional[Subset] = None, minified=False):
 # these are more descriptive synonyms that will be used in the next version,
 # but they have to be replaced with their original values until that happens.
 PLATFORM_IDENTIFIER_FIX_MAP = {
-    'win_smtc': 'win_winrt',
-    'mac_bundle': 'mac_mediaremote',
+    "win_smtc": "win_winrt",
+    "mac_bundle": "mac_mediaremote",
 }
 
 
@@ -107,6 +106,26 @@ def fix_platform_identifiers(sources: dict[str, any]):
         if current in sources:
             sources[wanted] = sources[current]
             del sources[current]
+
+
+# FIXME Remove this in v4. This is only for v3
+def fix_move_source_matcher_dicts(content: dict[str, any]):
+    sources = content["sources"]
+    if "lin_mpris" not in sources:
+        return
+    lin_mpris = sources["lin_mpris"]
+    remain: List[Any] = []
+    moved: List[dict] = []
+    for item in lin_mpris:
+        if isinstance(item, dict):
+            moved.append(item)
+        else:
+            remain.append(item)
+    sources["lin_mpris"] = remain
+    if moved:
+        experimental = content.setdefault("experimental", {})
+        lin_mpris_identity = experimental.setdefault("lin_mpris_identity", [])
+        lin_mpris_identity.extend(moved)
 
 
 def generate(root: str, subset: Optional[Subset] = None):
@@ -138,6 +157,7 @@ def generate(root: str, subset: Optional[Subset] = None):
             for source_name in source_names - to_include:
                 del content["sources"][source_name]
         fix_platform_identifiers(content["sources"])
+        fix_move_source_matcher_dicts(content)
         result["players"].append(content)
         total += 1
         if player not in icons:
