@@ -60,7 +60,6 @@
       "$comment": "All known source identifiers for a media player",
       "type": "object",
       "additionalProperties": false,
-      "minProperties": 1,
       "properties": {
         "win_smtc": {
           "$comment": "A list of app user model IDs via SMTC on Windows",
