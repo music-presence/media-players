@@ -59,13 +59,7 @@
       "additionalProperties": false,
       "minProperties": 1,
       "properties": {
-        "win_winrt": {
-          "$ref": "#/definitions/sourceList"
-        },
         "win_smtc": {
-          "$ref": "#/definitions/sourceList"
-        },
-        "mac_mediaremote": {
           "$ref": "#/definitions/sourceList"
         },
         "mac_bundle": {
@@ -75,6 +69,14 @@
           "$ref": "#/definitions/sourceList"
         },
         "web_domain": {
+          "$ref": "#/definitions/sourceList"
+        },
+        "win_winrt": {
+          "$comment": "DEPRECATED: Will be removed in v4",
+          "$ref": "#/definitions/sourceList"
+        },
+        "mac_mediaremote": {
+          "$comment": "DEPRECATED: Will be removed in v4",
           "$ref": "#/definitions/sourceList"
         }
       }
