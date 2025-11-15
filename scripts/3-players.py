@@ -121,7 +121,10 @@ def fix_move_source_matcher_dicts(content: dict[str, any]):
             moved.append(item)
         else:
             remain.append(item)
-    sources["lin_mpris"] = remain
+    if len(remain) > 0:
+        sources["lin_mpris"] = remain
+    else:
+        del sources["lin_mpris"]
     if moved:
         experimental = content.setdefault("experimental", {})
         lin_mpris_identity = experimental.setdefault("lin_mpris_identity", [])
