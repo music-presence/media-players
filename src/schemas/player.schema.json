@@ -188,7 +188,7 @@
     "extra": {
       "$comment": "Extra properties that might be useful",
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "required": [
         "discord_application_id"
       ],
@@ -196,7 +196,7 @@
         "discord_application_id": {
           "$comment": "The ID of a Discord application registered at https://discord.com/developers/applications which has the name of this media player",
           "type": "string",
-          "pattern": "^[\\d]{16,}$"
+          "pattern": "\\d{16,24}"
         }
       }
     }
