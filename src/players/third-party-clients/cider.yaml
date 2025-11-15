@@ -16,6 +16,8 @@ sources:
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!APP
   lin_mpris:
     - cider
+    - service: chromium
+      identity: Cider
 attributes:
   pure: true
   service: false
