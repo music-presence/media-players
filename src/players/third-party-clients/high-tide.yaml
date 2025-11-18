@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: high-tide
+name: High Tide
+url: https://github.com/Nokse22/high-tide
+represents:
+  - tidal
+sources:
+  lin_mpris:
+    - io.github.nokse22.high-tide
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1440291708020461589"
