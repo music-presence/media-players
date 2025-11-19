@@ -1,0 +1,5 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  tray-menu:
+    output_shape: square
