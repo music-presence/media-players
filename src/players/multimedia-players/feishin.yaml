@@ -4,6 +4,8 @@ id: feishin
 name: Feishin
 url: https://github.com/jeffvli/feishin
 sources:
+  win_smtc:
+    - Feishin.exe
   lin_mpris:
     - Feishin
 attributes:
