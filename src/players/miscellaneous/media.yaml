@@ -12,6 +12,7 @@ sources:
   win_smtc:
     # https://github.com/ungive/discord-music-presence/issues/472
     - phone utils.exe
+    - Vermilia phone-utils.exe
 attributes:
   pure: false # may play anything
   service: false
