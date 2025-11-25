@@ -8,6 +8,7 @@ sources:
     - Feishin.exe
   lin_mpris:
     - Feishin
+    - org.jeffvli.feishin
 attributes:
   pure: true
   service: false
