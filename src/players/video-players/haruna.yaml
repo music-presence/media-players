@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: haruna
+name: Haruna
+url: https://haruna.kde.org
+sources:
+  lin_mpris:
+    - haruna
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1443713661410611274"
