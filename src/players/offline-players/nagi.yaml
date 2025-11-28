@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: nagi
+name: Nagi
+url: https://github.com/Anthonyy232/Nagi
+sources:
+  win_smtc:
+    - velopack.Nagi
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1444026909217259581"
