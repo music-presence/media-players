@@ -7,6 +7,8 @@ sources:
   win_smtc:
     - "[untitled].exe"
     - electron.app.[untitled] # via WebCatalog
+  mac_bundle:
+    - com.untitledinbrackets.untitled-macos
 attributes:
   pure: false # not pure because unreleased/private tracks can be played
   service: false
