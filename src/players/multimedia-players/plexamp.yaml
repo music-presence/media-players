@@ -8,6 +8,7 @@ represents:
 sources:
   mac_bundle:
     - tv.plex.plexamp
+    - tv.plex.labs.plexamp
   lin_mpris:
     - Plexamp
 attributes:
