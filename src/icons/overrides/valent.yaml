@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_scale: 0.85
+label:
+  tray-menu:
+    background: black
+    border_scale: 0.8
