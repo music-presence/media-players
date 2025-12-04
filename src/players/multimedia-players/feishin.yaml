@@ -6,6 +6,7 @@ url: https://github.com/jeffvli/feishin
 sources:
   win_smtc:
     - Feishin.exe
+    - org.jeffvli.feishin
   lin_mpris:
     - Feishin
     - org.jeffvli.feishin
