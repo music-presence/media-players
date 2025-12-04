@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: poweramp
+name: Poweramp
+url: https://powerampapp.com
+sources:
+  lin_mpris:
+    - service: Valent
+      identity: Poweramp
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1446202094045630524"
