@@ -60,6 +60,27 @@ No file is ever removed, but some files may be overwritten or updated,
 especially those of the most recent version (v3).
 Older versions are generally not kept up-to-date.
 
+## Notes
+
+- On Linux the `org.mpris.MediaPlayer2.` prefix
+  must be removed from the service name to identify a media player
+- On Linux instance suffixes (e.g. `.instance2341`) must be removed
+  to identify a media player
+- On Linux some media players are identified by their "Identity" D-Bus property
+  in conjunction with a specific service name,
+  when the service name is not sufficient to uniquely identify the player.
+  It can occur that the service name already identifies a "media player"
+  that is defined in this repository,
+  but the combination of the service identifier and the "Identity"
+  identifies a different media player.
+  This is the case with e.g. "Valent" and "Poweramp".
+  It is important to not naively pick the first media player
+  whose service identifier matches,
+  but to instead pick the media player whose match is more specific.
+  "Poweramp" with `service=Valent` and `identity=Poweramp` is more specific
+  than "Valent" with only `service=Valent`,
+  so "Poweramp" should be preferred, if the "Identity" has the right value
+
 ## Maintaining and contributing
 
 To maintain or contribute to this repository, keep the following notes in mind:
