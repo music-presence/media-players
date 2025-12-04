@@ -346,26 +346,26 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                     save_platform_id = True
                     if isinstance(platform_id, dict):
                         if source_name == SourceName.LIN_MPRIS.value:
-                            # FIXME Don't hardcode "service" here
-                            platform_id = platform_id["service"]
                             if len(platform_id) > 1:
                                 # Do not save this ID, as it's used in conjunction
                                 # with other properties, so it's allowed to appear
                                 # across multiple media player definitions.
                                 save_platform_id = False
+                            # FIXME Don't hardcode "service" here
+                            platform_id = platform_id["service"]
                     if not isinstance(platform_id, str):
                         error(
                             f'Identifier of player "{player_id}" '
                             f'for platform "{source_name}" must be a string'
                         )
-                    if platform_id in source_platform_ids[source_name]:
-                        error(
-                            f'Player "{player_id}" shares source identifier '
-                            f'"{platform_id}" with '
-                            f'"{source_platform_ids[source_name][platform_id]}" '
-                            f'for platform "{source_name}"'
-                        )
                     if save_platform_id:
+                        if platform_id in source_platform_ids[source_name]:
+                            error(
+                                f'Player "{player_id}" shares source identifier '
+                                f'"{platform_id}" with '
+                                f'"{source_platform_ids[source_name][platform_id]}" '
+                                f'for platform "{source_name}"'
+                            )
                         source_platform_ids[source_name][platform_id] = player_id
 
 
