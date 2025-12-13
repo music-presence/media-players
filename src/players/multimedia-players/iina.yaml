@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: iina
+name: IINA
+url: https://iina.io
+sources:
+  mac_bundle:
+    - com.colliderli.iina
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1449324750357663785"
