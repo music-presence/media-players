@@ -4,6 +4,8 @@ id: aonsoku
 name: Aonsoku
 url: https://github.com/victoralvesf/aonsoku
 sources:
+  win_smtc:
+    - com.victoralvesf.aonsoku
   mac_bundle:
     - com.victoralvesf.aonsoku
 attributes:
