@@ -12,6 +12,9 @@ sources:
     - qobuz.com
     - play.qobuz.com
     - open.qobuz.com
+  lin_mpris:
+    - service: Valent
+      identity: Qobuz
 attributes:
   pure: true
   service: true
