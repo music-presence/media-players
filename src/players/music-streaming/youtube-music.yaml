@@ -19,6 +19,8 @@ sources:
     - com.webcatalog.juli.youtube-music # via WebCatalog
   lin_mpris:
     - YoutubeMusic
+    - service: Valent
+      identity: YouTube Music
 attributes:
   pure: true
   service: true
