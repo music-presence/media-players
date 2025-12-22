@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  discord-large-image:
+    image_scale: 1.1
+  discord-small-image:
+    image_scale: 1.1
+  tray-menu:
+    output_shape: square

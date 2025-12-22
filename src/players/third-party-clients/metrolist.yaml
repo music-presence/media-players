@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: metrolist
+name: Metrolist
+url: https://github.com/mostafaalagamy/Metrolist
+represents:
+  - youtube-music
+sources:
+  lin_mpris:
+    - service: Valent
+      identity: Metrolist
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1452691320702505154"
