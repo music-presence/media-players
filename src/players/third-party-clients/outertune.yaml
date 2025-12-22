@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: outertune
+name: OuterTune
+url: https://github.com/OuterTune/OuterTune
+represents:
+  - youtube-music
+sources:
+  lin_mpris:
+    - service: Valent
+      identity: OuterTune
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1452693380399235092"
