@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: bloomee
+name: Bloomee
+url: https://github.com/HemantKArya/BloomeeTunes
+represents:
+  - youtube-music
+  - youtube
+sources:
+  win_smtc:
+    - Bloomee.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1454908037616763124"
