@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: kugou
+name: KuGou
+url: https://www.kugou.com
+represents:
+  - kugou-zh-placeholder
+sources:
+  mac_bundle:
+    - com.kugou.mac.Music
+  web_domain:
+    - kugou.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1455595637159760007"
