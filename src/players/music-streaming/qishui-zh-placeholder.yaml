@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# FIXME: Remove this placeholder once players can have multiple names
+# Make sure that Music Presence handles the case when a media player disappears
+# which was used as a "represents" option for a third party client.
+
+id: qishui-zh-placeholder
+name: 汽水音乐
+url: https://music.douyin.com
+sources:
+  web_domain:
+    - music.douyin.com.example.com
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1455593994816847932"
