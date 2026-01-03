@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: finer
+name: Finer
+url: https://monk-studio.com/finer
+represents:
+  - jellyfin
+sources:
+  mac_bundle:
+    - com.monk-studio.jellyfin-music
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1456950829008551991"
