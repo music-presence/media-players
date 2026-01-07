@@ -4,6 +4,8 @@ id: feishin
 name: Feishin
 url: https://github.com/jeffvli/feishin
 sources:
+  mac_bundle:
+    - org.jeffvli.feishin
   win_smtc:
     - Feishin.exe
     - org.jeffvli.feishin
