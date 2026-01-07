@@ -4,6 +4,8 @@ id: bandcamp
 name: Bandcamp
 url: https://bandcamp.com
 sources:
+  mac_bundle:
+    - com.bandcamp.iosapp
   win_smtc:
     - Bandcamp.exe
     - com.themagiulio.bandcamp-desktop
