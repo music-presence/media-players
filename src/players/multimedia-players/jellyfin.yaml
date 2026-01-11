@@ -4,6 +4,8 @@ id: jellyfin
 name: Jellyfin
 url: https://jellyfin.org
 sources:
+  lin_mpris:
+    - JellyfinDesktop
   win_smtc:
     - JellyfinMediaPlayer.exe
   mac_bundle:
