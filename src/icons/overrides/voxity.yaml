@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_scale: 1.1
+label:
+  logo-128:
+    background: black
+    output_shape: circle
+    image_scale: 0.8
+    background_scale: 1
+  tray-menu:
+    background: black
+    image_scale: 1
