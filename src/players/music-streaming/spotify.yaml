@@ -9,6 +9,7 @@ sources:
     - Spotify Desktop.exe
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
+    - Spotishka Desktop.exe
   mac_bundle:
     - com.spotify.client
   lin_mpris:
