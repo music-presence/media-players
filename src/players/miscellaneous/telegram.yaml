@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: telegram
+name: Telegram
+url: https://telegram.org
+sources:
+  win_smtc:
+    - Telegram.TelegramDesktop
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1465728253959602176"
