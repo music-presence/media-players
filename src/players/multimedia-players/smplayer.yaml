@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: smplayer
+name: SMPlayer
+url: https://www.smplayer.info
+sources:
+  lin_mpris:
+    - smplayer
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1467801048646422712"
