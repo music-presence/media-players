@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: qmplay2
+name: QMPlay2
+url: https://github.com/zaps166/QMPlay2
+sources:
+  lin_mpris:
+    - QMPlay2
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1468602800534720609"
