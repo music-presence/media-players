@@ -6,6 +6,9 @@ url: https://github.com/anandnet/Harmony-Music
 sources:
   win_smtc:
     - harmonymusic.exe
+  lin_mpris:
+    - service: com.mycompany.myapp.audio
+      identity: Harmony Music Notification
 attributes:
   pure: true
   service: false
