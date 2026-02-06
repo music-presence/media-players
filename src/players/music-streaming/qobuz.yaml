@@ -8,13 +8,14 @@ sources:
     - Qobuz.exe
     - com.squirrel.Qobuz.Qobuz
     - electron.app.Qobuz # via WebCatalog
+  lin_mpris:
+    - service: Valent
+      identity: Qobuz
+    - qbz # https://github.com/vicrodh/qbz
   web_domain:
     - qobuz.com
     - play.qobuz.com
     - open.qobuz.com
-  lin_mpris:
-    - service: Valent
-      identity: Qobuz
 attributes:
   pure: true
   service: true
