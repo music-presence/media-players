@@ -12,7 +12,6 @@ sources:
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!app
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!App
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!APP
-    - com.github.th_ch.youtube_music # App image YT music app from https://github.com/pear-devs/pear-desktop/releases/tag/v3.11.0 has a _ not -
     - com.squirrel.youtube_music_desktop_app.youtube-music-desktop-app
     - electron.app.YouTube Music for Desktop
     - electron.app.YouTube Music # via WebCatalog
@@ -20,6 +19,7 @@ sources:
     - com.github.th-ch.youtube-music
     - com.webcatalog.juli.youtube-music # via WebCatalog
   lin_mpris:
+    - com.github.th_ch.youtube_music # App image YT music app from https://github.com/pear-devs/pear-desktop/releases/tag/v3.11.0 has a _ not -
     - YoutubeMusic
     - service: Valent
       identity: YouTube Music
