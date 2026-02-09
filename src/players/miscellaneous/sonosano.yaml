@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: sonosano
+name: Sonosano
+url: https://github.com/KRSHH/Sonosano
+sources:
+  win_smtc:
+    - com.sonosano.app
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1470539812132884652"

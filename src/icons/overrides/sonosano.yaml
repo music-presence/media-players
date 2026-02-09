@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_mask: circle
+label:
+  discord-large-image:
+    image_scale: 1.2
+  discord-small-image:
+    image_scale: 1.2
+  logo-128:
+    image_scale: 1.2
