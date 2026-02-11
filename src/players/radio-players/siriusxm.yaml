@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: siriusxm
+name: SiriusXM
+url: https://www.siriusxm.com
+sources:
+  win_smtc:
+    - electron.app.SiriusXM
+attributes:
+  pure: false # Not pure because media from radios can reveal user locations
+  service: false
+content:
+  - audio
+  - audio_radio
+  - audio_music
+extra:
+  discord_application_id: "1471112567865741490"
