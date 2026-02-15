@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  discord-small-image:
+    from_image: flacbox.circle.png
+    image_mask: circle
+    background: transparent
+    image_scale: 1.19
+  logo-128:
+    output_shape: square
+  tray-menu:
+    output_shape: square
