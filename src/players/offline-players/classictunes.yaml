@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: classictunes
+name: ClassicTunes
+url: https://happysmaran.github.io/ClassicTunes
+sources:
+  mac_bundle:
+    - com.smaran.ClassicTunes
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1474339830551806125"
