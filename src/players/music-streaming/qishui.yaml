@@ -6,6 +6,8 @@ url: https://music.douyin.com
 represents:
   - qishui-zh-placeholder
 sources:
+  win_smtc:
+    - 汽水音乐
   mac_bundle:
     - com.soda.music
   web_domain:
