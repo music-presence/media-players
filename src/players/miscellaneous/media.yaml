@@ -11,8 +11,10 @@ url: https://example.com
 sources:
   win_smtc:
     # https://github.com/ungive/discord-music-presence/issues/472
+    # https://github.com/ungive/discord-music-presence/issues/653
     - phone utils.exe
     - Vermilia phone-utils.exe
+    - AndroidMusicPresenceLink.exe
 attributes:
   pure: false # may play anything
   service: false
