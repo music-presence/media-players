@@ -6,6 +6,8 @@ url: https://github.com/shy1132/VacuumTube
 represents:
   - youtube
 sources:
+  win_smtc:
+    - rocks.shy.VacuumTube
   lin_mpris:
     - service: chromium
       identity: VacuumTube
