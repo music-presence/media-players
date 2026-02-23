@@ -8,6 +8,7 @@ sources:
     - music.youtube.com
   win_smtc:
     - YouTube Music.exe
+    - youtube-music-desktop-app.exe
     - com.github.th-ch.youtube-music
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!app
     - music.youtube.com-5929F88E_vezhnr0wkvrcy!App
