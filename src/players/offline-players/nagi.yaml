@@ -6,6 +6,7 @@ url: https://github.com/Anthonyy232/Nagi
 sources:
   win_smtc:
     - velopack.Nagi
+    - Nagi.MusicPlayer
 attributes:
   pure: true
   service: false
