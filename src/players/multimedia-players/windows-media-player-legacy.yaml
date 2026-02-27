@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: windows-media-player-legacy
+name: Windows Media Player
+url: https://en.wikipedia.org/wiki/Windows_Media_Player
+sources:
+  win_smtc:
+    - Discord WMP.exe # https://github.com/T0biasCZe/Windows-Media-Player-Discord-RPC
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1476731618008764569"
