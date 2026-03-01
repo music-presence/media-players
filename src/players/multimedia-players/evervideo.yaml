@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: evervideo
+name: Evervideo
+url: https://www.everappz.com/products/evervideo
+sources:
+  mac_bundle:
+    - com.leshko.videoplayer.mac
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1477771175244464260"
