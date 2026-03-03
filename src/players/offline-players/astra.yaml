@@ -4,7 +4,7 @@
 # Created a separate media player for it for now: ./nullplayer.yaml
 
 id: astra
-name: AdAmp
+name: Astra
 url: https://github.com/boof2015/astra
 sources:
   win_smtc:
