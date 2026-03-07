@@ -7,6 +7,9 @@ sources:
   win_smtc:
     - ampcast.exe
     - org.rekkyrosso.ampcast
+  lin_mpris:
+    - service: chromium
+      identity: ampcast
 attributes:
   pure: true
   service: false
