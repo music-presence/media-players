@@ -8,6 +8,9 @@ sources:
     - com.victoralvesf.aonsoku
   mac_bundle:
     - com.victoralvesf.aonsoku
+  lin_mpris:
+    - service: chromium
+      identity: Aonsoku
 attributes:
   pure: true
   service: false
