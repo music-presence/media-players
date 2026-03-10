@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: petrichor
+name: Petrichor
+url: https://github.com/kushalpandya/Petrichor
+sources:
+  mac_bundle:
+    - org.Petrichor
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1480937621625503835"

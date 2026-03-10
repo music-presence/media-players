@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  discord-large-image:
+    from_image: petrichor.original.png
+  discord-small-image:
+    from_image: petrichor.png
+    image_mask: circle
+    background: transparent
+    image_scale: 1.19
+  discord-application-logo:
+    from_image: petrichor.png
+  tray-menu:
+    from_image: petrichor.original.png
+    output_shape: square
+  logo-128:
+    from_image: petrichor.original.png
