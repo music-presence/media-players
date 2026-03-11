@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  discord-small-image:
+    from_image: optimus-player.circle.png
+    image_mask: circle
+    background: transparent
+    image_scale: 1.19
