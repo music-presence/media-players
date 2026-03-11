@@ -4,7 +4,7 @@ id: optimus-player
 name: Optimus Player
 url: https://www.optimusplayer.com
 represents:
-  - neutron-music-player-placeholder
+  - optimus-player-placeholder
 sources:
   mac_bundle:
     - mo.darren.optimus.player.mac
