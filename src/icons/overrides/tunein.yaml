@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  discord-application-logo:
+    image_mask: circle
+  discord-large-image:
+    from_image: tunein.large.png
+  discord-small-image:
+    image_mask: circle
+    background: transparent
+    image_scale: 1.19
+  logo-128:
+    from_image: tunein.large.png
+  tray-menu:
+    output_shape: square

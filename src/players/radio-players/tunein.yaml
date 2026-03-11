@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: tunein
+name: TuneIn
+url: https://tunein.com
+sources:
+  mac_bundle:
+    - com.tunein.desktop
+attributes:
+  pure: false # Not pure because media from radios can reveal user locations
+  service: false
+content:
+  - audio
+  - audio_radio
+  - audio_music
+  - audio_podcast
+extra:
+  discord_application_id: "1481340771889316051"
