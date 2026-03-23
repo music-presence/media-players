@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: hummingbird
+name: Hummingbird
+url: https://github.com/hummingbird-player/hummingbird
+sources:
+  mac_bundle:
+    - org.mailliw.hummingbird
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1485618408291700797"
