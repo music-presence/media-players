@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: rune
+name: Rune
+url: https://rune.not.ci
+sources:
+  win_smtc:
+    - rune.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1488638266717765742"
