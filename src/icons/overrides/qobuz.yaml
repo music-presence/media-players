@@ -3,5 +3,9 @@
 global:
   image_scale: 1.1
 label:
+  discord-small-image:
+    image_mask: square
+    image_scale: 1.19
+    background: transparent
   tray-menu:
     output_shape: square
