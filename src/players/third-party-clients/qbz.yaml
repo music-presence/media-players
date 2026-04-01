@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: qbz
+name: QBZ
+url: https://github.com/vicrodh/qbz
+represents:
+  - qobuz
+sources:
+  lin_mpris:
+    # TODO: Is this one outdated now?
+    - qbz
+    - com.blitzfc.qbz
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1489004426273231069"
