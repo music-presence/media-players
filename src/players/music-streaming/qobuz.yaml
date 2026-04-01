@@ -11,7 +11,6 @@ sources:
   lin_mpris:
     - service: Valent
       identity: Qobuz
-    - qbz # https://github.com/vicrodh/qbz
   web_domain:
     - qobuz.com
     - play.qobuz.com
