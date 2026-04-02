@@ -12,6 +12,7 @@ represents:
 sources:
   mac_bundle:
     - org.jeffvli.feishin
+    - com.unicornsonlsd.finamp-ios
   win_smtc:
     - Feishin.exe
     - org.jeffvli.feishin
