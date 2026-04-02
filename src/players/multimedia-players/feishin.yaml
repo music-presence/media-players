@@ -3,6 +3,12 @@
 id: feishin
 name: Feishin
 url: https://github.com/jeffvli/feishin
+represents:
+  - jellyfin
+  # TODO Add Navidrome?
+  # TODO Add Subsonic?
+  # Quote: "the allowed types are: jellyfin, navidrome, subsonic"
+  # Source: https://github.com/jeffvli/feishin
 sources:
   mac_bundle:
     - org.jeffvli.feishin
