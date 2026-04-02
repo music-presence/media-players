@@ -8,6 +8,8 @@ represents:
 sources:
   lin_mpris:
     - com.unicornsonlsd.finamp.audio
+  mac_bundle:
+    - com.unicornsonlsd.finamp-ios
 attributes:
   pure: true
   service: false
