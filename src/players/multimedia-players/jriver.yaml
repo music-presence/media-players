@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: jriver
+name: JRiver
+url: https://www.jriver.com
+sources:
+  mac_bundle:
+    - com.jriver.MediaCenter35
+attributes:
+  pure: false
+  service: false
+content:
+  - audio
+  - video
+extra:
+  discord_application_id: "1491764195580968982"
