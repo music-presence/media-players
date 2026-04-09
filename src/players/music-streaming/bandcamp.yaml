@@ -9,6 +9,7 @@ sources:
   win_smtc:
     - Bandcamp.exe
     - com.themagiulio.bandcamp-desktop
+    - electron.app.Bandcamp # via WebCatalog
   web_domain:
     - bandcamp.com
 attributes:
