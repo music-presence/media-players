@@ -4,6 +4,8 @@ id: hummingbird
 name: Hummingbird
 url: https://github.com/hummingbird-player/hummingbird
 sources:
+  win_smtc:
+    - Hummingbird.exe
   mac_bundle:
     - org.mailliw.hummingbird
 attributes:
