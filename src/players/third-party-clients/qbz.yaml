@@ -10,6 +10,8 @@ sources:
     # TODO: Is this one outdated now?
     - qbz
     - com.blitzfc.qbz
+  mac_mediaremote:
+    - com.blitzfc.qbz
 attributes:
   pure: true
   service: false
