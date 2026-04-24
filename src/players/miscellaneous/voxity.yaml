@@ -6,6 +6,7 @@ url: https://voxity.exerinity.com
 sources:
   win_smtc:
     - com.exerinity.voxity
+    - Voxity.exe
 attributes:
   pure: true
   service: false
