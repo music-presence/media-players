@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: apple-control-center
+name: Control Center
+url: https://en.wikipedia.org/wiki/Control_Center_(Apple)
+represents:
+  - apple-control-center-control-centre-placeholder
+  - apple-control-center-airplay-placeholder
+sources:
+  mac_bundle:
+    - com.apple.controlcenter
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1497893575013433395"
