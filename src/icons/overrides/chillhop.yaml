@@ -3,6 +3,11 @@
 global:
   image_scale: 1.05
 label:
+  logo-128:
+    background: black
+    output_shape: circle
+    border_scale: 0.8
   tray-menu:
     background: black
+    output_shape: circle
     border_scale: 0.8
