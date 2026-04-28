@@ -2,7 +2,7 @@
 
 id: wora
 name: Wora
-url: https://github.com/hiaaryan/wora
+url: https://wora.app
 sources:
   win_smtc:
     - com.wora.player
