@@ -6,6 +6,9 @@ url: https://wora.app
 sources:
   win_smtc:
     - com.wora.player
+  lin_mpris:
+    - service: chromium
+      identity: wora
 attributes:
   pure: true
   service: false
