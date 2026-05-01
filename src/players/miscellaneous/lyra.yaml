@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: lyra
+name: Lyra
+url: https://play.google.com/store/apps/details?id=com.musicapp.lyra
+sources:
+  win_smtc:
+    - com.musicapp.lyra
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1499704187963969616"

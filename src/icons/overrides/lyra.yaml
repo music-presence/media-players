@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  tray-menu:
+    from_image: lyra.original.png
+    image_mask: circle
+  logo-128:
+    from_image: lyra.original.png
+    output_shape: circle
