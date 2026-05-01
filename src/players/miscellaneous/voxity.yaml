@@ -7,6 +7,10 @@ sources:
   win_smtc:
     - com.exerinity.voxity
     - Voxity.exe
+  lin_mpris:
+    - voxity
+    - service: chromium
+      identity: Voxity
 attributes:
   pure: true
   service: false
