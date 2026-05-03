@@ -6,6 +6,7 @@ url: https://murglar.app
 sources:
   win_smtc:
     - com.badmanners.murglar
+    - Murglar.exe
 attributes:
   pure: true
   service: false
