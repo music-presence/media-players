@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  image_scale: 1.08
+label:
+  discord-large-image:
+    from_image: psysonic.transparent.png
+  discord-small-image:
+    from_image: psysonic.transparent.png
+  discord-application-logo:
+    from_image: psysonic.transparent.png
+  tray-menu:
+    image_mask: square
+    output_shape: square
