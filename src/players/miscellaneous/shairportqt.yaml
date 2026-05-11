@@ -5,6 +5,8 @@
 id: shairportqt
 name: ShairportQt
 url: https://github.com/Frank-Friemel/ShairportQt
+represents:
+  - airplay-placeholder
 sources:
   win_smtc:
     - Airplay.Shairport.Audio.1.0
