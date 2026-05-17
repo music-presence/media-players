@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: hifidelity
+name: HiFidelity
+url: https://rvarunrathod.github.io/HiFidelity
+sources:
+  mac_bundle:
+    - vr.HiFidelity
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1505610840399806686"
