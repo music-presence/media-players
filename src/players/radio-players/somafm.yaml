@@ -7,7 +7,7 @@ sources:
   mac_bundle:
     - com.somafm.somafmmac
 attributes:
-  pure: true # SomaFM does not appear to play regional radio stations
+  pure: false # Not pure because media from radios could reveal user locations
   service: false
 content:
   - audio
