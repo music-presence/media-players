@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: somafm
+name: SomaFM
+url: https://somafm.com
+sources:
+  mac_bundle:
+    - com.somafm.somafmmac
+attributes:
+  pure: true # SomaFM does not appear to play regional radio stations
+  service: false
+content:
+  - audio
+  - audio_radio
+  - audio_music
+extra:
+  discord_application_id: "1507300203676565625"
