@@ -2,10 +2,11 @@
 
 id: lyra
 name: Lyra
-url: https://play.google.com/store/apps/details?id=com.musicapp.lyra
+url: https://apps.microsoft.com/detail/9nkg57pvd5bq
 sources:
   win_smtc:
     - com.musicapp.lyra
+    - AlessandroGerelli.LyraMusic_6tzwxm0crfkde!LyraMusic
 attributes:
   pure: true
   service: false
