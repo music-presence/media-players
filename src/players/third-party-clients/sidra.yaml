@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: sidra
+name: Sidra
+url: https://github.com/wimpysworld/sidra
+represents:
+  - apple-music
+sources:
+  lin_mpris:
+    - sidra
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1510984239632617502"
