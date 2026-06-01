@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: parachord
+name: Parachord
+url: https://parachord.com
+sources:
+  lin_mpris:
+    - service: chromium
+      identity: Parachord
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1510973413907370104"
