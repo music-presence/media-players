@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: aiiko-music
+name: Aiiko Music
+url: https://github.com/HirayamaAiiko/Aiiko-Music
+sources:
+  win_smtc:
+    - Aiiko Music
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1511655883443011686"
