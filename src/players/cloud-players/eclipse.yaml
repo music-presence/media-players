@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: eclipse
+name: Eclipse
+url: https://eclipsemusic.app
+sources:
+  win_smtc:
+    - velopack.Eclipse
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1514537002568253543"
