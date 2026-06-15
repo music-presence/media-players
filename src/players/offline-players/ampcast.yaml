@@ -7,6 +7,8 @@ sources:
   win_smtc:
     - ampcast.exe
     - org.rekkyrosso.ampcast
+  mac_bundle:
+    - org.rekkyrosso.ampcast
   lin_mpris:
     - service: chromium
       identity: ampcast
