@@ -454,8 +454,9 @@ def generate_icon(
     result_file = f"{out_prefix}.{result_slug}.{rule.image_type.value.lower()}"
     result_path = os.path.join(out_directory, result_file)
     os.rename(tmp_result_path, result_path)
-    result_file_noslug = f"{out_prefix}.{rule.image_type.value.lower()}"
-    shutil.copy2(result_path, os.path.join(out_directory, result_file_noslug))
+    if out_prefix.startswith("logo"):
+        result_file_noslug = f"{out_prefix}.{rule.image_type.value.lower()}"
+        shutil.copy2(result_path, os.path.join(out_directory, result_file_noslug))
     return result_path
 
 
