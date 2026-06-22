@@ -6,6 +6,7 @@ url: https://www.aimp.ru
 sources:
   win_smtc:
     - AIMP.exe
+    - NimiGames68.AimpSmtc
 attributes:
   pure: true
   service: false
