@@ -7,6 +7,9 @@ sources:
   win_smtc:
     - com.squirrel.pocket_casts_desktop.PocketCasts
     - Pocket Casts.exe
+    - ShiftyJelly.PocketCastsDesktop_jr8twj5yc2snp!pocketcasts
+    - ShiftyJelly.PocketCastsDesktop_jr8twj5yc2snp!PocketCasts
+    - ShiftyJelly.PocketCastsDesktop_jr8twj5yc2snp!POCKETCASTS
   mac_bundle:
     - com.electron.pocket-casts
   web_domain:
