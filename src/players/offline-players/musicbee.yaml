@@ -6,6 +6,7 @@ url: https://www.getmusicbee.com
 sources:
   win_smtc:
     - MusicBee.exe
+    - 50072StevenMayall.MusicBee_kcr266et74avj!musicbeepackage
     - 50072StevenMayall.MusicBee_kcr266et74avj!MusicBeePackage
     - 50072StevenMayall.MusicBee_kcr266et74avj!MUSICBEEPACKAGE
   lin_mpris:
