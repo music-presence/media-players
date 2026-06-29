@@ -6,3 +6,7 @@ label:
   tray-menu:
     image_mask: square
     output_shape: square
+  discord-small-image:
+    image_mask: circle
+    background: transparent
+    image_scale: 1.19
