@@ -10,3 +10,5 @@ label:
     image_mask: circle
     background: transparent
     image_scale: 1.19
+  logo-128:
+    image_mask: square
