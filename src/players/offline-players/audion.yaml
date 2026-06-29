@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: audion
+name: Audion
+url: https://www.audionplayer.com
+sources:
+  mac_bundle:
+    - com.audion.app
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1521215344663072973"
