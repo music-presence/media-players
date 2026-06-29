@@ -4,7 +4,7 @@ id: audion
 name: Audion
 url: https://www.audionplayer.com
 sources:
-  mac_bundle:
+  win_smtc:
     - com.audion.app
 attributes:
   pure: true

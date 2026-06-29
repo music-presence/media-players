@@ -4,7 +4,7 @@ id: waveflow
 name: WaveFlow
 url: https://waveflow.app
 sources:
-  mac_bundle:
+  win_smtc:
     - app.waveflow
 attributes:
   pure: true
