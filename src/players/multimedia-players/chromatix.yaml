@@ -8,6 +8,8 @@ represents:
 sources:
   win_winrt:
     - com.chromatix.app
+  mac_bundle:
+    - com.chromatix.app
 attributes:
   pure: true
   service: false
