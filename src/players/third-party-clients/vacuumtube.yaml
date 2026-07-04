@@ -8,6 +8,7 @@ represents:
 sources:
   win_smtc:
     - rocks.shy.VacuumTube
+    - electron.app.VacuumTube
   lin_mpris:
     - service: chromium
       identity: VacuumTube
