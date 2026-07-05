@@ -7,6 +7,7 @@ sources:
   win_smtc:
     - ampcast.exe
     - org.rekkyrosso.ampcast
+    - electron.app.ampcast
   mac_bundle:
     - org.rekkyrosso.ampcast
   lin_mpris:
