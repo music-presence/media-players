@@ -6,6 +6,8 @@ url: https://github.com/wimpysworld/sidra
 represents:
   - apple-music
 sources:
+  win_smtc:
+    - com.wimpysworld.sidra
   lin_mpris:
     - sidra
 attributes:
