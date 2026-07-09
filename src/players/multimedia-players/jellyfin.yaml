@@ -10,6 +10,7 @@ sources:
     - JellyfinMediaPlayer.exe
   mac_bundle:
     - tv.jellyfin.player
+    - org.jellyfin.jellyfin-desktop
 attributes:
   pure: false
   service: false
