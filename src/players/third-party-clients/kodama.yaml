@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: kodama
+name: Kodama
+url: https://github.com/KiyoshiTheDevil/Kodama
+represents:
+  - youtube-music
+sources:
+  win_smtc:
+    - dev.kodama.music
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1525177912901369887"
