@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: netflix
+name: Netflix
+url: https://www.netflix.com
+sources:
+  win_smtc:
+    - 4DF9E0F8.Netflix_mcm4njqhnhss8!netflix.app
+    - 4DF9E0F8.Netflix_mcm4njqhnhss8!Netflix.App
+    - 4DF9E0F8.Netflix_mcm4njqhnhss8!NETFLIX.APP
+  web_domain:
+    - netflix.com
+attributes:
+  pure: false
+  service: true
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1525158713952960552"
