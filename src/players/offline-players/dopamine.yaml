@@ -9,6 +9,9 @@ sources:
     - Dopamine.exe
   mac_bundle:
     - com.digimezzo.dopamine
+  lin_mpris:
+    - service: chromium
+      identity: Dopamine
 attributes:
   pure: true
   service: false
