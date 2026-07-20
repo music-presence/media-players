@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: jellium
+name: Jellium
+url: https://github.com/andrewrabert/jellium-desktop
+represents:
+  - jellyfin
+sources:
+  lin_mpris:
+    - JelliumDesktop
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1528828309910196305"
