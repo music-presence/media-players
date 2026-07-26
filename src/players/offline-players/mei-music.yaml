@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: mei-music
+name: Mei Music
+url: https://store.steampowered.com/app/4578490/Mei_Music
+sources:
+  win_smtc:
+    - com.meimusic.desktop
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1530952595672141944"
