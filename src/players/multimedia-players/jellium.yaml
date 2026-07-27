@@ -6,6 +6,8 @@ url: https://github.com/andrewrabert/jellium-desktop
 represents:
   - jellyfin
 sources:
+  win_smtc:
+    - jellium-desktop.exe
   lin_mpris:
     - JelliumDesktop
 attributes:
