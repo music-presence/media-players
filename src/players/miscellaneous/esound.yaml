@@ -6,6 +6,9 @@ url: https://esound.app
 sources:
   win_smtc:
     - com.earlystudio.esound
+    - SpicySparks.eSoundMusic_36wb9nbggdj94!esoundmusic
+    - SpicySparks.eSoundMusic_36wb9nbggdj94!eSoundMusic
+    - SpicySparks.eSoundMusic_36wb9nbggdj94!ESOUNDMUSIC
 attributes:
   pure: true
   service: false
