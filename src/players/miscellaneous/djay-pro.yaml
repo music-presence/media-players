@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: djay-pro
+name: djay Pro
+url: https://www.algoriddim.com
+sources:
+  mac_bundle:
+    - com.algoriddim.djay-iphone-free
+attributes:
+  # Not pure because it's a DJ app and might play unreleased tracks.
+  pure: false
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1535613291890483210"
