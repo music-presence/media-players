@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: focus-music
+name: focus.music
+url: https://focus.music
+sources:
+  win_smtc:
+    - focus.music-8C2628DE_930v1qr4esn20!App
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1535918136983814164"
