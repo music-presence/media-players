@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: navibeat
+name: NaviBeat
+url: https://navibeat.app
+sources:
+  lin_mpris:
+    - navibeat
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1536083477798199406"
