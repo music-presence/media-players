@@ -10,6 +10,8 @@ sources:
     - com.unicornsonlsd.finamp.audio
   mac_bundle:
     - com.unicornsonlsd.finamp-ios
+  win_smtc:
+    - Finamp.exe
 attributes:
   pure: true
   service: false
