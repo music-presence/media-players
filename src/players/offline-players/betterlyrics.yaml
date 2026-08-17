@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: betterlyrics
+name: BetterLyrics
+url: https://github.com/jayfunc/BetterLyrics
+sources:
+  win_smtc:
+    - 37412.BetterLyrics_rd1g0rsrrtxw8!app
+    - 37412.BetterLyrics_rd1g0rsrrtxw8!App
+    - 37412.BetterLyrics_rd1g0rsrrtxw8!APP
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1538995897264906240"
