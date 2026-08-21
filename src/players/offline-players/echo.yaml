@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: echo
+name: ECHO
+url: https://github.com/Moekotori/ECHO
+sources:
+  win_smtc:
+    - app.echo.next
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1540457929348747335"
