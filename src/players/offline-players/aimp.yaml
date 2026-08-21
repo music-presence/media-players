@@ -8,6 +8,8 @@ sources:
     - AIMP.exe
     - AimpSmtc.exe
     - NimiGames68.AimpSmtc
+  lin_mpris:
+    - AIMP
 attributes:
   pure: true
   service: false
