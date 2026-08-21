@@ -4,6 +4,8 @@ id: anghami
 name: Anghami
 url: https://www.anghami.com
 sources:
+  win_smtc:
+    - com.squirrel.anghami.Anghami
   mac_bundle:
     - com.anghami.anghami
   web_domain:
