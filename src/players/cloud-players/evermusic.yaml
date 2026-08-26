@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: evermusic
+name: Evermusic
+url: https://everappz.com/products/evermusic
+sources:
+  mac_bundle:
+    - com.leshko.cloudplayer.mac
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1542083095585488906"
