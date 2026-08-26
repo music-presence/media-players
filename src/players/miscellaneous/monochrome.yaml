@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: monochrome
+name: Monochrome
+url: https://monochrome.tf
+sources:
+  web_domain:
+    - monochrome.tf
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1542089167658553375"
