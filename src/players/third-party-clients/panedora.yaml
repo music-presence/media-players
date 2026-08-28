@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: panedora
+name: Panedora
+url: https://panedora.app
+represents:
+  - pandora
+sources:
+  win_smtc:
+    - com.panedora.app
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1542796438705020961"
