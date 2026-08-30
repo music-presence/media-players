@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: tidalunar
+name: TidaLunar
+url: https://github.com/Brskt/TidaLuna
+represents:
+  - tidal
+sources:
+  lin_mpris:
+    - tidalunar
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1543558641787867267"
