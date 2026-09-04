@@ -6,6 +6,8 @@ url: https://telegram.org
 sources:
   win_smtc:
     - Telegram.TelegramDesktop
+  mac_mediaremote:
+    - com.tdesktop.Telegram
 attributes:
   pure: false
   service: false
