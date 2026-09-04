@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: shelv
+name: Shelv
+url: https://vkugler.app
+sources:
+  mac_bundle:
+    - ch.vkugler.Shelv
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1545395151369928704"
