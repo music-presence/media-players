@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: webminidisc
+name: Web MiniDisc Pro
+url: https://github.com/asivery/webminidisc
+sources:
+  web_domain:
+    - web.minidisc.wiki
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1545353204135362600"
