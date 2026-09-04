@@ -6,6 +6,8 @@ url: https://www.plex.tv/plexamp
 represents:
   - plex
 sources:
+  win_smtc:
+    - tv.plex.plexamp
   mac_bundle:
     - tv.plex.plexamp
     - tv.plex.labs.plexamp
