@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: airserver
+name: AirServer
+url: https://www.airserver.com
+sources:
+  win_smtc:
+    - F3F176BD.AirServer_p8qzvses5c8me!airserver.desktop
+    - F3F176BD.AirServer_p8qzvses5c8me!AirServer.Desktop
+    - F3F176BD.AirServer_p8qzvses5c8me!AIRSERVER.DESKTOP
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1545401014725648456"
