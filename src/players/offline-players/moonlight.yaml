@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: moonlight
+name: Moonlight
+url: https://moonlightapp.org
+sources:
+  mac_bundle:
+    - com.musopen.moonlight
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1546565576288243795"
