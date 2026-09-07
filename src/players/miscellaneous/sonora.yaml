@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: sonora
+name: Sonora
+url: https://github.com/sonorahq/sonora
+sources:
+  lin_mpris:
+    - sonora
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1546569204625309816"
