@@ -4,6 +4,8 @@ id: sonora
 name: Sonora
 url: https://github.com/sonorahq/sonora
 sources:
+  win_smtc:
+    - Sonora.exe
   lin_mpris:
     - sonora
 attributes:
