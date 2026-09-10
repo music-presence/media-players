@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: fastpotify
+name: Fastpotify
+url: https://fastpotify.rocks
+represents:
+  - spotify
+sources:
+  win_smtc:
+    - fastpotify.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1547736319461953637"
