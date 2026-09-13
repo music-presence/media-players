@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: zerobit-player
+name: Zerobit Player
+url: https://empty-57.github.io/ZeroBit-Player
+sources:
+  win_smtc:
+    - zerobit_player.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1548719774937260242"
