@@ -6,6 +6,8 @@ url: https://github.com/Brskt/TidaLuna
 represents:
   - tidal
 sources:
+  win_smtc:
+    - tidalunar.exe
   lin_mpris:
     - tidalunar
 attributes:
