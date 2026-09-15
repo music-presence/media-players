@@ -305,6 +305,7 @@ def validate_target_category_invariants(target: ValidationTarget):
 
 def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
     discord_application_ids = dict()
+    fluxer_emoji_ids = dict()
     source_platform_ids = defaultdict(dict)
     for player_id, target in targets.items():
         if "represents" in target.content:
@@ -339,6 +340,14 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                     f'used by "{discord_application_ids[discord_application_id]}"'
                 )
             discord_application_ids[discord_application_id] = player_id
+        if "extra" in target.content and "fluxer_emoji_id" in target.content["extra"]:
+            fluxer_emoji_id = target.content["extra"]["fluxer_emoji_id"]
+            if fluxer_emoji_id in fluxer_emoji_ids:
+                error(
+                    f'Player "{player_id}" has a Fluxer eomji ID that is already '
+                    f'used by "{fluxer_emoji_ids[fluxer_emoji_id]}"'
+                )
+            fluxer_emoji_ids[fluxer_emoji_id] = player_id
         if "sources" in target.content:
             # TODO Move this to a different method later
             for source_name, platform_ids in target.content["sources"].items():

@@ -237,6 +237,11 @@
           "$comment": "The ID of a Discord application registered at https://discord.com/developers/applications which has the name of this media player",
           "type": "string",
           "pattern": "\\d{16,24}"
+        },
+        "fluxer_emoji_id": {
+          "$comment": "The ID of a Fluxer emoji uploaded to a community which shows the logo of this media player",
+          "type": "string",
+          "pattern": "\\d{16,24}"
         }
       }
     },
