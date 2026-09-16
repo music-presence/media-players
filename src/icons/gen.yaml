@@ -31,3 +31,11 @@ rules:
     background: black
     border_scale: 0.68
     output_size: 512
+  - # The Fluxer emoji to upload to the Music Presence community.
+    exclude: true
+    label: fluxer-emoji
+    image_type: PNG
+    background: transparent
+    background_scale: 1.0
+    output_size: 128
+    image_mask: circle
