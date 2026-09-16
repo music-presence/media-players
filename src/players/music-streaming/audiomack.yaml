@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: audiomack
+name: Audiomack
+url: https://audiomack.com
+sources:
+  win_smtc:
+    - Audiomack.exe
+attributes:
+  pure: true
+  service: true
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1549724858836066326"
