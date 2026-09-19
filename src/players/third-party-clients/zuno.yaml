@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: zuno
+name: Zuno
+url: https://zuno.fayzan.xyz
+represents:
+  - youtube-music
+sources:
+  lin_mpris:
+    - zuno
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1550779935269060628"
