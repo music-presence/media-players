@@ -6,6 +6,8 @@ url: https://zuno.fayzan.xyz
 represents:
   - youtube-music
 sources:
+  win_smtc:
+    - com.zuno.desktop
   lin_mpris:
     - zuno
 attributes:
