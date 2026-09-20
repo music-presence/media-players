@@ -6,6 +6,8 @@ url: https://www.siriusxm.com
 sources:
   win_smtc:
     - electron.app.SiriusXM
+  web_domain:
+    - siriusxm.com
 attributes:
   pure: false # Not pure because media from radios can reveal user locations
   service: false
