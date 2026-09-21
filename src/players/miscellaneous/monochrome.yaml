@@ -6,6 +6,7 @@ url: https://monochrome.tf
 sources:
   web_domain:
     - monochrome.tf
+    - monochrome.st
 attributes:
   pure: true
   service: false
