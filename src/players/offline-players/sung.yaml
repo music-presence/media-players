@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: sung
+name: Sung
+url: https://github.com/yappologistic/Sung
+represents:
+  - youtube-music
+  - jellyfin
+sources:
+  lin_mpris:
+    - sung
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1551595265742475314"
