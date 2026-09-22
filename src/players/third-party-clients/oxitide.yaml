@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: oxitide
+name: Oxitide
+url: https://github.com/yelanxin/OxiTide
+represents:
+  - tidal
+sources:
+  lin_mpris:
+    - oxitide
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1551911048544784404"
