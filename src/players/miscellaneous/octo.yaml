@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: octo
+name: Octo
+url: https://github.com/winters27/octo-player
+sources:
+  win_winrt:
+    - Octo.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1555175107889078282"
