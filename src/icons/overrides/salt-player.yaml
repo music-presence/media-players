@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+label:
+  discord-small-image:
+    from_image: salt-player.rounded.png
+    image_mask: circle
+    background: transparent
+    image_scale: 1.19
+  discord-large-image:
+    from_image: salt-player.rounded.png

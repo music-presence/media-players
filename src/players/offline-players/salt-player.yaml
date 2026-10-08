@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: salt-player
+name: Salt Player
+url: https://moriafly.com/program/spw
+sources:
+  win_smtc:
+    - Salt Player for Windows.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1557754804560724029"
