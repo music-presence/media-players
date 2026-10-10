@@ -8,7 +8,7 @@ sources:
     - com.bandcamp.iosapp
   win_smtc:
     - Bandcamp.exe
-    - com.themagiulio.bandcamp-desktop
+    - com.themagiulio.bandcamp-desktop # https://github.com/themagiulio/bandcamp-desktop
     - electron.app.Bandcamp # via WebCatalog
   web_domain:
     - bandcamp.com
