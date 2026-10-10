@@ -11,7 +11,8 @@ sources:
     - com.themagiulio.bandcamp-desktop # https://github.com/themagiulio/bandcamp-desktop
     - electron.app.Bandcamp # via WebCatalog
   lin_mpris:
-    - bc-desktop # most likely https://github.com/elricfd/bc-desktop
+    - service: chromium
+      identity: bc-desktop # most likely https://github.com/elricfd/bc-desktop
   web_domain:
     - bandcamp.com
 attributes:
