@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: any-listen
+name: Any Listen
+url: https://github.com/any-listen/any-listen
+sources:
+  win_smtc:
+    - cn.toside.anylisten.desktop
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1558449505886806047"
