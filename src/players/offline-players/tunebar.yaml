@@ -2,7 +2,7 @@
 
 id: tunebar
 name: Tunebar
-url: https://apps.apple.com/by/app/tunebar/id6759842578
+url: https://apps.apple.com/app/id6759842578
 sources:
   mac_bundle:
     - dev.bunn.tunebar
