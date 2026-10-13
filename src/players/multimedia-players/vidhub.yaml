@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: vidhub
+name: VidHub
+url: https://apps.apple.com/app/id1659622164
+sources:
+  mac_bundle:
+    - com.mac.utility.media.hub
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1559488320575119481"
