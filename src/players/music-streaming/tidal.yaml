@@ -12,6 +12,8 @@ sources:
     - com.tidal.desktop
   lin_mpris:
     - tidal-hifi
+    - service: chromium
+      identity: tidal-hifi
   web_domain:
     - tidal.com
     - listen.tidal.com
