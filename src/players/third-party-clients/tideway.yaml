@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: tideway
+name: Tideway
+url: https://github.com/J-M-PUNK/tideway
+represents:
+  - tidal
+sources:
+  mac_bundle:
+    - com.tidaldownloader.app
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1560015771013218435"
