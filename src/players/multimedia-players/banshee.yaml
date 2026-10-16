@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: banshee
+name: Banshee
+url: https://github.com/popey/banshee
+sources:
+  lin_mpris:
+    - banshee
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1560641888577388684"
