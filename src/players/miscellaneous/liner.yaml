@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: liner
+name: Liner
+url: https://github.com/tryliner/desktop
+sources:
+  win_smtc:
+    - com.hkamori.liner
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1560643612994310236"
