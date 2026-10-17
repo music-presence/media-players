@@ -17,6 +17,7 @@ sources:
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!app
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!App
     - 27554FireDevElijahKlauman.CiderEA_270bejk4xgzqp!APP
+    - CiderCollective.Cider
   lin_mpris:
     - cider
     - service: chromium
