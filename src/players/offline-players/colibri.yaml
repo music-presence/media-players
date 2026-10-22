@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: colibri
+name: Colibri
+url: https://colibri-lossless.com
+sources:
+  mac_bundle:
+    - gaborhargitai.colibri
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1562829093018280036"
