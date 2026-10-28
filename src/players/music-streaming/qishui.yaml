@@ -8,6 +8,7 @@ represents:
 sources:
   win_smtc:
     - 汽水音乐
+    - SodaMusic.exe
   mac_bundle:
     - com.soda.music
   web_domain:
