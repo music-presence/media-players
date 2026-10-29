@@ -4,6 +4,8 @@ id: rox
 name: rox
 url: https://rox.music
 sources:
+  win_smtc:
+    - rox.exe
   lin_mpris:
     - rox
 attributes:
