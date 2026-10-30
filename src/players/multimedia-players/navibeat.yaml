@@ -4,6 +4,8 @@ id: navibeat
 name: NaviBeat
 url: https://navibeat.app
 sources:
+  mac_bundle:
+    - app.navibeat.NaviBeatApp
   lin_mpris:
     - navibeat
 attributes:
