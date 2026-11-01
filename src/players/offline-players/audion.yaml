@@ -6,6 +6,7 @@ url: https://www.audionplayer.com
 sources:
   win_smtc:
     - com.audion.app
+    - audion.exe
 attributes:
   pure: true
   service: false
