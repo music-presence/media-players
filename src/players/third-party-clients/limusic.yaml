@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: limusic
+name: Limusic
+url: https://github.com/SimoHypers/limusic
+represents:
+  - youtube-music
+sources:
+  win_winrt:
+    - com.limusic.desktop
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1452691320702505154"
