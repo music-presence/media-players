@@ -12,7 +12,6 @@ sources:
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!app
-    # FIXME Is this identifier globally unique?
     - music.apple.com-A5F611C_7vh1tm7h3g5s0!App
     - electron.app.Apple Music Beta # WebCatalog
   web_domain:
