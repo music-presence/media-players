@@ -6,6 +6,8 @@ url: https://github.com/namidaco/namida
 sources:
   win_smtc:
     - namida.exe
+  mac_mediaremote:
+    - com.msob7y.namida
   lin_mpris:
     - namida
 attributes:
