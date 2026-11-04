@@ -5,19 +5,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/master'
+    if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/heads/v')
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - name: Load build.env
-        run: cat build.env >> "$GITHUB_ENV"
-      - name: Deploy
-        env:
-          API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.API_VERSION }}
-          DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/music-presence/live-test.git
-          DEPLOY_OUTPUT_DIR: ${{ github.ref_name }}
-          DEPLOY_BRANCH: master
-        run: invoke deploy
+      - name: Build
+        run: invoke build
 
   deploy:
     runs-on: ubuntu-latest
@@ -32,5 +25,21 @@ jobs:
           API_BASE_URL: https://live.musicpresence.app/v${{ env.API_VERSION }}
           DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/music-presence/live.git
           DEPLOY_OUTPUT_DIR: v${{ env.API_VERSION }}
+          DEPLOY_BRANCH: master
+        run: invoke deploy
+
+  deploy-test:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/v')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Load build.env
+        run: cat build.env >> "$GITHUB_ENV"
+      - name: Deploy
+        env:
+          API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.API_VERSION }}
+          DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN_DEPLOY_LIVE_TEST }}@github.com/music-presence/live-test.git
+          DEPLOY_OUTPUT_DIR: ${{ github.ref_name }}
           DEPLOY_BRANCH: master
         run: invoke deploy
