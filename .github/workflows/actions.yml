@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/heads/v')
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
       - uses: ./.github/actions/setup
       - name: Build
         run: invoke build
@@ -16,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
       - uses: ./.github/actions/setup
       - name: Load build.env
         run: cat build.env >> "$GITHUB_ENV"
@@ -32,7 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/heads/v')
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
       - uses: ./.github/actions/setup
       - name: Load build.env
         run: cat build.env >> "$GITHUB_ENV"
