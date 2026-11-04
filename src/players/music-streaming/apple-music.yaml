@@ -12,7 +12,9 @@ sources:
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!app
+    - music.apple.com-A5F611C_7vh1tm7h3g5s0!APP
     - music.apple.com-A5F611C_7vh1tm7h3g5s0!App
+    - music.apple.com-A5F611C_7vh1tm7h3g5s0!app
     - electron.app.Apple Music Beta # WebCatalog
     - webcatalog-photon-apple-music-beta # WebCatalog
   web_domain:
