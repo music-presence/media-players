@@ -3,6 +3,7 @@
 /venv*
 todo.txt
 notes.txt
+notes
 __pycache__
 /out*
 /build

@@ -30,17 +30,18 @@ from io import BytesIO
 from collections import defaultdict
 from typing import Optional
 from PIL import Image, ImageDraw
-from dotenv import dotenv_values
 import warnings
 
 import core
 from core import log, warn, error, ValidationError
 
-# ignore jsonschema warnings for now
+# Ignore jsonschema warnings for now.
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-DOTENV = dotenv_values(os.path.join(os.path.dirname(__file__), ".env"))
-GEN_BASE_URL_ICONS = f"{DOTENV["API_BASE_URL"]}/icons"
+if os.getenv("API_BASE_URL") is None:
+    raise "API_BASE_URL is not set"
+
+GEN_BASE_URL_ICONS = f"{os.getenv("API_BASE_URL")}/icons"
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 OUT_DIR = os.path.join(ROOT_DIR, "out")

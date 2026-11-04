@@ -9,8 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - name: Build
-        run: invoke build
+      - name: Load build.env
+        run: cat build.env >> "$GITHUB_ENV"
+      - name: Deploy
+        env:
+          API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.VERSION }}
+          DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/music-presence/live-test.git
+          DEPLOY_OUTPUT_DIR: ${{ github.ref_name }}
+          DEPLOY_BRANCH: master
+        run: invoke deploy
 
   deploy:
     runs-on: ubuntu-latest
@@ -18,7 +25,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - name: Load build.env
+        run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
-          DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN  }}@github.com/music-presence/live.git
+          API_BASE_URL: https://live.musicpresence.app/v${{ env.VERSION }}
+          DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/music-presence/live.git
+          DEPLOY_OUTPUT_DIR: v${{ env.VERSION }}
+          DEPLOY_BRANCH: master
         run: invoke deploy

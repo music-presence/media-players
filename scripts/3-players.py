@@ -10,24 +10,26 @@
 #
 
 import os
-import sys
 import json
 import jsonschema
 import pathlib
 from typing import Optional
-from dotenv import dotenv_values
 import warnings
 
 import core
 from core import log, warn, error
 from _version import VERSION
 
-# ignore jsonschema warnings for now
+# Ignore jsonschema warnings for now.
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-DOTENV = dotenv_values(os.path.join(os.path.dirname(__file__), ".env"))
-API_VERSION = int(DOTENV["API_VERSION"])
-API_BASE_URL = DOTENV["API_BASE_URL"]
+if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():
+    raise "API_VERSION is not set or is not an integer"
+if os.getenv("API_BASE_URL") is None:
+    raise "API_BASE_URL is not set"
+
+API_VERSION = int(os.getenv("API_VERSION"))
+API_BASE_URL = os.getenv("API_BASE_URL")
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 SRC_DIR = os.path.join(ROOT_DIR, "src")

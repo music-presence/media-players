@@ -19,8 +19,10 @@ from dotenv import dotenv_values
 import core
 from core import warn, log, error
 
-DOTENV = dotenv_values(os.path.join(os.path.dirname(__file__), ".env"))
-API_BASE_URL = DOTENV["API_BASE_URL"]
+if os.getenv("API_BASE_URL") is None:
+    raise "API_BASE_URL is not set"
+
+API_BASE_URL = os.getenv("API_BASE_URL")
 API_SCHEMA_BASE_URL = f"{API_BASE_URL}/schemas"
 
 ROOT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)))

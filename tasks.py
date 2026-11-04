@@ -8,20 +8,24 @@ import shutil
 import stat
 import json
 from typing import Optional
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 
-CWD = os.path.dirname(__file__)
-DOTENV = dotenv_values(os.path.join(CWD, "scripts", ".env"))
-API_VERSION = int(DOTENV["API_VERSION"])
+ROOT_DIR = os.path.dirname(__file__)
+load_dotenv(os.path.join(ROOT_DIR, "build.env"))
 
-SCRIPTS_DIR = os.path.join(CWD, "scripts")
-OUTPUT_DIR = os.path.join(CWD, "out")
-BUILD_DIR = os.path.join(CWD, "build")
+if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():
+    raise "API_VERSION is not set or is not an integer"
+
+API_VERSION = int(os.getenv("API_VERSION"))
+
+SCRIPTS_DIR = os.path.join(ROOT_DIR, "scripts")
+OUTPUT_DIR = os.path.join(ROOT_DIR, "out")
+BUILD_DIR = os.path.join(ROOT_DIR, "build")
 
 DEPLOY_INPUT_DIR = os.path.join(OUTPUT_DIR, "public")
-DEPLOY_OUTPUT_DIR = f"v{API_VERSION}"
+DEPLOY_OUTPUT_DIR = os.getenv("DEPLOY_OUTPUT_DIR") or f"v{API_VERSION}"
 DEPLOY_REPO = os.getenv("DEPLOY_REPO") or "git@github.com:music-presence/live.git"
-DEPLOY_BRANCH = "master"
+DEPLOY_BRANCH = os.getenv("DEPLOY_BRANCH") or "master"
 
 
 def find_ordered_scripts() -> list[pathlib.Path]:
@@ -62,7 +66,7 @@ def build(c: Context, player: Optional[str] = None):
         clear_directory(OUTPUT_DIR)
     scripts = find_ordered_scripts()
     for i, script in enumerate(scripts):
-        print_path = pathlib.PurePosixPath(script.relative_to(CWD))
+        print_path = pathlib.PurePosixPath(script.relative_to(ROOT_DIR))
         print(f"[{i+1}/{len(scripts)}] Running {print_path}", file=sys.stderr)
         if player is not None:
             c.run(f'python -u "{script}" "{player}"')
