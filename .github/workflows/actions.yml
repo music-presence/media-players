@@ -13,7 +13,7 @@ jobs:
         run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
-          API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.VERSION }}
+          API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.API_VERSION }}
           DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/music-presence/live-test.git
           DEPLOY_OUTPUT_DIR: ${{ github.ref_name }}
           DEPLOY_BRANCH: master
@@ -29,8 +29,8 @@ jobs:
         run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
-          API_BASE_URL: https://live.musicpresence.app/v${{ env.VERSION }}
+          API_BASE_URL: https://live.musicpresence.app/v${{ env.API_VERSION }}
           DEPLOY_REPO: https://${{ secrets.ACTIONS_GITHUB_TOKEN }}@github.com/music-presence/live.git
-          DEPLOY_OUTPUT_DIR: v${{ env.VERSION }}
+          DEPLOY_OUTPUT_DIR: v${{ env.API_VERSION }}
           DEPLOY_BRANCH: master
         run: invoke deploy
