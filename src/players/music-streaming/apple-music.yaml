@@ -8,6 +8,7 @@ sources:
     - com.apple.Music
   win_smtc:
     - AppleMusic.exe
+    - Apple Music Beta.exe # WebCatalog
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
     - AppleInc.AppleMusicWin_nzyj5cx40ttqa!app
