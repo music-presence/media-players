@@ -6,7 +6,7 @@ url: https://chromatix.app
 represents:
   - plex
 sources:
-  win_winrt:
+  win_smtc:
     - com.chromatix.app
   mac_bundle:
     - com.chromatix.app

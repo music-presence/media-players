@@ -7,7 +7,7 @@ sources:
   win_smtc:
     - Telegram.TelegramDesktop
     - Telegram.exe
-  mac_mediaremote:
+  mac_bundle:
     - com.tdesktop.Telegram
 attributes:
   pure: false

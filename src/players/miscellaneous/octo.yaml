@@ -4,7 +4,7 @@ id: octo
 name: Octo
 url: https://github.com/winters27/octo-player
 sources:
-  win_winrt:
+  win_smtc:
     - Octo.exe
 attributes:
   pure: true

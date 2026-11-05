@@ -6,7 +6,7 @@ url: https://github.com/SimoHypers/limusic
 represents:
   - youtube-music
 sources:
-  win_winrt:
+  win_smtc:
     - com.limusic.desktop
 attributes:
   pure: true
