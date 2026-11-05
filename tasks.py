@@ -11,6 +11,7 @@ from typing import Optional
 from dotenv import load_dotenv
 
 ROOT_DIR = os.path.dirname(__file__)
+load_dotenv(os.path.join(ROOT_DIR, ".env"))
 load_dotenv(os.path.join(ROOT_DIR, "build.env"))
 
 if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():

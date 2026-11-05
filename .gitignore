@@ -7,3 +7,4 @@ notes
 __pycache__
 /out*
 /build
+.env
