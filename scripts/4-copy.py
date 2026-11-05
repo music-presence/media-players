@@ -20,7 +20,7 @@ import core
 from core import warn, log, error
 
 if os.getenv("API_BASE_URL") is None:
-    raise "API_BASE_URL is not set"
+    raise Exception("API_BASE_URL is not set")
 
 API_BASE_URL = os.getenv("API_BASE_URL")
 API_SCHEMA_BASE_URL = f"{API_BASE_URL}/schemas"

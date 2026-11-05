@@ -39,7 +39,7 @@ from core import log, warn, error, ValidationError
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 if os.getenv("API_BASE_URL") is None:
-    raise "API_BASE_URL is not set"
+    raise Exception("API_BASE_URL is not set")
 
 GEN_BASE_URL_ICONS = f"{os.getenv("API_BASE_URL")}/icons"
 

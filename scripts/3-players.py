@@ -24,9 +24,9 @@ from _version import VERSION
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():
-    raise "API_VERSION is not set or is not an integer"
+    raise Exception("API_VERSION is not set or is not an integer")
 if os.getenv("API_BASE_URL") is None:
-    raise "API_BASE_URL is not set"
+    raise Exception("API_BASE_URL is not set")
 
 API_VERSION = int(os.getenv("API_VERSION"))
 API_BASE_URL = os.getenv("API_BASE_URL")

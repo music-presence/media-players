@@ -14,7 +14,7 @@ ROOT_DIR = os.path.dirname(__file__)
 load_dotenv(os.path.join(ROOT_DIR, "build.env"))
 
 if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():
-    raise "API_VERSION is not set or is not an integer"
+    raise Exception("API_VERSION is not set or is not an integer")
 
 API_VERSION = int(os.getenv("API_VERSION"))
 
