@@ -10,14 +10,10 @@ import json
 from typing import Optional
 from dotenv import load_dotenv
 
+from scripts.version import VERSION as API_VERSION
+
 ROOT_DIR = os.path.dirname(__file__)
 load_dotenv(os.path.join(ROOT_DIR, ".env"))
-load_dotenv(os.path.join(ROOT_DIR, "build.env"))
-
-if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():
-    raise Exception("API_VERSION is not set or is not an integer")
-
-API_VERSION = int(os.getenv("API_VERSION"))
 
 SCRIPTS_DIR = os.path.join(ROOT_DIR, "scripts")
 OUTPUT_DIR = os.path.join(ROOT_DIR, "out")

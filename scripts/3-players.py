@@ -18,7 +18,7 @@ import warnings
 
 import core
 from core import log, warn, error
-from _version import VERSION
+from version import VERSION
 
 # Ignore jsonschema warnings for now.
 warnings.filterwarnings("ignore", category=DeprecationWarning)
