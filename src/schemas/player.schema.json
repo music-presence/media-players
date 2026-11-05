@@ -111,10 +111,6 @@
         "identity": {
           "$comment": "The value to match against the \"org.mpris.MediaPlayer2.Identity\" D-Bus property of the service",
           "type": "string"
-        },
-        "desktop_entry": {
-          "$comment": "The value to match against the \"org.mpris.MediaPlayer2.DesktopEntry\" D-Bus property of the service",
-          "type": "string"
         }
       },
       "additionalProperties": false
