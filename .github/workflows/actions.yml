@@ -8,9 +8,6 @@ jobs:
     if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/heads/v')
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
       - uses: ./.github/actions/setup
       - name: Build
         run: invoke build
@@ -20,12 +17,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
       - uses: ./.github/actions/setup
-      - name: Load build.env
-        run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
           API_BASE_URL: https://live.musicpresence.app/v${{ env.API_VERSION }}
@@ -39,12 +31,7 @@ jobs:
     if: startsWith(github.ref, 'refs/heads/v')
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.14"
       - uses: ./.github/actions/setup
-      - name: Load build.env
-        run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
           API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.API_VERSION }}
