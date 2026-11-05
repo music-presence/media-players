@@ -54,9 +54,9 @@ class Subset:
         return set(s for s in source_names if self.includes(s))
 
 
-# subsets of the players for specific platforms
-# the prefixes are prefixes of platform identifiers (e.g. "win_winrt")
-# "web" is in every subset, since websites can be accessed on any platform
+# Subsets of the players for specific platforms the prefixes are prefixes of
+# platform identifiers (e.g. "win_smtc") "web" is in every subset, since
+# websites can be accessed on any platform.
 SUBSET_PLATFORM_PREFIXES = [
     Subset("win", ["win", "web"]),
     Subset("mac", ["mac", "web"]),
@@ -91,21 +91,6 @@ def get_output_file(subset: Optional[Subset] = None, minified=False):
         filename += "." + OUT_PLAYERS_MIN_SUFFIX
     filename += "." + OUT_PLAYERS_EXTENSION
     return os.path.join(OUT_PLAYERS_DIRECTORY, filename)
-
-
-# these are more descriptive synonyms that will be used in the next version,
-# but they have to be replaced with their original values until that happens.
-PLATFORM_IDENTIFIER_FIX_MAP = {
-    "win_smtc": "win_winrt",
-    "mac_bundle": "mac_mediaremote",
-}
-
-
-def fix_platform_identifiers(sources: dict[str, any]):
-    for current, wanted in PLATFORM_IDENTIFIER_FIX_MAP.items():
-        if current in sources:
-            sources[wanted] = sources[current]
-            del sources[current]
 
 
 # FIXME Remove this in v4. This is only for v3
@@ -163,7 +148,6 @@ def generate(root: str, player: Optional[str] = None, subset: Optional[Subset] =
                 continue  # nothing to include, skip
             for source_name in source_names - to_include:
                 del content["sources"][source_name]
-        fix_platform_identifiers(content["sources"])
         fix_move_source_matcher_dicts(content)
         result["players"].append(content)
         total += 1
