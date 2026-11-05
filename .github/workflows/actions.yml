@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
+      - run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
           API_BASE_URL: https://live.musicpresence.app/v${{ env.API_VERSION }}
@@ -34,6 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
+      - run: cat build.env >> "$GITHUB_ENV"
       - name: Deploy
         env:
           API_BASE_URL: https://music-presence.github.io/live-test/v${{ env.API_VERSION }}
