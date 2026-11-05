@@ -93,29 +93,6 @@ def get_output_file(subset: Optional[Subset] = None, minified=False):
     return os.path.join(OUT_PLAYERS_DIRECTORY, filename)
 
 
-# FIXME Remove this in v4. This is only for v3
-def fix_move_source_matcher_dicts(content: dict[str, any]):
-    sources = content["sources"]
-    if "lin_mpris" not in sources:
-        return
-    lin_mpris = sources["lin_mpris"]
-    remain: List[Any] = []
-    moved: List[dict] = []
-    for item in lin_mpris:
-        if isinstance(item, dict):
-            moved.append(item)
-        else:
-            remain.append(item)
-    if len(remain) > 0:
-        sources["lin_mpris"] = remain
-    else:
-        del sources["lin_mpris"]
-    if moved:
-        experimental = content.setdefault("experimental", {})
-        lin_mpris_identity = experimental.setdefault("lin_mpris_identity", [])
-        lin_mpris_identity.extend(moved)
-
-
 def generate(root: str, player: Optional[str] = None, subset: Optional[Subset] = None):
     output_filename = get_output_file(subset, False)
     log(f"Compiling {pathlib.Path(output_filename).name}")
@@ -148,7 +125,6 @@ def generate(root: str, player: Optional[str] = None, subset: Optional[Subset] =
                 continue  # nothing to include, skip
             for source_name in source_names - to_include:
                 del content["sources"][source_name]
-        fix_move_source_matcher_dicts(content)
         result["players"].append(content)
         total += 1
         if player not in icons:
