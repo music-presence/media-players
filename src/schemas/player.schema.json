@@ -88,14 +88,6 @@
         "web_domain": {
           "$comment": "A list of fully-qualified domain names on the web",
           "$ref": "#/definitions/basicSourceList"
-        },
-        "win_winrt": {
-          "$comment": "DEPRECATED: Will be removed in v4",
-          "$ref": "#/definitions/basicSourceList"
-        },
-        "mac_mediaremote": {
-          "$comment": "DEPRECATED: Will be removed in v4",
-          "$ref": "#/definitions/basicSourceList"
         }
       }
     },
