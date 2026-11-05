@@ -45,9 +45,6 @@
     },
     "extra": {
       "$ref": "#/definitions/extra"
-    },
-    "experimental": {
-      "$ref": "#/definitions/experimental"
     }
   },
   "definitions": {
@@ -234,21 +231,6 @@
           "$comment": "The ID of a Fluxer emoji uploaded to a community which shows the logo of this media player",
           "type": "string",
           "pattern": "\\d{16,24}"
-        }
-      }
-    },
-    "experimental": {
-      "$comment": "Experimental properties that might vanish or change their meaning without major version bumps",
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "lin_mpris_identity": {
-          "type": "array",
-          "uniqueItems": true,
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/sourceMatcherMpris"
-          }
         }
       }
     }
