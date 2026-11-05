@@ -18,17 +18,14 @@ import warnings
 
 import core
 from core import log, warn, error
-from version import VERSION
+from version import VERSION as API_VERSION
 
 # Ignore jsonschema warnings for now.
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-if os.getenv("API_VERSION") is None or not os.getenv("API_VERSION").isdigit():
-    raise Exception("API_VERSION is not set or is not an integer")
 if os.getenv("API_BASE_URL") is None:
     raise Exception("API_BASE_URL is not set")
 
-API_VERSION = int(os.getenv("API_VERSION"))
 API_BASE_URL = os.getenv("API_BASE_URL")
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -141,8 +138,9 @@ def generate(root: str, subset: Optional[Subset] = None):
     paths = sorted(paths, key=lambda p: p.stem)
     result = {
         "$schema": f"players.schema.json",
-        "version": VERSION,
-        "latest": API_VERSION == VERSION,
+        "version": API_VERSION,
+        # Always true, since we are generating the latest one right now.
+        "latest": True,
         "subset": subset.name if subset is not None else "",
         "players": [],
         "icons": {},
