@@ -10,6 +10,8 @@ jobs:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       - name: Build
+        env:
+          API_BASE_URL: https://example.com
         run: invoke build
 
   deploy:
