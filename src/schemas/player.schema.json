@@ -34,6 +34,9 @@
         "$ref": "#/definitions/id"
       }
     },
+    "caveats": {
+      "$ref": "#/definitions/caveats"
+    },
     "sources": {
       "$ref": "#/definitions/sources"
     },
@@ -52,6 +55,16 @@
       "$comment": "A unique identifier for a media player",
       "type": "string",
       "pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$"
+    },
+    "caveats": {
+      "$comment": "A dictionary of caveats that certain source applications exhibit. The key is the caveat name, the value is a short description of the caveat. Each caveat name should conform to the naming convention \"<context>_<subject>_<adjective>\" to be unique, specific and descriptive. The description should give more detail, but remain brief, and should always read like a normal sentence, with a capitalized letter at the beginning and a period at the end",
+      "type": "object",
+      "patternProperties": {
+        "^[a-z][a-z0-9_]*$": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
     },
     "sources": {
       "$comment": "All known source identifiers for a media player",
@@ -147,9 +160,20 @@
         "product_name": {
           "$comment": "The value to match against the \"ProductName\" in the version info of the source application or module",
           "type": "string"
+        },
+        "caveat": {
+          "$ref": "#/definitions/sourceCaveat"
+        },
+        "caveats": {
+          "$ref": "#/definitions/sourceCaveatList"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasOptionalCaveatOrCaveats"
+        }
+      ]
     },
     "sourceMatcherMacBundle": {
       "$comment": "Matchers for a media source that reports metadata on Mac via an application bundle identifier",
@@ -161,9 +185,20 @@
         "bundle_id": {
           "$comment": "The value to match against the bundle identifier of the source application",
           "$ref": "#/definitions/sourceIdentifier"
+        },
+        "caveat": {
+          "$ref": "#/definitions/sourceCaveat"
+        },
+        "caveats": {
+          "$ref": "#/definitions/sourceCaveatList"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasOptionalCaveatOrCaveats"
+        }
+      ]
     },
     "sourceMatcherLinuxMpris": {
       "$comment": "Matchers for a media source that reports metadata via MPRIS (Linux)",
@@ -179,9 +214,20 @@
         "identity": {
           "$comment": "The value to match against the \"org.mpris.MediaPlayer2.Identity\" D-Bus property of the service",
           "type": "string"
+        },
+        "caveat": {
+          "$ref": "#/definitions/sourceCaveat"
+        },
+        "caveats": {
+          "$ref": "#/definitions/sourceCaveatList"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasOptionalCaveatOrCaveats"
+        }
+      ]
     },
     "sourceMatcherWebDomain": {
       "$comment": "Matchers for a media source that reports metadata on the web",
@@ -193,9 +239,57 @@
         "domain": {
           "$comment": "The value to match against the fully-qualified domain name without any \"www\" subdomain",
           "$ref": "#/definitions/sourceIdentifier"
+        },
+        "caveat": {
+          "$ref": "#/definitions/sourceCaveat"
+        },
+        "caveats": {
+          "$ref": "#/definitions/sourceCaveatList"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/hasOptionalCaveatOrCaveats"
+        }
+      ]
+    },
+    "sourceCaveatList": {
+      "$comment": "A list of caveats of this source. Each caveat must be defined and described under the root \"caveat\" key",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/sourceCaveat"
+      }
+    },
+    "sourceCaveat": {
+      "$comment": "A caveat of this source. The caveat must be defined and described under the root \"caveat\" key",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "hasOptionalCaveatOrCaveats": {
+      "$comment": "Attributes 'caveat' and 'caveats' are optional and mutually exclusive",
+      "anyOf": [
+        {
+          "properties": {
+            "caveat": true,
+            "caveats": false
+          }
+        },
+        {
+          "properties": {
+            "caveat": false,
+            "caveats": true
+          }
+        },
+        {
+          "properties": {
+            "caveat": false,
+            "caveats": false
+          }
+        }
+      ]
     },
     "sourceIdentifier": {
       "$comment": "An identifier for a media source, e.g. an application package identifier",
