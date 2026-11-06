@@ -474,10 +474,8 @@ def md5sum_image(image: Image.Image, format: str) -> str:
 
 
 if __name__ == "__main__":
-    output_json = True
     if len(sys.argv) > 1:
-        players = sys.argv[1:]
-        output_json = False
+        players = [sys.argv[1]]
     else:
         files = list(pathlib.Path(IN_PLAYERS_DIR).rglob("*.yaml"))
         duplicate_files = core.duplicates(files, window=lambda f: f.stem)
@@ -513,7 +511,7 @@ if __name__ == "__main__":
                     o["md5"] = md5sum(result.image_path)
                 objects.append(o)
             output[player] = objects
-    if output_json:
-        json_output = json.dumps(output, separators=(",", ":"))
-        with open(OUT_JSON_FILE, "wt") as f:
-            f.write(json_output)
+
+    json_output = json.dumps(output, separators=(",", ":"))
+    with open(OUT_JSON_FILE, "wt") as f:
+        f.write(json_output)

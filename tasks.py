@@ -57,7 +57,10 @@ def build_player_icons(c: Context, player: str):
 
 @task(aliases=["b"])
 def build(c: Context, player: Optional[str] = None):
-    print("Building players")
+    if player is None:
+        print("Building players")
+    else:
+        print(f"Building player with ID \"{player}\"")
     if os.path.exists(OUTPUT_DIR):
         print("Removing existing output directory", file=sys.stderr)
         clear_directory(OUTPUT_DIR)

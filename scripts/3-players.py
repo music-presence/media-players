@@ -10,6 +10,7 @@
 #
 
 import os
+import sys
 import json
 import jsonschema
 import pathlib
@@ -134,7 +135,11 @@ def generate(root: str, subset: Optional[Subset] = None):
     output_filename = get_output_file(subset, False)
     log(f"Compiling {pathlib.Path(output_filename).name}")
     icons = core.read_json(GENERATED_ICONS_FILE)
-    paths = pathlib.Path(root).rglob("*.yaml")
+    if len(sys.argv) > 1:
+        player = sys.argv[1]
+        paths = pathlib.Path(root).rglob(f"{player}.yaml")
+    else:
+        paths = pathlib.Path(root).rglob("*.yaml")
     paths = sorted(paths, key=lambda p: p.stem)
     result = {
         "$schema": f"players.schema.json",
