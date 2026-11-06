@@ -131,12 +131,11 @@ def fix_move_source_matcher_dicts(content: dict[str, any]):
         lin_mpris_identity.extend(moved)
 
 
-def generate(root: str, subset: Optional[Subset] = None):
+def generate(root: str, player: Optional[str] = None, subset: Optional[Subset] = None):
     output_filename = get_output_file(subset, False)
     log(f"Compiling {pathlib.Path(output_filename).name}")
     icons = core.read_json(GENERATED_ICONS_FILE)
-    if len(sys.argv) > 1:
-        player = sys.argv[1]
+    if player is not None:
         paths = pathlib.Path(root).rglob(f"{player}.yaml")
     else:
         paths = pathlib.Path(root).rglob("*.yaml")
@@ -172,6 +171,9 @@ def generate(root: str, subset: Optional[Subset] = None):
             log(f"WARN No icons for {player}")
             continue
         result["icons"][player] = icons[player]
+    if total == 0:
+        log(f"Compiled {total} players - skipping validation")
+        return
     log(f"Compiled {total} players")
     # validate the result
     validate_players(result)
@@ -185,6 +187,9 @@ def generate(root: str, subset: Optional[Subset] = None):
 
 
 if __name__ == "__main__":
-    generate(PLAYERS_DIR)
+    player = None
+    if len(sys.argv) > 1:
+        player = sys.argv[1]
+    generate(PLAYERS_DIR, player=player)
     for subset in SUBSET_PLATFORM_PREFIXES:
-        generate(PLAYERS_DIR, subset=subset)
+        generate(PLAYERS_DIR, player=player, subset=subset)
