@@ -69,6 +69,14 @@ class SourceName(enum.Enum):
     WEB_DOMAIN = "web_domain"
 
 
+SOURCE_NAME_TO_IDENTIFIER_KEY = {
+    SourceName.WIN_SMTC.value: "app_user_model_id",
+    SourceName.MAC_BUNDLE.value: "bundle_id",
+    SourceName.LIN_MPRIS.value: "service",
+    SourceName.WEB_DOMAIN.value: "domain"
+}
+
+
 @dataclasses.dataclass
 class ValidationTarget:
     path: str
@@ -350,51 +358,29 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
             fluxer_emoji_ids[fluxer_emoji_id] = player_id
         if "sources" in target.content:
             # TODO Move this to a different method later
-            for source_name, platform_ids in target.content["sources"].items():
-                for platform_id in platform_ids:
+            for source_name, source_definitions in target.content["sources"].items():
+                for source_definition in source_definitions:
                     save_platform_id = True
-                    # FIXME Reduce redundancy here
-                    if isinstance(platform_id, dict):
-                        if source_name == SourceName.WIN_SMTC.value:
-                            if len(platform_id) > 1:
-                                # Do not save this ID, as it's used in conjunction
-                                # with other properties, so it's allowed to appear
-                                # across multiple media player definitions.
-                                save_platform_id = False
-                            # FIXME Don't hardcode "app_user_model_id" here
-                            # FIXME The "application_user_model_id" key must exist, check that
-                            platform_id = platform_id["app_user_model_id"]
-                        if source_name == SourceName.MAC_BUNDLE.value:
-                            if len(platform_id) > 1:
-                                # Do not save this ID, as it's used in conjunction
-                                # with other properties, so it's allowed to appear
-                                # across multiple media player definitions.
-                                save_platform_id = False
-                            # FIXME Don't hardcode "bundle_id" here
-                            # FIXME The "application_user_model_id" key must exist, check that
-                            platform_id = platform_id["bundle_id"]
-                        if source_name == SourceName.LIN_MPRIS.value:
-                            if len(platform_id) > 1:
-                                # Do not save this ID, as it's used in conjunction
-                                # with other properties, so it's allowed to appear
-                                # across multiple media player definitions.
-                                save_platform_id = False
-                            # FIXME Don't hardcode "service" here
-                            # FIXME The "service" key must exist, check that
-                            platform_id = platform_id["service"]
-                        if source_name == SourceName.WEB_DOMAIN.value:
-                            if len(platform_id) > 1:
-                                # Do not save this ID, as it's used in conjunction
-                                # with other properties, so it's allowed to appear
-                                # across multiple media player definitions.
-                                save_platform_id = False
-                            # FIXME Don't hardcode "domain" here
-                            # FIXME The "application_user_model_id" key must exist, check that
-                            platform_id = platform_id["domain"]
+                    if isinstance(source_definition, dict):
+                        if len(source_definition) > 1:
+                            # Do not save this ID, as it's used in conjunction
+                            # with other properties, so it's allowed to appear
+                            # across multiple media player definitions.
+                            save_platform_id = False
+                        key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
+                        assert key is not None
+                        if not key in source_definition:
+                            error(
+                                f'Player "{player_id}" for platform "{source_name}" '
+                                f'is missing key "{key}": {source_definition}'
+                            )
+                        platform_id = source_definition[key]
+                    else:
+                        platform_id = source_definition
                     if not isinstance(platform_id, str):
                         error(
                             f'Identifier of player "{player_id}" '
-                            f'for platform "{source_name}" must be a string'
+                            f'for platform "{source_name}" must be a string: {platform_id}'
                         )
                     if save_platform_id:
                         if platform_id in source_platform_ids[source_name]:
