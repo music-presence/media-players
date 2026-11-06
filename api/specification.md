@@ -117,6 +117,12 @@ If any one of the media player identifiers is matched
 against an identifier reported by a media player identifier source,
 then that identifier identifies that media player.
 
+Identifiers must be matched in order.
+If one matches for a specific interface,
+then it must be used and the remaining ones must not be considered.
+It is therefore necessary to define the most specific matcher objects
+at the beginning and define less specific ones towards the end.
+
 ### Matching media player identifiers
 
 Media player identifiers must be matched by case-sensitive string comparison

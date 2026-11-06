@@ -9,6 +9,7 @@
 - Added Linux MPRIS matcher object for `source.lin_mpris` that contains a `service` key for matching the D-Bus service name as usual and an additional `identity` key to match against the "org.mpris.MediaPlayer2.Identity" D-Bus property, in case the service name alone is not sufficient to uniquely identify the application in question
 - Added Web domain matcher object for `source.web_domain` that contains a `domain` key for matching the fully-qualified fully-qualified domain name without any \"www\" subdomain of the website in question
 - Added the `caveat` key to the root object and `caveat` and `caveats` to every source matcher object. Caveats are issues that certain implementations of the source application have. Each caveat must be defined and described in the root-level key and must then be mentioned in at least one matcher object of a source application. Caveats can be used by users of players.json to determine whether certain fixes or extra logic must be applied to the application instance that is running on a system
+- Identifiers and matcher objects for source applications must now be defined, processed and matched in order and the first one that matches must be used. Identifiers and matcher objects must therefore be ordered from most specific to least specific matcher
 
 ## Previous versions
 
