@@ -17,6 +17,8 @@ import os
 import pathlib
 import sys
 import warnings
+import json
+import copy
 from collections import defaultdict
 
 import core
@@ -69,6 +71,7 @@ class SourceName(enum.Enum):
     WEB_DOMAIN = "web_domain"
 
 
+NON_IDENTIFYING_SOURCE_KEYS = ["caveat", "caveats"]
 SOURCE_NAME_TO_IDENTIFIER_KEY = {
     SourceName.WIN_SMTC.value: "app_user_model_id",
     SourceName.MAC_BUNDLE.value: "bundle_id",
@@ -360,37 +363,44 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
             # TODO Move this to a different method later
             for source_name, source_definitions in target.content["sources"].items():
                 for source_definition in source_definitions:
-                    save_platform_id = True
                     if isinstance(source_definition, dict):
-                        if len(source_definition) > 1:
-                            # Do not save this ID, as it's used in conjunction
-                            # with other properties, so it's allowed to appear
-                            # across multiple media player definitions.
-                            save_platform_id = False
                         key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
-                        assert key is not None
+                        if key is None:
+                            error(
+                                f'Missing identifier key for source name: {source_name}'
+                            )
                         if not key in source_definition:
                             error(
                                 f'Player "{player_id}" for platform "{source_name}" '
                                 f'is missing key "{key}": {source_definition}'
                             )
-                        platform_id = source_definition[key]
-                    else:
-                        platform_id = source_definition
-                    if not isinstance(platform_id, str):
-                        error(
-                            f'Identifier of player "{player_id}" '
-                            f'for platform "{source_name}" must be a string: {platform_id}'
+                        identifying_keys = copy.deepcopy(source_definition)
+                        for key in NON_IDENTIFYING_SOURCE_KEYS:
+                            if key in identifying_keys:
+                                del identifying_keys[key]
+                        source_matcher = json.dumps(
+                            identifying_keys,
+                            sort_keys=True,
+                            separators=(',', ':')
                         )
-                    if save_platform_id:
-                        if platform_id in source_platform_ids[source_name]:
-                            error(
-                                f'Player "{player_id}" shares source identifier '
-                                f'"{platform_id}" with '
-                                f'"{source_platform_ids[source_name][platform_id]}" '
-                                f'for platform "{source_name}"'
-                            )
-                        source_platform_ids[source_name][platform_id] = player_id
+                    else:
+                        source_matcher = json.dumps(
+                            source_definition,
+                            sort_keys=True,
+                            separators=(',', ':')
+                        )
+                    if source_matcher in source_platform_ids[source_name]:
+                        error(
+                            f'Player "{player_id}" has duplicate source matcher in '
+                            f'{json.dumps(source_definition, sort_keys=True, separators=(',', ':'))}'
+                            f' and {source_platform_ids[source_name][source_matcher]} '
+                            f'for platform "{source_name}"'
+                        )
+                    source_platform_ids[source_name][source_matcher] = json.dumps(
+                        source_definition,
+                        sort_keys=True,
+                        separators=(',', ':')
+                    )
 
 
 def validate_targets(targets: dict[str, ValidationTarget]):
