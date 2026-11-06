@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: mornye
+name: Mornye
+url: https://desktop.mornye.com
+sources:
+  win_smtc:
+    - com.zarz.mornye
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1568179498795401277"
