@@ -353,7 +353,26 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
             for source_name, platform_ids in target.content["sources"].items():
                 for platform_id in platform_ids:
                     save_platform_id = True
+                    # FIXME Reduce redundancy here
                     if isinstance(platform_id, dict):
+                        if source_name == SourceName.WIN_SMTC.value:
+                            if len(platform_id) > 1:
+                                # Do not save this ID, as it's used in conjunction
+                                # with other properties, so it's allowed to appear
+                                # across multiple media player definitions.
+                                save_platform_id = False
+                            # FIXME Don't hardcode "app_user_model_id" here
+                            # FIXME The "application_user_model_id" key must exist, check that
+                            platform_id = platform_id["app_user_model_id"]
+                        if source_name == SourceName.MAC_BUNDLE.value:
+                            if len(platform_id) > 1:
+                                # Do not save this ID, as it's used in conjunction
+                                # with other properties, so it's allowed to appear
+                                # across multiple media player definitions.
+                                save_platform_id = False
+                            # FIXME Don't hardcode "bundle_id" here
+                            # FIXME The "application_user_model_id" key must exist, check that
+                            platform_id = platform_id["bundle_id"]
                         if source_name == SourceName.LIN_MPRIS.value:
                             if len(platform_id) > 1:
                                 # Do not save this ID, as it's used in conjunction
@@ -361,7 +380,17 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                                 # across multiple media player definitions.
                                 save_platform_id = False
                             # FIXME Don't hardcode "service" here
+                            # FIXME The "service" key must exist, check that
                             platform_id = platform_id["service"]
+                        if source_name == SourceName.WEB_DOMAIN.value:
+                            if len(platform_id) > 1:
+                                # Do not save this ID, as it's used in conjunction
+                                # with other properties, so it's allowed to appear
+                                # across multiple media player definitions.
+                                save_platform_id = False
+                            # FIXME Don't hardcode "domain" here
+                            # FIXME The "application_user_model_id" key must exist, check that
+                            platform_id = platform_id["domain"]
                     if not isinstance(platform_id, str):
                         error(
                             f'Identifier of player "{player_id}" '

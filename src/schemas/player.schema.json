@@ -59,15 +59,7 @@
       "additionalProperties": false,
       "properties": {
         "win_smtc": {
-          "$comment": "A list of app user model IDs via SMTC on Windows",
-          "$ref": "#/definitions/basicSourceList"
-        },
-        "mac_bundle": {
-          "$comment": "A list of app bundle identifiers on Mac",
-          "$ref": "#/definitions/basicSourceList"
-        },
-        "lin_mpris": {
-          "$comment": "A list of source identifiers or source matchers for MPRIS via D-Bus on Linux",
+          "$comment": "A list of application user model IDs that are reported via SMTC on Windows",
           "type": "array",
           "uniqueItems": true,
           "minItems": 1,
@@ -77,14 +69,58 @@
                 "$ref": "#/definitions/sourceIdentifier"
               },
               {
-                "$ref": "#/definitions/sourceMatcherMpris"
+                "$ref": "#/definitions/sourceMatcherSmtc"
+              }
+            ]
+          }
+        },
+        "mac_bundle": {
+          "$comment": "A list of application bundle identifiers on Mac",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sourceIdentifier"
+              },
+              {
+                "$ref": "#/definitions/sourceMatcherMacBundle"
+              }
+            ]
+          }
+        },
+        "lin_mpris": {
+          "$comment": "A list of source identifiers that are reported via MPRIS over D-Bus on Linux",
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sourceIdentifier"
+              },
+              {
+                "$ref": "#/definitions/sourceMatcherLinuxMpris"
               }
             ]
           }
         },
         "web_domain": {
           "$comment": "A list of fully-qualified domain names on the web",
-          "$ref": "#/definitions/basicSourceList"
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/sourceIdentifier"
+              },
+              {
+                "$ref": "#/definitions/sourceMatcherWebDomain"
+              }
+            ]
+          }
         }
       }
     },
@@ -97,8 +133,40 @@
         "$ref": "#/definitions/sourceIdentifier"
       }
     },
-    "sourceMatcherMpris": {
-      "$comment": "Matchers for a media source that reports metadata via MPRIS",
+    "sourceMatcherSmtc": {
+      "$comment": "Matchers for a media source that reports metadata via SMTC (Windows)",
+      "type": "object",
+      "required": [
+        "app_user_model_id"
+      ],
+      "properties": {
+        "app_user_model_id": {
+          "$comment": "The value to match against the App User Model ID of the source application",
+          "$ref": "#/definitions/sourceIdentifier"
+        },
+        "product_name": {
+          "$comment": "The value to match against the \"ProductName\" in the version info of the source application or module",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceMatcherMacBundle": {
+      "$comment": "Matchers for a media source that reports metadata on Mac via an application bundle identifier",
+      "type": "object",
+      "required": [
+        "bundle_id"
+      ],
+      "properties": {
+        "bundle_id": {
+          "$comment": "The value to match against the bundle identifier of the source application",
+          "$ref": "#/definitions/sourceIdentifier"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceMatcherLinuxMpris": {
+      "$comment": "Matchers for a media source that reports metadata via MPRIS (Linux)",
       "type": "object",
       "required": [
         "service"
@@ -111,6 +179,20 @@
         "identity": {
           "$comment": "The value to match against the \"org.mpris.MediaPlayer2.Identity\" D-Bus property of the service",
           "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceMatcherWebDomain": {
+      "$comment": "Matchers for a media source that reports metadata on the web",
+      "type": "object",
+      "required": [
+        "domain"
+      ],
+      "properties": {
+        "domain": {
+          "$comment": "The value to match against the fully-qualified domain name without any \"www\" subdomain",
+          "$ref": "#/definitions/sourceIdentifier"
         }
       },
       "additionalProperties": false
