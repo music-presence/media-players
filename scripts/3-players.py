@@ -107,12 +107,9 @@ def generate(root: str, player: Optional[str] = None, subset: Optional[Subset] =
         "version": API_VERSION,
         # Always true, since we are generating the latest one right now.
         "latest": True,
-        "subset": subset.name if subset is not None else "",
         "players": [],
         "icons": {},
     }
-    if subset is None:
-        del result["subset"]
     total = 0
     for path in paths:
         content = core.read_yaml(path)
