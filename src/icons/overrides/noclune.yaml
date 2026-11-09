@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schemas/internal/gen-overrides.schema.json
+
+global:
+  background: "#0b0c0e"
+label:
+  logo-128:
+    background: "#16181c"
+    output_shape: circle
+    image_scale: 0.8
+  discord-small-image:
+    image_mask: circle
+    background_scale: 0.81
