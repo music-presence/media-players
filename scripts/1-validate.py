@@ -367,7 +367,8 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                         key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
                         if key is None:
                             error(
-                                f'Missing identifier key for source name: {source_name}'
+                                f'Missing identifier key with player "{player_id}" '
+                                f'for source name: {source_name}'
                             )
                         if not key in source_definition:
                             error(
