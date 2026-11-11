@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/heads/v')
+    if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/next' && !startsWith(github.ref, 'refs/heads/v')
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
@@ -16,7 +16,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/next'
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
@@ -30,7 +30,7 @@ jobs:
 
   deploy-test:
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/heads/v')
+    if: github.ref != 'refs/heads/master' && github.ref != 'refs/heads/next' && startsWith(github.ref, 'refs/heads/v')
     steps:
       - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
