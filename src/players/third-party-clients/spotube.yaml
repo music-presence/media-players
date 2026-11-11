@@ -9,6 +9,7 @@ sources:
   win_smtc:
     - spotube.exe
     - Spotube
+    - com.app.org.spotube.spotube
 attributes:
   pure: true
   service: false
