@@ -364,21 +364,30 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
             for source_name, source_definitions in target.content["sources"].items():
                 for source_definition in source_definitions:
                     if isinstance(source_definition, dict):
-                        key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
-                        if key is None:
+                        caveats = []
+                        if "caveat" in source_definition:
+                            caveats.append(source_definition["caveat"])
+                        elif "caveats" in source_definition:
+                            caveats.extend(source_definition["caveats"])
+                        for caveat in caveats:
+                            if not "caveats" in target.content or not caveat in target.content["caveats"]:
+                                error(f'Missing caveat definition with player "{player_id}" '
+                                      f'for caveat "{caveat}"')
+                        identifier_key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
+                        if identifier_key is None:
                             error(
                                 f'Missing identifier key with player "{player_id}" '
                                 f'for source name: {source_name}'
                             )
-                        if not key in source_definition:
+                        if not identifier_key in source_definition:
                             error(
                                 f'Player "{player_id}" for platform "{source_name}" '
-                                f'is missing key "{key}": {source_definition}'
+                                f'is missing key "{identifier_key}": {source_definition}'
                             )
                         identifying_keys = copy.deepcopy(source_definition)
-                        for key in NON_IDENTIFYING_SOURCE_KEYS:
-                            if key in identifying_keys:
-                                del identifying_keys[key]
+                        for identifier_key in NON_IDENTIFYING_SOURCE_KEYS:
+                            if identifier_key in identifying_keys:
+                                del identifying_keys[identifier_key]
                         source_matcher = json.dumps(
                             identifying_keys,
                             sort_keys=True,
