@@ -7,6 +7,7 @@ sources:
   win_smtc:
     - "[untitled].exe"
     - electron.app.[untitled] # via WebCatalog
+    - webcatalog-photon-untitled
   mac_bundle:
     - com.untitledinbrackets.untitled-macos
 attributes:
