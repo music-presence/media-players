@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# FIXME: Remove this placeholder once players can have multiple names
+# Make sure that Music Presence handles the case when a media player disappears
+# which was used as a "represents" option for a third party client.
+
+id: mousiki-placeholder
+name: Mousiki
+url: https://github.com/itzender5820/mousiki
+sources:
+  web_domain:
+    - mousiki.example.com
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1570447658856742964"

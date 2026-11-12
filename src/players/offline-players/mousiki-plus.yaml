@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# NOTE This is a fork of https://github.com/itzender5820/mousiki which
+# misleadingly reports what it's playing under the service name "mousiki".
+
+id: mousiki-plus
+name: Mousiki Plus
+url: https://github.com/StSchwerdtfeger/mousiki-plus
+represents:
+  - mousiki-placeholder
+sources:
+  lin_mpris:
+    # Specify the identity, as "mousiki" would likely also be used by the
+    # original project, should it support MPRIS in a future version.
+    - service: mousiki
+      identity: Mousiki Plus
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1570447741262504118"
