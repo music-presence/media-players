@@ -513,5 +513,6 @@ if __name__ == "__main__":
             output[player] = objects
 
     json_output = json.dumps(output, separators=(",", ":"))
+    pathlib.Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
     with open(OUT_JSON_FILE, "wt") as f:
         f.write(json_output)

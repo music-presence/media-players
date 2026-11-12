@@ -180,6 +180,7 @@ def generate(root: str, player: Optional[str] = None, subset: Optional[Subset] =
     # fix the schema reference
     fix_schema_reference(result)
     # write the outputs
+    pathlib.Path(OUT_PLAYERS_DIRECTORY).mkdir(parents=True, exist_ok=True)
     with open(output_filename, "wt") as f:
         f.write(json.dumps(result, indent=2))
     with open(get_output_file(subset, True), "wt") as f:
