@@ -76,7 +76,7 @@ SOURCE_NAME_TO_IDENTIFIER_KEY = {
     SourceName.WIN_SMTC.value: "app_user_model_id",
     SourceName.MAC_BUNDLE.value: "bundle_id",
     SourceName.LIN_MPRIS.value: "service",
-    SourceName.WEB_DOMAIN.value: "domain"
+    SourceName.WEB_DOMAIN.value: "domain",
 }
 
 
@@ -318,6 +318,7 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
     discord_application_ids = dict()
     fluxer_emoji_ids = dict()
     source_platform_ids = defaultdict(dict)
+    source_platform_ids_primary = defaultdict(dict)
     for player_id, target in targets.items():
         if "represents" in target.content:
             for other_id in target.content["represents"]:
@@ -363,6 +364,7 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
             # TODO Move this to a different method later
             for source_name, source_definitions in target.content["sources"].items():
                 for source_definition in source_definitions:
+                    has_multiple_identifying_keys = False
                     if isinstance(source_definition, dict):
                         caveats = []
                         if "caveat" in source_definition:
@@ -370,14 +372,19 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                         elif "caveats" in source_definition:
                             caveats.extend(source_definition["caveats"])
                         for caveat in caveats:
-                            if not "caveats" in target.content or not caveat in target.content["caveats"]:
-                                error(f'Missing caveat definition with player "{player_id}" '
-                                      f'for caveat "{caveat}"')
+                            if (
+                                not "caveats" in target.content
+                                or not caveat in target.content["caveats"]
+                            ):
+                                error(
+                                    f'Missing caveat definition with player "{player_id}" '
+                                    f'for caveat "{caveat}"'
+                                )
                         identifier_key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
                         if identifier_key is None:
                             error(
                                 f'Missing identifier key with player "{player_id}" '
-                                f'for source name: {source_name}'
+                                f"for source name: {source_name}"
                             )
                         if not identifier_key in source_definition:
                             error(
@@ -385,31 +392,64 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                                 f'is missing key "{identifier_key}": {source_definition}'
                             )
                         identifying_keys = copy.deepcopy(source_definition)
-                        for identifier_key in NON_IDENTIFYING_SOURCE_KEYS:
-                            if identifier_key in identifying_keys:
-                                del identifying_keys[identifier_key]
+                        for key in NON_IDENTIFYING_SOURCE_KEYS:
+                            if key in identifying_keys:
+                                del identifying_keys[key]
+                        has_multiple_identifying_keys = len(identifying_keys) > 1
                         source_matcher = json.dumps(
-                            identifying_keys,
-                            sort_keys=True,
-                            separators=(',', ':')
+                            identifying_keys, sort_keys=True, separators=(",", ":")
                         )
-                    else:
+                        source_matcher_primary = source_definition[identifier_key]
+                    elif isinstance(source_definition, str):
                         source_matcher = json.dumps(
-                            source_definition,
-                            sort_keys=True,
-                            separators=(',', ':')
+                            source_definition, sort_keys=True, separators=(",", ":")
+                        )
+                        source_matcher_primary = source_definition
+                    else:
+                        error(
+                            f"Source definition must be a dictionary or string: "
+                            f"{source_definition} ({type(source_definition)})"
                         )
                     if source_matcher in source_platform_ids[source_name]:
                         error(
-                            f'Player "{player_id}" has duplicate source matcher in '
-                            f'{json.dumps(source_definition, sort_keys=True, separators=(',', ':'))}'
-                            f' and {source_platform_ids[source_name][source_matcher]} '
-                            f'for platform "{source_name}"'
+                            f'Player "{player_id}" has duplicate source matcher '
+                            f"{json.dumps(source_definition, sort_keys=True, separators=(',', ':'))} "
+                            f'for platform "{source_name}" that is already used '
+                            f'by player "{source_platform_ids[source_name][source_matcher]}"'
                         )
-                    source_platform_ids[source_name][source_matcher] = json.dumps(
-                        source_definition,
-                        sort_keys=True,
-                        separators=(',', ':')
+                    if (
+                        not has_multiple_identifying_keys
+                        and source_matcher_primary
+                        in source_platform_ids_primary[source_name]
+                        and source_platform_ids_primary[source_name][
+                            source_matcher_primary
+                        ][0]
+                    ) or (
+                        has_multiple_identifying_keys
+                        and source_matcher_primary
+                        in source_platform_ids_primary[source_name]
+                        and not source_platform_ids_primary[source_name][
+                            source_matcher_primary
+                        ][0]
+                    ):
+                        p1, p2 = (
+                            player_id,
+                            source_platform_ids_primary[source_name][
+                                source_matcher_primary
+                            ][1],
+                        )
+                        if has_multiple_identifying_keys:
+                            p1, p2 = p2, p1
+                        error(
+                            f'Primary source matcher "{source_matcher_primary}" '
+                            f'cannot be used without other identifying keys by player "{p1}" '
+                            f"because it's already used with other identifying keys "
+                            f'by player "{p2}"'
+                        )
+                    source_platform_ids[source_name][source_matcher] = player_id
+                    source_platform_ids_primary[source_name][source_matcher_primary] = (
+                        has_multiple_identifying_keys,
+                        player_id,
                     )
 
 
