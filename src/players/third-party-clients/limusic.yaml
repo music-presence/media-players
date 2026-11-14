@@ -8,6 +8,7 @@ represents:
 sources:
   win_smtc:
     - com.limusic.desktop
+    - limusic-app.exe
 attributes:
   pure: true
   service: false
