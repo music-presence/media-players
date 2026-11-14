@@ -6,6 +6,8 @@ url: https://desktop.mornye.com
 sources:
   win_smtc:
     - com.zarz.mornye
+  lin_mpris:
+    - mornye
 attributes:
   pure: true
   service: false
