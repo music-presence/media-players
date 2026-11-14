@@ -9,6 +9,8 @@ sources:
     - 50072StevenMayall.MusicBee_kcr266et74avj!musicbeepackage
     - 50072StevenMayall.MusicBee_kcr266et74avj!MusicBeePackage
     - 50072StevenMayall.MusicBee_kcr266et74avj!MUSICBEEPACKAGE
+    # https://mbxhub.com/
+    - HALRAD.MBXHub.MusicBee
   lin_mpris:
     - MusicBee
 attributes:
