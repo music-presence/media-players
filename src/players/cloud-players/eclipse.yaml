@@ -6,6 +6,8 @@ url: https://eclipsemusic.app
 sources:
   win_smtc:
     - velopack.Eclipse
+  mac_bundle:
+    - com.debridmusic.app
 attributes:
   pure: true
   service: false
