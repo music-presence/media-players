@@ -10,6 +10,7 @@ represents:
 sources:
   win_smtc:
     - Airplay.Shairport.Audio.1.0
+    - Airplay.Shairport.1.0
 attributes:
   pure: false
   service: false
