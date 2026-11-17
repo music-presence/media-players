@@ -4,6 +4,8 @@ id: clementine
 name: Clementine
 url: https://www.clementine-player.org
 sources:
+  win_smtc:
+    - clementine.exe
   lin_mpris:
     - clementine
 attributes:
