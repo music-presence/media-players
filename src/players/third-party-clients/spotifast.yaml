@@ -9,6 +9,8 @@ sources:
   win_smtc:
     - spotifast.exe
     - fastpotify.exe # Old identifier
+  lin_mpris:
+    - spotifast
 attributes:
   pure: true
   service: false
