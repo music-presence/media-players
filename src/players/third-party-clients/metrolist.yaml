@@ -6,6 +6,8 @@ url: https://github.com/mostafaalagamy/Metrolist
 represents:
   - youtube-music
 sources:
+  win_smtc:
+    - Metrolist.Desktop
   lin_mpris:
     - service: Valent
       identity: Metrolist
