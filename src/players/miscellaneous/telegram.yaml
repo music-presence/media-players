@@ -9,6 +9,8 @@ sources:
     - Telegram.exe
   mac_bundle:
     - com.tdesktop.Telegram
+  lin_mpris:
+    - org.telegram.desktop
 attributes:
   pure: false
   service: false
