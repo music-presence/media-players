@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: mpc-qt
+name: MPC-QT
+url: https://github.com/mpc-qt/mpc-qt
+sources:
+  lin_mpris:
+    - MpcQt
+attributes:
+  pure: false
+  service: false
+content:
+  - video
+  - audio
+extra:
+  discord_application_id: "1573396689606287582"
