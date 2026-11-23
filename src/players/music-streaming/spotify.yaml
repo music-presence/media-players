@@ -14,7 +14,6 @@ sources:
     - com.spotify.client
   lin_mpris:
     - spotify
-    - spotifyd
     - service: Valent
       identity: Spotify
   web_domain:

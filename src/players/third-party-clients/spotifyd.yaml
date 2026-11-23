@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: spotifyd
+name: spotifyd
+url: https://github.com/Spotifyd/spotifyd
+represents:
+  - spotify
+sources:
+  lin_mpris:
+    - spotifyd
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1574389966937530501"
