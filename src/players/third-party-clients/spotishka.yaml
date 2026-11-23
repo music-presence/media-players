@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+# NOTE The actual "Spotishka Desktop" download page doesn't seem to work anymore
+# so it's best to just link to the official (Android) download page. The desktop
+# version also doesn't seem to be official either.
+
+id: spotishka
+name: Spotishka
+url: https://spotishka.com
+represents:
+  - spotify
+sources:
+  win_smtc:
+    - Spotishka Desktop.exe
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1574340725397790950"
