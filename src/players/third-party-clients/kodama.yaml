@@ -8,6 +8,7 @@ represents:
 sources:
   win_smtc:
     - dev.kodama.music
+    - dev.kodama.desktop
 attributes:
   pure: true
   service: false
