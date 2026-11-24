@@ -7,10 +7,10 @@ url: https://music.apple.com
 caveats:
   # The metadata that is reported by the native windows app is incorrectly
   # formatted and sometimes includes information that is not song metadata.
-  - windows_smtc_metadata_malformed
+  - windows_app_smtc_metadata_malformed
   # The web app tends to report inaccurate playback information and track
   # durations most of the time, especially during longer playback sessions.
-  - web_playback_info_inaccurate
+  - web_app_playback_info_inaccurate
 
 sources:
   mac_bundle:
@@ -18,16 +18,16 @@ sources:
 
   win_smtc:
     - app_user_model_id: AppleMusic.exe
-      caveat: windows_smtc_metadata_malformed
+      caveat: windows_app_smtc_metadata_malformed
 
     - app_user_model_id: AppleInc.AppleMusicWin_nzyj5cx40ttqa!APP
-      caveat: windows_smtc_metadata_malformed
+      caveat: windows_app_smtc_metadata_malformed
 
     - app_user_model_id: AppleInc.AppleMusicWin_nzyj5cx40ttqa!App
-      caveat: windows_smtc_metadata_malformed
+      caveat: windows_app_smtc_metadata_malformed
 
     - app_user_model_id: AppleInc.AppleMusicWin_nzyj5cx40ttqa!app
-      caveat: windows_smtc_metadata_malformed
+      caveat: windows_app_smtc_metadata_malformed
 
     - # Installed via WebCatalog on Windows 10.
       # Specifying the product name with this identifier, as the identifier
@@ -35,37 +35,37 @@ sources:
       # WebCatalog (or a different app that runs the web app via Electron).
       app_user_model_id: Apple Music Beta.exe
       product_name: Electron
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - # Installed via WebCatalog on Windows 11.
       app_user_model_id: webcatalog-photon-apple-music-beta
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - # Installed via WebCatalog on Windows 11.
       app_user_model_id: electron.app.Apple Music Beta
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - # Installed via Microsoft Edge on Windows 11.
       app_user_model_id: music.apple.com-A5F611C_7vh1tm7h3g5s0!APP
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - # Installed via Microsoft Edge on Windows 11.
       app_user_model_id: music.apple.com-A5F611C_7vh1tm7h3g5s0!App
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - # Installed via Microsoft Edge on Windows 11.
       app_user_model_id: music.apple.com-A5F611C_7vh1tm7h3g5s0!app
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
   web_domain:
     - domain: music.apple.com
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - domain: classical.music.apple.com
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
     - domain: beta.music.apple.com
-      caveat: web_playback_info_inaccurate
+      caveat: web_app_playback_info_inaccurate
 
 attributes:
   pure: true
