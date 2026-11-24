@@ -5,31 +5,58 @@ name: Spotify
 url: https://spotify.com
 
 caveats:
-  # Advertisements in the desktop app can't be skipped, while all other tracks
-  # can be skipped at all times, even when there is no previous or next track.
-  # More specifically, it's not possible to go to the previous or the next track
-  # via the system's media control interface. Advertisements can be filtered out
-  # by checking whether skipping is allowed by the media player instance.
-  - desktop_app_advertisements_unskippable
+  # Advertisements are reported, which can reveal a user's location. It's not
+  # possible to go back to the previous or next song with advertisements, while
+  # it is possible with all other reported tracks, even when there is no
+  # previous or next track in the queue. More specifically, it's not possible to
+  # go to the previous or the next track via the system's media control
+  # interface. Advertisements can be filtered out by checking for this.
+  - advertisements_previous_and_next_controls_disabled
+
+  # Advertisements are reported, which can reveal a user's location. The
+  # reported metadata may contain a URL whose path components declare it as an
+  # advertisement. The format is usually the following:
+  # - https://open.spotify.com/ad/cfa8b39711ef4d8f99e36c792c1879aa
+  # - spotify:ad:cfa8b39711ef4d8f99e36c792c1879aa (AppleScript on Mac)
+  # Advertisements can be filtered out by checking for this URL path component,
+  # i.e. whether "/ad/" or ":ad:" is in the path of the reported URL.
+  - advertisements_distinct_spotify_url
+
+  # Advertisements are reported, which can reveal a user's location or in this
+  # case just contain metadata that doesn't represent anything useful. The
+  # following metadata is usually an advertisement and can be confidently
+  # filtered out without fear of filtering out e.g. real song metadata:
+  # - Title is "—" (\u2014), artist and album are missing or empty
+  # - Title is "Advertisement", artist and album are missing or empty
+  # - There may be more variations of "Advertisement", specifically ones that
+  #   are translated into other languages. With browsers e.g., this usually
+  #   depends on the browser language
+  # Note that often this caveat cannot be used as a reliable advertisement
+  # filter by itself and should be combined with other filtering mechanisms,
+  # i.e. other caveats or recommendations for using an ad blocker (in the case
+  # of browsers or when third-party plugins exist for such functionality).
+  - advertisements_distinct_metadata
 
 sources:
   win_smtc:
     - app_user_model_id: Spotify.exe
-      caveat: desktop_app_advertisements_unskippable
+      caveat: advertisements_previous_and_next_controls_disabled
 
-    # What exactly is "Spotify Desktop.exe"? Did someone rename Spotify.exe?
+    # FIXME What exactly is this identifier? Did someone rename "Spotify.exe"?
     # Source: https://github.com/ungive/discord-music-presence/issues/388
     - app_user_model_id: Spotify Desktop.exe
-      caveat: desktop_app_advertisements_unskippable
+      caveat: advertisements_previous_and_next_controls_disabled
 
     - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!spotify
-      caveat: desktop_app_advertisements_unskippable
+      caveat: advertisements_previous_and_next_controls_disabled
 
     - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
-      caveat: desktop_app_advertisements_unskippable
+      caveat: advertisements_previous_and_next_controls_disabled
 
     - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
-      caveat: desktop_app_advertisements_unskippable
+      caveat: advertisements_previous_and_next_controls_disabled
+
+    # TODO What about the Edge-installed Spotify web app on Windows 11?
 
     # Spotify installed via Microsoft Edge on Windows 11
     - open.spotify.com-D55111A4_nwqr74yvdh6rj!app
@@ -38,17 +65,24 @@ sources:
 
   mac_bundle:
     - bundle_id: com.spotify.client
-      caveat: desktop_app_advertisements_unskippable
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_spotify_url
 
   lin_mpris:
     - service: spotify
-      caveat: desktop_app_advertisements_unskippable
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_spotify_url
+        - advertisements_distinct_metadata
 
+    # TODO Does this report advertisements? If so, how?
     - service: Valent
       identity: Spotify
 
   web_domain:
-    - open.spotify.com
+    - domain: open.spotify.com
+      caveat: advertisements_distinct_metadata
 
 attributes:
   pure: true
