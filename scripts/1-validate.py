@@ -360,6 +360,10 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                     f'used by "{fluxer_emoji_ids[fluxer_emoji_id]}"'
                 )
             fluxer_emoji_ids[fluxer_emoji_id] = player_id
+        missing_caveats = set()
+        if "caveats" in target.content:
+            for caveat in target.content["caveats"]:
+                missing_caveats.add(caveat)
         if "sources" in target.content:
             # TODO Move this to a different method later
             for source_name, source_definitions in target.content["sources"].items():
@@ -380,6 +384,8 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                                     f'Missing caveat definition with player "{player_id}" '
                                     f'for caveat "{caveat}"'
                                 )
+                            if caveat in missing_caveats:
+                                missing_caveats.remove(caveat)
                         identifier_key = SOURCE_NAME_TO_IDENTIFIER_KEY.get(source_name)
                         if identifier_key is None:
                             error(
@@ -451,6 +457,11 @@ def validate_cross_target_invariants(targets: dict[str, ValidationTarget]):
                         has_multiple_identifying_keys,
                         player_id,
                     )
+        if len(missing_caveats) > 0:
+            error(
+                f"The following caveats were not referenced by any sources of "
+                f'player "{player_id}": {', '.join(map(lambda c: f'"{c}"', missing_caveats))}'
+            )
 
 
 def validate_targets(targets: dict[str, ValidationTarget]):
