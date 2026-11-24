@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../schemas/player.schema.json
+
+id: aurora
+name: Aurora
+url: https://auroraplayer.lol
+sources:
+  win_smtc:
+    - com.aurora.music
+attributes:
+  pure: true
+  service: false
+content:
+  - audio
+  - audio_music
+extra:
+  discord_application_id: "1574737225797869670"
