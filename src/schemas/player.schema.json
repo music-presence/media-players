@@ -57,13 +57,13 @@
       "pattern": "^[a-z][a-z0-9\\-]*[a-z0-9]$"
     },
     "caveats": {
-      "$comment": "A dictionary of caveats that certain source applications exhibit. The key is the caveat name, the value is a short description of the caveat. Each caveat name should conform to the naming convention \"<context>_<subject>_<adjective>\" to be unique, specific and descriptive. The description should give more detail, but remain brief, and should always read like a normal sentence, with a capitalized letter at the beginning and a period at the end",
-      "type": "object",
-      "patternProperties": {
-        "^[a-z][a-z0-9_]*$": {
-          "type": "string",
-          "minLength": 1
-        }
+      "$comment": "A list of caveats that certain source applications exhibit. Each caveat name should conform to the naming convention \"<context>_<subject>_<adjective>\" to be unique, specific and descriptive",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
       }
     },
     "sources": {

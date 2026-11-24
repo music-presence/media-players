@@ -5,12 +5,12 @@ name: Apple Music
 url: https://music.apple.com
 
 caveats:
-  windows_smtc_metadata_malformed: >-
-    The metadata that is reported by the native windows app is incorrectly
-    formatted and sometimes includes information that is not song metadata.
-  web_playback_info_inaccurate: >-
-    The web app tends to report inaccurate playback information and track
-    durations most of the time, especially during longer playback sessions.
+  # The metadata that is reported by the native windows app is incorrectly
+  # formatted and sometimes includes information that is not song metadata.
+  - windows_smtc_metadata_malformed
+  # The web app tends to report inaccurate playback information and track
+  # durations most of the time, especially during longer playback sessions.
+  - web_playback_info_inaccurate
 
 sources:
   mac_bundle:
