@@ -3,27 +3,53 @@
 id: spotify
 name: Spotify
 url: https://spotify.com
+
+caveats:
+  # Advertisements in the desktop app can't be skipped, while all other tracks
+  # can be skipped at all times, even when there is no previous or next track.
+  # More specifically, it's not possible to go to the previous or the next track
+  # via the system's media control interface. Advertisements can be filtered out
+  # by checking whether skipping is allowed by the media player instance.
+  - desktop_app_advertisements_unskippable
+
 sources:
   win_smtc:
-    - Spotify.exe
+    - app_user_model_id: Spotify.exe
+      caveat: desktop_app_advertisements_unskippable
+
     # What exactly is "Spotify Desktop.exe"? Did someone rename Spotify.exe?
     # Source: https://github.com/ungive/discord-music-presence/issues/388
-    - Spotify Desktop.exe
-    - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!spotify
-    - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
-    - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
+    - app_user_model_id: Spotify Desktop.exe
+      caveat: desktop_app_advertisements_unskippable
+
+    - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!spotify
+      caveat: desktop_app_advertisements_unskippable
+
+    - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
+      caveat: desktop_app_advertisements_unskippable
+
+    - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
+      caveat: desktop_app_advertisements_unskippable
+
     # Spotify installed via Microsoft Edge on Windows 11
     - open.spotify.com-D55111A4_nwqr74yvdh6rj!app
     - open.spotify.com-D55111A4_nwqr74yvdh6rj!App
     - open.spotify.com-D55111A4_nwqr74yvdh6rj!APP
+
   mac_bundle:
-    - com.spotify.client
+    - bundle_id: com.spotify.client
+      caveat: desktop_app_advertisements_unskippable
+
   lin_mpris:
-    - spotify
+    - service: spotify
+      caveat: desktop_app_advertisements_unskippable
+
     - service: Valent
       identity: Spotify
+
   web_domain:
     - open.spotify.com
+
 attributes:
   pure: true
   service: true
