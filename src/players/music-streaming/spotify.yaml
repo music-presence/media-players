@@ -40,21 +40,31 @@ caveats:
 sources:
   win_smtc:
     - app_user_model_id: Spotify.exe
-      caveat: advertisements_previous_and_next_controls_disabled
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_metadata
 
     # FIXME What exactly is this identifier? Did someone rename "Spotify.exe"?
     # Source: https://github.com/ungive/discord-music-presence/issues/388
     - app_user_model_id: Spotify Desktop.exe
-      caveat: advertisements_previous_and_next_controls_disabled
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_metadata
 
     - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!spotify
-      caveat: advertisements_previous_and_next_controls_disabled
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_metadata
 
     - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
-      caveat: advertisements_previous_and_next_controls_disabled
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_metadata
 
     - app_user_model_id: SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
-      caveat: advertisements_previous_and_next_controls_disabled
+      caveats:
+        - advertisements_previous_and_next_controls_disabled
+        - advertisements_distinct_metadata
 
     # TODO What about the Edge-installed Spotify web app on Windows 11?
 
