@@ -12,6 +12,10 @@ sources:
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!spotify
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify
     - SpotifyAB.SpotifyMusic_zpdnekdrzrea0!SPOTIFY
+    # Spotify installed via Microsoft Edge on Windows 11
+    - open.spotify.com-D55111A4_nwqr74yvdh6rj!app
+    - open.spotify.com-D55111A4_nwqr74yvdh6rj!App
+    - open.spotify.com-D55111A4_nwqr74yvdh6rj!APP
   mac_bundle:
     - com.spotify.client
   lin_mpris:
