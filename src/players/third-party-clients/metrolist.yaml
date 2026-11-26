@@ -9,6 +9,7 @@ sources:
   win_smtc:
     - Metrolist.Desktop
   lin_mpris:
+    - metrolist
     - service: Valent
       identity: Metrolist
 attributes:
