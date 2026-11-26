@@ -5,7 +5,9 @@ name: Trdo
 url: https://trdo.net
 sources:
   win_smtc:
+    - 40087JoeFinApps.Trdo_kdbpvth5scec4!app
     - 40087JoeFinApps.Trdo_kdbpvth5scec4!App
+    - 40087JoeFinApps.Trdo_kdbpvth5scec4!APP
 attributes:
   pure: false # Not pure because media from radios can reveal user locations
   service: false

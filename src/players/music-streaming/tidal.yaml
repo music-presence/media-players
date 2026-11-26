@@ -7,6 +7,7 @@ sources:
   win_smtc:
     - TIDAL.exe
     - com.squirrel.TIDAL.TIDAL
+    - WiMPMusic.27241E05630EA_kn85bz84x7te4!tidal
     - WiMPMusic.27241E05630EA_kn85bz84x7te4!TIDAL
   mac_bundle:
     - com.tidal.desktop

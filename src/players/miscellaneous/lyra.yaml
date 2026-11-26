@@ -6,7 +6,9 @@ url: https://apps.microsoft.com/detail/9nkg57pvd5bq
 sources:
   win_smtc:
     - com.musicapp.lyra
+    - AlessandroGerelli.LyraMusic_6tzwxm0crfkde!lyramusic
     - AlessandroGerelli.LyraMusic_6tzwxm0crfkde!LyraMusic
+    - AlessandroGerelli.LyraMusic_6tzwxm0crfkde!LYRAMUSIC
 attributes:
   pure: true
   service: false

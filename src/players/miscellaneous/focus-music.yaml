@@ -5,7 +5,9 @@ name: focus.music
 url: https://focus.music
 sources:
   win_smtc:
+    - focus.music-8C2628DE_930v1qr4esn20!app
     - focus.music-8C2628DE_930v1qr4esn20!App
+    - focus.music-8C2628DE_930v1qr4esn20!APP
 attributes:
   pure: true
   service: false
