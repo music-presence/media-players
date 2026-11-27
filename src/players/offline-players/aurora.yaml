@@ -6,6 +6,8 @@ url: https://auroraplayer.lol
 sources:
   win_smtc:
     - com.aurora.music
+  lin_mpris:
+    - aurora
 attributes:
   pure: true
   service: false
